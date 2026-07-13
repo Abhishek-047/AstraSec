@@ -51,7 +51,7 @@ export default function SchedulePage() {
         </div>
 
         {/* Timeline */}
-        <div style={{ position:"relative", padding:"32px 20px", backgroundColor:"#060b14", border:"1px solid rgba(14,165,233,0.3)" }}>
+        <div style={{ position:"relative", padding:"32px 20px", backgroundColor:"#060b14", border:"1px solid #8b6914" }}>
           {/* Corner brackets */}
           {["tl","tr","bl","br"].map(c => (
             <div key={c} style={{
@@ -61,10 +61,10 @@ export default function SchedulePage() {
               left:  c.endsWith("l")   ? 6 : "auto",
               right: c.endsWith("r")   ? 6 : "auto",
               width:10, height:10,
-              borderTop:    c.startsWith("t") ? `1px solid rgba(14,165,233,0.6)` : "none",
-              borderBottom: c.startsWith("b") ? `1px solid rgba(14,165,233,0.6)` : "none",
-              borderLeft:   c.endsWith("l")   ? `1px solid rgba(14,165,233,0.6)` : "none",
-              borderRight:  c.endsWith("r")   ? `1px solid rgba(14,165,233,0.6)` : "none",
+              borderTop:    c.startsWith("t") ? `1.5px solid #c9a84c` : "none",
+              borderBottom: c.startsWith("b") ? `1.5px solid #c9a84c` : "none",
+              borderLeft:   c.endsWith("l")   ? `1.5px solid #c9a84c` : "none",
+              borderRight:  c.endsWith("r")   ? `1.5px solid #c9a84c` : "none",
             }}/>
           ))}
           {/* Vertical line */}

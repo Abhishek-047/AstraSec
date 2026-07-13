@@ -158,9 +158,62 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="px-6 py-10 md:px-8 md:py-12" style={{ width:"100%", borderTop:`1px solid rgba(14,165,233,0.3)`, borderBottom:`1px solid rgba(14,165,233,0.3)`, textAlign:"center", position:"relative", backgroundColor:"#111827" }}>
-        <div style={{ position:"relative", zIndex:1 }}>
-          <h2 style={{ fontFamily:"'Cinzel',serif", fontWeight:900, fontSize:28, color:"#f0f6ff", letterSpacing:"2px", textTransform:"uppercase", marginBottom:24 }}>
+      <section style={{
+        width:"100%", backgroundColor:"#060b14",
+        borderTop:`1px solid #8b6914`,
+        textAlign:"center", position:"relative", overflow:"hidden",
+        padding:"64px 24px",
+      }}>
+        {/* Inset frame */}
+        <div style={{
+          position: "absolute", inset: 8,
+          border: "1px solid rgba(201,168,76,0.3)",
+          pointerEvents: "none",
+          display: "flex", justifyContent: "center"
+        }}>
+          {/* Legend-style text overlapping top border */}
+          <div style={{
+            position: "absolute", top: -9,
+            backgroundColor: "#060b14",
+            padding: "0 16px",
+            fontFamily: "'Cinzel',serif", fontSize: "clamp(9px, 2.5vw, 12px)", letterSpacing: "clamp(2px, 1vw, 4px)", color: "#c9a84c", textTransform: "uppercase",
+            whiteSpace: "nowrap",
+          }}>
+            SOCIETY OF CYBERSECURITY CLUB
+          </div>
+          
+          {/* 4 corner L-brackets */}
+          <div style={{ position:"absolute", top:6, left:6, width:20, height:20, borderTop:"1.5px solid #c9a84c", borderLeft:"1.5px solid #c9a84c" }}/>
+          <div style={{ position:"absolute", top:6, right:6, width:20, height:20, borderTop:"1.5px solid #c9a84c", borderRight:"1.5px solid #c9a84c" }}/>
+          <div style={{ position:"absolute", bottom:6, left:6, width:20, height:20, borderBottom:"1.5px solid #c9a84c", borderLeft:"1.5px solid #c9a84c" }}/>
+          <div style={{ position:"absolute", bottom:6, right:6, width:20, height:20, borderBottom:"1.5px solid #c9a84c", borderRight:"1.5px solid #c9a84c" }}/>
+          {/* 4 corner dot ornaments */}
+          {[{top:-4,left:-4},{top:-4,right:-4},{bottom:-4,left:-4},{bottom:-4,right:-4}].map((p,i) => (
+            <div key={i} style={{ position:"absolute", width:8, height:8, borderRadius:"50%", border:"1px solid #8b6914", backgroundColor:"#060b14", ...p }}/>
+          ))}
+        </div>
+        {/* Decorative shield left */}
+        <div style={{ position:"absolute", left:20, top:"50%", transform:"translateY(-50%)", opacity:0.1, pointerEvents:"none" }}>
+          <svg width="90" height="90" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" strokeWidth="0.6">
+            <path d="M12 2L20 5.5V12C20 17,16 20,12 22C8 20,4 17,4 12V5.5Z"/>
+            <rect x="9" y="12" width="6" height="5" rx="0.5"/>
+            <path d="M10 12V10A2 2 0 0 1 14 10V12"/>
+          </svg>
+        </div>
+        {/* Decorative circuit right */}
+        <div style={{ position:"absolute", right:20, top:"50%", transform:"translateY(-50%)", opacity:0.1, pointerEvents:"none" }}>
+          <svg width="90" height="90" viewBox="0 0 120 120" fill="none" stroke="#c9a84c" strokeWidth="0.8">
+            <path d="M10 60h20M30 60V40M30 40h30M60 40v40M60 80h20M40 60H30"/>
+            <circle cx="30" cy="60" r="3" fill="#c9a84c"/>
+            <circle cx="60" cy="40" r="3" fill="#c9a84c"/>
+          </svg>
+        </div>
+        <div style={{ position:"relative", zIndex:1, paddingTop: 16 }}>
+          <h2 style={{
+            fontFamily:"'Cinzel',serif", fontWeight:900, fontSize:"clamp(22px,3vw,32px)",
+            letterSpacing:"2px", color:"#f0f6ff", textTransform:"uppercase",
+            textShadow:`0 0 40px rgba(14,165,233,0.3)`, marginBottom:28,
+          }}>
             JOIN THE LEGACY. BECOME A MEMBER.
           </h2>
           <GoldBtn href="/contact" variant="cyber">JOIN NOW</GoldBtn>

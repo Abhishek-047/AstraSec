@@ -15,17 +15,17 @@ function Icon({ d, size=46 }: { d: string; size?: number }) {
 function TNode({ day, date, desc, iconD }: { day:string; date:string; desc:string; iconD:string }) {
   return (
     <div style={{ flex:1, display:"flex", flexDirection:"column", alignItems:"center", textAlign:"center", position:"relative", zIndex:1 }}>
-      <div style={{ fontFamily:"'Cinzel',serif", fontSize:11, fontWeight:700, letterSpacing:"2px", color:C.goldDk }}>{day}</div>
-      {date && <div style={{ fontFamily:"'Cinzel',serif", fontSize:10, color:C.goldMuted, marginBottom:10 }}>{date}</div>}
+      <div style={{ fontFamily:"'Cinzel',serif", fontSize:11, fontWeight:700, letterSpacing:"2px", color:"#0ea5e9" }}>{day}</div>
+      {date && <div style={{ fontFamily:"'Cinzel',serif", fontSize:10, color:"#94a3b8", marginBottom:10 }}>{date}</div>}
       {!date && <div style={{ marginBottom:10 }}/>}
       <div style={{
         width:44, height:44, borderRadius:"50%",
-        backgroundColor:"#1c1409",
-        border:"2px solid #c9a84c",
-        boxShadow:"0 0 0 5px #0d1424, 0 0 0 6px #0ea5e9",
+        backgroundColor:"#0f172a",
+        border:"2px solid #0ea5e9",
+        boxShadow:"0 0 0 5px #060b14, 0 0 0 6px #0ea5e9",
         display:"flex", alignItems:"center", justifyContent:"center", marginBottom:12, position:"relative", zIndex:2,
       }}>
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={C.gold} strokeWidth="1.5" strokeLinecap="round">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" strokeWidth="1.5" strokeLinecap="round">
           <path d={iconD}/>
         </svg>
       </div>
@@ -203,12 +203,27 @@ export default function Home() {
       {/* ══════════════════════════════════
           EVENT SCHEDULE
       ══════════════════════════════════ */}
-      <section id="schedule" className="px-6 py-10 md:px-8 md:py-12" style={{ width:"100%", backgroundColor:"#0d1424", borderTop:`1px solid ${C.goldDk}` }}>
-        <SectionHeading text="Event Schedule" variant="gold" />
-        <div style={{ border:`1px solid ${C.gold}`, padding:"32px 24px", position:"relative" }}>
+      <section id="schedule" style={{ width:"100%", padding:"64px 24px", backgroundColor:"#0d1424", borderTop:`1px solid rgba(14,165,233,0.15)` }}>
+        <SectionHeading text="Event Schedule" variant="cyber" />
+        <div style={{ border:`1px solid rgba(14,165,233,0.3)`, padding:"40px 24px", position:"relative", backgroundColor:"#060b14", maxWidth:1080, margin:"0 auto" }}>
+          {/* Corner brackets */}
+          {["tl","tr","bl","br"].map(c => (
+            <div key={c} style={{
+              position:"absolute",
+              top:   c.startsWith("t") ? 6 : "auto",
+              bottom:c.startsWith("b") ? 6 : "auto",
+              left:  c.endsWith("l")   ? 6 : "auto",
+              right: c.endsWith("r")   ? 6 : "auto",
+              width:10, height:10,
+              borderTop:    c.startsWith("t") ? `1px solid rgba(14,165,233,0.6)` : "none",
+              borderBottom: c.startsWith("b") ? `1px solid rgba(14,165,233,0.6)` : "none",
+              borderLeft:   c.endsWith("l")   ? `1px solid rgba(14,165,233,0.6)` : "none",
+              borderRight:  c.endsWith("r")   ? `1px solid rgba(14,165,233,0.6)` : "none",
+            }}/>
+          ))}
           <div style={{ position:"relative" }}>
             {/* Connecting line */}
-            <div className="hidden md:block" style={{ position:"absolute", top:52, left:"12.5%", right:"12.5%", height:2, backgroundColor:C.gold, zIndex:0 }}/>
+            <div className="hidden md:block" style={{ position:"absolute", top:52, left:"12.5%", right:"12.5%", height:2, backgroundColor:"#0ea5e9", opacity:0.3, zIndex:0 }}/>
             <div className="flex flex-col md:flex-row gap-8">
               {[
                 { day:"DAY 1", date:"25 JULY", desc:"Inauguration & Keynote Session",   iconD:"M12 2L20 5.5V12C20 17,16 20,12 22C8 20,4 17,4 12V5.5Z" },
@@ -224,17 +239,30 @@ export default function Home() {
       {/* ══════════════════════════════════
           CTA BANNER
       ══════════════════════════════════ */}
-      <section className="px-6 py-10 md:px-8 md:py-12" style={{
-        width:"100%", backgroundColor:"#060b14", backgroundImage:LEATHER_TEX,
-        borderTop:`1px solid ${C.goldDk}`,
+      <section style={{
+        width:"100%", backgroundColor:"#060b14",
+        borderTop:`1px solid #8b6914`,
         textAlign:"center", position:"relative", overflow:"hidden",
+        padding:"64px 24px",
       }}>
         {/* Inset frame */}
         <div style={{
           position: "absolute", inset: 8,
-          border: "1px solid rgba(139,105,20,0.45)",
-          pointerEvents: "none"
+          border: "1px solid rgba(201,168,76,0.3)",
+          pointerEvents: "none",
+          display: "flex", justifyContent: "center"
         }}>
+          {/* Legend-style text overlapping top border */}
+          <div style={{
+            position: "absolute", top: -9,
+            backgroundColor: "#060b14",
+            padding: "0 16px",
+            fontFamily: "'Cinzel',serif", fontSize: "clamp(9px, 2.5vw, 12px)", letterSpacing: "clamp(2px, 1vw, 4px)", color: "#c9a84c", textTransform: "uppercase",
+            whiteSpace: "nowrap",
+          }}>
+            THREE DAYS. ENDLESS KNOWLEDGE. ONE LEGACY.
+          </div>
+          
           {/* 4 corner L-brackets */}
           <div style={{ position:"absolute", top:6, left:6, width:20, height:20, borderTop:"1.5px solid #c9a84c", borderLeft:"1.5px solid #c9a84c" }}/>
           <div style={{ position:"absolute", top:6, right:6, width:20, height:20, borderTop:"1.5px solid #c9a84c", borderRight:"1.5px solid #c9a84c" }}/>
@@ -242,29 +270,26 @@ export default function Home() {
           <div style={{ position:"absolute", bottom:6, right:6, width:20, height:20, borderBottom:"1.5px solid #c9a84c", borderRight:"1.5px solid #c9a84c" }}/>
           {/* 4 corner dot ornaments */}
           {[{top:-4,left:-4},{top:-4,right:-4},{bottom:-4,left:-4},{bottom:-4,right:-4}].map((p,i) => (
-            <div key={i} style={{ position:"absolute", width:8, height:8, borderRadius:"50%", border:"1px solid #8b6914", backgroundColor:"#2a1a06", ...p }}/>
+            <div key={i} style={{ position:"absolute", width:8, height:8, borderRadius:"50%", border:"1px solid #8b6914", backgroundColor:"#060b14", ...p }}/>
           ))}
         </div>
         {/* Decorative shield left */}
-        <div style={{ position:"absolute", left:20, top:"50%", transform:"translateY(-50%)", opacity:0.12, pointerEvents:"none" }}>
-          <svg width="90" height="90" viewBox="0 0 24 24" fill="none" stroke={C.gold} strokeWidth="0.6">
+        <div style={{ position:"absolute", left:20, top:"50%", transform:"translateY(-50%)", opacity:0.1, pointerEvents:"none" }}>
+          <svg width="90" height="90" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" strokeWidth="0.6">
             <path d="M12 2L20 5.5V12C20 17,16 20,12 22C8 20,4 17,4 12V5.5Z"/>
             <rect x="9" y="12" width="6" height="5" rx="0.5"/>
             <path d="M10 12V10A2 2 0 0 1 14 10V12"/>
           </svg>
         </div>
         {/* Decorative circuit right */}
-        <div style={{ position:"absolute", right:20, top:"50%", transform:"translateY(-50%)", opacity:0.12, pointerEvents:"none" }}>
-          <svg width="90" height="90" viewBox="0 0 120 120" fill="none" stroke={C.gold} strokeWidth="0.8">
+        <div style={{ position:"absolute", right:20, top:"50%", transform:"translateY(-50%)", opacity:0.1, pointerEvents:"none" }}>
+          <svg width="90" height="90" viewBox="0 0 120 120" fill="none" stroke="#c9a84c" strokeWidth="0.8">
             <path d="M10 60h20M30 60V40M30 40h30M60 40v40M60 80h20M40 60H30"/>
-            <circle cx="30" cy="60" r="3" fill={C.gold}/>
-            <circle cx="60" cy="40" r="3" fill={C.gold}/>
+            <circle cx="30" cy="60" r="3" fill="#c9a84c"/>
+            <circle cx="60" cy="40" r="3" fill="#c9a84c"/>
           </svg>
         </div>
-        <div style={{ position:"relative", zIndex:1 }}>
-          <p style={{ fontFamily:"'Cinzel',serif", fontSize:12, letterSpacing:"4px", color:C.gold, marginBottom:12, textTransform:"uppercase" }}>
-            THREE DAYS. ENDLESS KNOWLEDGE. ONE LEGACY.
-          </p>
+        <div style={{ position:"relative", zIndex:1, paddingTop: 16 }}>
           <h2 style={{
             fontFamily:"'Cinzel',serif", fontWeight:900, fontSize:"clamp(22px,3vw,36px)",
             letterSpacing:"2px", color:"#f0f6ff", textTransform:"uppercase",
