@@ -94,11 +94,11 @@ export default function Home() {
         </div>
 
         {/* Left content */}
-        <div style={{ position:"relative", zIndex:2, padding:"52px 40px 48px 44px", maxWidth:520, display:"flex", flexDirection:"column", justifyContent:"center" }}>
+        <div className="px-6 py-12 md:px-12 md:py-14" style={{ position:"relative", zIndex:2, maxWidth:520, display:"flex", flexDirection:"column", justifyContent:"center" }}>
           <h1 style={{
             fontFamily:"'Cinzel',serif", fontWeight:900,
-            fontSize:"clamp(52px, 6vw, 72px)", lineHeight:1.0,
-            color:"#c9a84c", letterSpacing:"4px", textTransform:"uppercase",
+            fontSize:"clamp(40px, 10vw, 72px)", lineHeight:1.0,
+            color:"#c9a84c", letterSpacing:"3px", textTransform:"uppercase",
             textShadow:"0 0 40px rgba(201,168,76,0.5), 0 0 80px rgba(201,168,76,0.2), 0 2px 4px rgba(0,0,0,0.9)",
             margin:0, marginBottom:18,
           }}>
@@ -125,7 +125,7 @@ export default function Home() {
       {/* ══════════════════════════════════
           ABOUT SECTION
       ══════════════════════════════════ */}
-      <section id="about" style={{ width:"100%", backgroundColor:C.parchmentLt, backgroundImage:PARCH_TEX, padding:"44px 32px", marginBottom:0, borderTop:`1px solid ${C.goldDk}` }}>
+      <section id="about" className="px-6 py-10 md:px-8 md:py-12" style={{ width:"100%", backgroundColor:C.parchmentLt, backgroundImage:PARCH_TEX, marginBottom:0, borderTop:`1px solid ${C.goldDk}` }}>
         <SectionHeading text="About The Event" />
         <div style={{ display:"flex", gap:36, alignItems:"flex-start", flexWrap:"wrap" }}>
           {/* Sketch illustration */}
@@ -182,7 +182,7 @@ export default function Home() {
       {/* ══════════════════════════════════
           EVENT HIGHLIGHTS
       ══════════════════════════════════ */}
-      <section id="highlights" style={{ width:"100%", backgroundColor:C.parchment, backgroundImage:PARCH_TEX, padding:"44px 24px", borderTop:`1px solid ${C.goldDk}` }}>
+      <section id="highlights" className="px-6 py-10 md:px-8 md:py-12" style={{ width:"100%", backgroundColor:C.parchment, backgroundImage:PARCH_TEX, borderTop:`1px solid ${C.goldDk}` }}>
         <SectionHeading text="Event Highlights" />
         <div style={{ display:"flex", gap:12, flexWrap:"nowrap", overflowX:"auto" }}>
           {[
@@ -200,7 +200,7 @@ export default function Home() {
       {/* ══════════════════════════════════
           EVENT SCHEDULE
       ══════════════════════════════════ */}
-      <section id="schedule" style={{ width:"100%", backgroundColor:C.parchmentLt, backgroundImage:PARCH_TEX, padding:"44px 24px", borderTop:`1px solid ${C.goldDk}` }}>
+      <section id="schedule" className="px-6 py-10 md:px-8 md:py-12" style={{ width:"100%", backgroundColor:C.parchmentLt, backgroundImage:PARCH_TEX, borderTop:`1px solid ${C.goldDk}` }}>
         <SectionHeading text="Event Schedule" />
         <div style={{ border:`1px solid ${C.gold}`, padding:"32px 24px", position:"relative" }}>
           <div style={{ position:"relative" }}>
@@ -221,10 +221,10 @@ export default function Home() {
       {/* ══════════════════════════════════
           CTA BANNER
       ══════════════════════════════════ */}
-      <section style={{
+      <section className="px-6 py-10 md:px-8 md:py-12" style={{
         width:"100%", backgroundColor:"#2a1a06", backgroundImage:LEATHER_TEX,
         borderTop:`1px solid ${C.goldDk}`,
-        padding:"44px 32px", textAlign:"center", position:"relative", overflow:"hidden",
+        textAlign:"center", position:"relative", overflow:"hidden",
       }}>
         {/* Inset frame */}
         <div style={{
