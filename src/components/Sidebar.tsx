@@ -49,7 +49,7 @@ const navItems = [
 
 const GOLD = "#c9a84c";
 const GOLD_DIM = "#8b6914";
-const SIDEBAR_BG = "#1a1008";
+const SIDEBAR_BG = "#06090f";
 
 // Social links
 const socialLinks = [
@@ -181,7 +181,7 @@ export default function Sidebar() {
                   border:`1px solid ${GOLD_DIM}`, display:"flex", alignItems:"center", justifyContent:"center",
                   backgroundColor: "rgba(139,105,20,0.08)", transition:"all 0.2s ease", textDecoration:"none",
                 }}
-                onMouseEnter={e=>{(e.currentTarget as HTMLElement).style.backgroundColor="rgba(201,168,76,0.15)";(e.currentTarget as HTMLElement).style.borderColor=GOLD}}
+                onMouseEnter={e=>{(e.currentTarget as HTMLElement).style.backgroundColor="rgba(14,165,233,0.12)";(e.currentTarget as HTMLElement).style.borderColor="#0ea5e9"}}
                 onMouseLeave={e=>{(e.currentTarget as HTMLElement).style.backgroundColor="rgba(139,105,20,0.08)";(e.currentTarget as HTMLElement).style.borderColor=GOLD_DIM}}
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={GOLD_DIM} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">

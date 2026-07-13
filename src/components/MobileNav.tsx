@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const GOLD = "#c9a84c";
 const GOLD_DIM = "#8b6914";
-const SIDEBAR_BG = "#1a1008";
+const SIDEBAR_BG = "#06090f";
 
 const navLinks = [
   { name: "Home",             href: "/" },
@@ -35,8 +35,7 @@ export default function MobileNav() {
           display:"flex", alignItems:"center", justifyContent:"space-between",
           padding:"0 20px", height:60,
           backgroundColor: SIDEBAR_BG,
-          backgroundImage:`url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='t'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23t)' opacity='0.07'/%3E%3C/svg%3E")`,
-          borderBottom:`1.5px solid ${GOLD_DIM}`,
+          borderBottom:`1px solid rgba(14,165,233,0.3)`,
           position:"fixed", top:0, left:0, right:0, zIndex:200,
         }}
         className="mobile-bar"
@@ -60,10 +59,10 @@ export default function MobileNav() {
         {/* Hamburger */}
         <button
           onClick={() => setOpen(!open)}
-          style={{ background:"none", border:`1px solid ${GOLD_DIM}`, cursor:"pointer", padding:"6px 8px", display:"flex", alignItems:"center", justifyContent:"center" }}
+          style={{ background:"none", border:`1px solid rgba(14,165,233,0.4)`, cursor:"pointer", padding:"6px 8px", display:"flex", alignItems:"center", justifyContent:"center" }}
           aria-label="Toggle menu"
         >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={GOLD} strokeWidth="1.8">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" strokeWidth="1.8">
             {open
               ? <><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></>
               : <><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></>

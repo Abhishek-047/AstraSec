@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { C, PARCH_TEX, LEATHER_TEX, PageHero, SectionHeading } from "@/lib/design";
+import { PageHero, SectionHeading } from "@/lib/design";
 
 const faqs = [
   {
@@ -49,9 +49,9 @@ function FAQItem({ q, a, index }: { q: string; a: string; index: number }) {
   const [open, setOpen] = useState(false);
   return (
     <div style={{
-      border:`1px solid ${open ? C.gold : C.goldDk}`,
+      border:`1px solid ${open ? "#0ea5e9" : "rgba(14,165,233,0.2)"}`,
       marginBottom:12,
-      backgroundColor: open ? "rgba(28,20,9,0.04)" : "transparent",
+      backgroundColor: open ? "rgba(14,165,233,0.04)" : "transparent",
       transition:"border-color 0.2s ease, background-color 0.2s ease",
     }}>
       <button
@@ -63,20 +63,20 @@ function FAQItem({ q, a, index }: { q: string; a: string; index: number }) {
         }}
       >
         <div style={{ display:"flex", gap:14, alignItems:"center" }}>
-          <span style={{ fontFamily:"'Cinzel',serif", fontSize:10, color:C.goldDk, letterSpacing:"1px", flexShrink:0 }}>
+          <span style={{ fontFamily:"'Cinzel',serif", fontSize:10, color: open ? "#0ea5e9" : "rgba(14,165,233,0.4)", letterSpacing:"1px", flexShrink:0 }}>
             {String(index + 1).padStart(2, "0")}
           </span>
-          <span style={{ fontFamily:"'Cinzel',serif", fontWeight:700, fontSize:12, color: open ? C.gold : C.bodyText, letterSpacing:"1px", transition:"color 0.2s" }}>
+          <span style={{ fontFamily:"'Cinzel',serif", fontWeight:700, fontSize:12, color: open ? "#0ea5e9" : "#94a3b8", letterSpacing:"1px", transition:"color 0.2s" }}>
             {q}
           </span>
         </div>
-        <span style={{ color: C.gold, fontSize:20, flexShrink:0, marginLeft:12, fontWeight:300, lineHeight:1, transition:"transform 0.2s ease", transform: open ? "rotate(45deg)" : "rotate(0deg)", display: "inline-block" }}>
+        <span style={{ color: open ? "#0ea5e9" : "#c9a84c", fontSize:20, flexShrink:0, marginLeft:12, fontWeight:300, lineHeight:1, transition:"transform 0.2s ease", transform: open ? "rotate(45deg)" : "rotate(0deg)", display: "inline-block" }}>
           +
         </span>
       </button>
       {open && (
-        <div style={{ padding:"0 20px 18px 44px", borderTop:`1px solid rgba(139,105,20,0.3)` }}>
-          <p style={{ fontFamily:"'EB Garamond',serif", fontSize:15, color:C.bodyText, lineHeight:1.75, opacity:0.9, marginTop:14 }}>
+        <div style={{ padding:"0 20px 18px 44px", borderTop:`1px solid rgba(14,165,233,0.15)` }}>
+          <p style={{ fontFamily:"'EB Garamond',serif", fontSize:15, color:"#94a3b8", lineHeight:1.75, marginTop:14 }}>
             {a}
           </p>
         </div>
@@ -90,8 +90,8 @@ export default function FAQPage() {
     <>
       <PageHero title="FAQ" subtitle="Questions Answered. Mysteries Solved." />
 
-      <section className="px-6 py-10 md:px-8 md:py-12" style={{ width:"100%", backgroundColor:C.parchmentLt, backgroundImage:PARCH_TEX, borderTop:`1px solid ${C.goldDk}` }}>
-        <SectionHeading text="Frequently Asked Questions" />
+      <section className="px-6 py-10 md:px-8 md:py-12" style={{ width:"100%", backgroundColor:"#0d1424", borderTop:`1px solid rgba(14,165,233,0.15)` }}>
+        <SectionHeading text="Frequently Asked Questions" variant="gold" />
         <div style={{ maxWidth:780, margin:"0 auto" }}>
           {faqs.map((f, i) => (
             <FAQItem key={i} q={f.q} a={f.a} index={i} />
@@ -101,19 +101,19 @@ export default function FAQPage() {
 
       {/* Contact CTA */}
       <section className="px-6 py-10 md:px-8 md:py-12" style={{
-        width:"100%", backgroundColor:"#2a1a06", backgroundImage:LEATHER_TEX,
-        borderTop:`1px solid ${C.goldDk}`, textAlign:"center"
+        width:"100%", backgroundColor:"#060b14",
+        borderTop:`1px solid rgba(14,165,233,0.2)`, textAlign:"center"
       }}>
-        <p style={{ fontFamily:"'Cinzel',serif", fontSize:11, letterSpacing:"3px", color:C.gold, marginBottom:10, textTransform:"uppercase" }}>
+        <p style={{ fontFamily:"'Cinzel',serif", fontSize:11, letterSpacing:"3px", color:"#0ea5e9", marginBottom:10, textTransform:"uppercase" }}>
           Still have questions?
         </p>
-        <p style={{ fontFamily:"'EB Garamond',serif", fontSize:16, color:C.lightText, opacity:0.75, maxWidth:400, margin:"0 auto 20px" }}>
+        <p style={{ fontFamily:"'EB Garamond',serif", fontSize:16, color:"#94a3b8", maxWidth:400, margin:"0 auto 20px" }}>
           Our team is happy to help. Reach out and we will get back to you within 24 hours.
         </p>
         <a href="/contact" style={{
           display:"inline-block", fontFamily:"'Cinzel',serif", fontSize:11, fontWeight:700,
           letterSpacing:"2px", textTransform:"uppercase", padding:"12px 28px",
-          border:`1.5px solid ${C.gold}`, color:C.gold, backgroundColor:"rgba(42,26,6,0.9)",
+          border:`1.5px solid #0ea5e9`, color:"#0ea5e9", backgroundColor:"rgba(14,165,233,0.08)",
           textDecoration:"none",
         }}>
           CONTACT US →

@@ -1,54 +1,56 @@
 "use client";
 import { useState } from "react";
-import { C, PARCH_TEX, LEATHER_TEX, PageHero } from "@/lib/design";
+import { PageHero } from "@/lib/design";
 
 function EventCard({ tag, icon, title, desc, meta }: { tag:string; icon:string; title:string; desc:string; meta:string }) {
   return (
     <div style={{
-      backgroundColor:C.cardBg, backgroundImage:LEATHER_TEX,
-      border:`1.5px solid ${C.gold}`, padding:"24px 20px", position:"relative",
+      backgroundColor:"#0f172a",
+      border:`1px solid rgba(14,165,233,0.2)`, padding:"24px 20px", position:"relative",
       display:"flex", flexDirection:"column",
       transition:"all 0.2s ease", cursor:"default"
     }}
-    onMouseEnter={e=>{(e.currentTarget as HTMLElement).style.cssText+="box-shadow:0 0 20px rgba(201,168,76,0.25);transform:translateY(-3px)"}}
-    onMouseLeave={e=>{(e.currentTarget as HTMLElement).style.boxShadow="none";(e.currentTarget as HTMLElement).style.transform="none"}}
+    onMouseEnter={e=>{(e.currentTarget as HTMLElement).style.cssText+="box-shadow:0 0 24px rgba(14,165,233,0.2);transform:translateY(-3px);border-color:rgba(14,165,233,0.5)"}}
+    onMouseLeave={e=>{(e.currentTarget as HTMLElement).style.boxShadow="none";(e.currentTarget as HTMLElement).style.transform="none";(e.currentTarget as HTMLElement).style.borderColor="rgba(14,165,233,0.2)"}}
     >
+      {/* Gold inner frame ornament */}
+      <div style={{ position:"absolute", inset:5, border:"1px solid rgba(201,168,76,0.08)", pointerEvents:"none" }}/>
       {["tl","tr","bl","br"].map(c=>(
         <div key={c} style={{ position:"absolute",
           top:c.startsWith("t")?5:"auto", bottom:c.startsWith("b")?5:"auto",
           left:c.endsWith("l")?5:"auto", right:c.endsWith("r")?5:"auto",
           width:10, height:10,
-          borderTop:c.startsWith("t")?`1px solid ${C.goldDk}`:"none",
-          borderBottom:c.startsWith("b")?`1px solid ${C.goldDk}`:"none",
-          borderLeft:c.endsWith("l")?`1px solid ${C.goldDk}`:"none",
-          borderRight:c.endsWith("r")?`1px solid ${C.goldDk}`:"none",
+          borderTop:c.startsWith("t")?"1px solid rgba(14,165,233,0.4)":"none",
+          borderBottom:c.startsWith("b")?"1px solid rgba(14,165,233,0.4)":"none",
+          borderLeft:c.endsWith("l")?"1px solid rgba(14,165,233,0.4)":"none",
+          borderRight:c.endsWith("r")?"1px solid rgba(14,165,233,0.4)":"none",
         }}/>
       ))}
-      <div style={{ alignSelf:"flex-start", backgroundColor:C.gold, color:"#1a1008", fontFamily:"'Cinzel',serif", fontSize:9, fontWeight:700, padding:"3px 10px", letterSpacing:"2px", marginBottom:20 }}>
+      <div style={{ alignSelf:"flex-start", backgroundColor:"#0ea5e9", color:"#06090f", fontFamily:"'Cinzel',serif", fontSize:9, fontWeight:700, padding:"3px 10px", letterSpacing:"2px", marginBottom:20 }}>
         {tag}
       </div>
       <div style={{ alignSelf:"center", marginBottom:16 }}>
-        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke={C.gold} strokeWidth="1" strokeLinecap="round">
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" strokeWidth="1" strokeLinecap="round">
           <path d={icon}/>
         </svg>
       </div>
-      <div style={{ fontFamily:"'Cinzel',serif", fontWeight:700, fontSize:16, color:C.gold, textAlign:"center" }}>{title}</div>
-      <div style={{ height:1, background:`linear-gradient(to right, transparent, ${C.goldDk}, transparent)`, margin:"14px 0" }}/>
-      <p style={{ fontFamily:"'EB Garamond',serif", fontSize:14, color:C.gold, opacity:0.8, lineHeight:1.6, flex:1 }}>{desc}</p>
+      <div style={{ fontFamily:"'Cinzel',serif", fontWeight:700, fontSize:16, color:"#f0f6ff", textAlign:"center" }}>{title}</div>
+      <div style={{ height:1, background:`linear-gradient(to right, transparent, rgba(14,165,233,0.4), transparent)`, margin:"14px 0" }}/>
+      <p style={{ fontFamily:"'EB Garamond',serif", fontSize:14, color:"#94a3b8", lineHeight:1.6, flex:1 }}>{desc}</p>
       
-      <div style={{ marginTop:20, fontFamily:"'Cinzel',serif", fontSize:11, color:C.goldMuted, lineHeight:1.8 }}>
-        <div style={{ display:"flex", alignItems:"center", gap:6 }}><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> {meta.split('|')[0]}</div>
-        <div style={{ display:"flex", alignItems:"center", gap:6 }}><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> {meta.split('|')[1]}</div>
+      <div style={{ marginTop:20, fontFamily:"'Cinzel',serif", fontSize:11, color:"#475569", lineHeight:1.8 }}>
+        <div style={{ display:"flex", alignItems:"center", gap:6 }}><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" strokeWidth="1.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> {meta.split('|')[0]}</div>
+        <div style={{ display:"flex", alignItems:"center", gap:6 }}><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" strokeWidth="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> {meta.split('|')[1]}</div>
       </div>
       
       <a href="/contact" style={{
         marginTop:20, width:"100%", padding:"10px",
-        backgroundColor:"transparent", border:`1px solid ${C.gold}`, color:C.gold,
+        backgroundColor:"rgba(14,165,233,0.08)", border:`1px solid #0ea5e9`, color:"#0ea5e9",
         fontFamily:"'Cinzel',serif", fontSize:11, letterSpacing:"2px", cursor:"pointer",
         transition:"all 0.2s ease", textDecoration:"none", textAlign:"center", display:"block"
       }}
-      onMouseEnter={e=>e.currentTarget.style.backgroundColor="rgba(201,168,76,0.1)"}
-      onMouseLeave={e=>e.currentTarget.style.backgroundColor="transparent"}
+      onMouseEnter={e=>e.currentTarget.style.backgroundColor="rgba(14,165,233,0.18)"}
+      onMouseLeave={e=>e.currentTarget.style.backgroundColor="rgba(14,165,233,0.08)"}
       >
         REGISTER →
       </a>
@@ -77,13 +79,13 @@ export default function EventsPage() {
 
       <section style={{ width:"100%", padding:"0 24px", marginBottom:52 }}>
         {/* Filter bar */}
-        <div style={{ backgroundColor:C.cardBg, border:`1px solid ${C.gold}`, padding:"12px 24px", display:"flex", gap:12, flexWrap:"wrap", justifyContent:"center", marginBottom:32 }}>
+        <div style={{ backgroundColor:"#0f172a", border:`1px solid rgba(14,165,233,0.2)`, padding:"12px 24px", display:"flex", gap:12, flexWrap:"wrap", justifyContent:"center", marginBottom:32 }}>
           {filters.map(f => (
             <button key={f} onClick={() => setFilter(f)} style={{
               fontFamily:"'Cinzel',serif", fontSize:11, letterSpacing:"2px", padding:"8px 16px",
-              backgroundColor: filter === f ? C.gold : "transparent",
-              color: filter === f ? "#1a1008" : C.gold,
-              border:`1px solid ${C.gold}`, cursor:"pointer", transition:"all 0.2s ease"
+              backgroundColor: filter === f ? "#0ea5e9" : "transparent",
+              color: filter === f ? "#06090f" : "#0ea5e9",
+              border:`1px solid #0ea5e9`, cursor:"pointer", transition:"all 0.2s ease"
             }}>
               {f}
             </button>

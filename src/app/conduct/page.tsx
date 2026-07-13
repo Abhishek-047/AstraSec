@@ -1,5 +1,5 @@
 "use client";
-import { C, PARCH_TEX, LEATHER_TEX, PageHero, SectionHeading } from "@/lib/design";
+import { PageHero, SectionHeading, LEATHER_TEX } from "@/lib/design";
 
 const rules = [
   {
@@ -50,32 +50,34 @@ export default function ConductPage() {
       <PageHero title="CODE OF CONDUCT" subtitle="With Great Power Comes Great Responsibility." />
 
       {/* Preamble */}
-      <section style={{ width:"100%", backgroundColor:C.parchmentLt, backgroundImage:PARCH_TEX, padding:"44px 32px", borderTop:`1px solid ${C.goldDk}` }}>
-        <SectionHeading text="The Pledge" />
+      <section style={{ width:"100%", backgroundColor:"#0d1424", padding:"44px 32px", borderTop:`1px solid rgba(14,165,233,0.15)` }}>
+        <SectionHeading text="The Pledge" variant="gold" />
         <div style={{ maxWidth:720, margin:"0 auto", textAlign:"center" }}>
-          <p style={{ fontFamily:"'EB Garamond',serif", fontStyle:"italic", fontSize:18, color:C.bodyText, lineHeight:1.9, marginBottom:16 }}>
+          <p style={{ fontFamily:"'EB Garamond',serif", fontStyle:"italic", fontSize:18, color:"#94a3b8", lineHeight:1.9, marginBottom:16 }}>
             AstraSec is a community built on trust, curiosity, and the responsible pursuit of knowledge.
             Every participant, speaker, and organizer is expected to uphold the following standards
             throughout the duration of the event.
           </p>
-          <div style={{ height:1, background:`linear-gradient(to right, transparent, ${C.goldDk}, transparent)`, margin:"24px 0" }}/>
-          <p style={{ fontFamily:"'Cinzel',serif", fontSize:11, letterSpacing:"2px", color:C.goldDk }}>
+          <div style={{ height:1, background:`linear-gradient(to right, transparent, #0369a1, transparent)`, margin:"24px 0" }}/>
+          <p style={{ fontFamily:"'Cinzel',serif", fontSize:11, letterSpacing:"2px", color:"#94a3b8" }}>
             ESTABLISHED BY SOCS — SOCIETY OF CYBERSECURITY CLUB
           </p>
         </div>
       </section>
 
       {/* Rules grid */}
-      <section style={{ width:"100%", backgroundColor:C.parchment, backgroundImage:PARCH_TEX, padding:"44px 32px", borderTop:`1px solid ${C.goldDk}` }}>
-        <SectionHeading text="Articles of Conduct" />
+      <section style={{ width:"100%", backgroundColor:"#111827", padding:"44px 32px", borderTop:`1px solid rgba(14,165,233,0.1)` }}>
+        <SectionHeading text="Articles of Conduct" variant="cyber" />
         <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill, minmax(300px, 1fr))", gap:24 }}>
           {rules.map(r => (
             <div key={r.num} style={{
-              backgroundColor:C.cardBg,
-              border:`1px solid ${C.goldDk}`,
+              backgroundColor:"#0f172a",
+              border:`1px solid rgba(14,165,233,0.2)`,
               padding:"28px 24px",
               position:"relative",
             }}>
+              {/* Gold inner frame */}
+              <div style={{ position:"absolute", inset:5, border:"1px solid rgba(201,168,76,0.08)", pointerEvents:"none" }}/>
               {/* Corner brackets */}
               {["tl","tr","bl","br"].map(c => (
                 <div key={c} style={{
@@ -85,17 +87,17 @@ export default function ConductPage() {
                   left:  c.endsWith("l")   ? 6 : "auto",
                   right: c.endsWith("r")   ? 6 : "auto",
                   width:10, height:10,
-                  borderTop:    c.startsWith("t") ? `1px solid ${C.goldDk}` : "none",
-                  borderBottom: c.startsWith("b") ? `1px solid ${C.goldDk}` : "none",
-                  borderLeft:   c.endsWith("l")   ? `1px solid ${C.goldDk}` : "none",
-                  borderRight:  c.endsWith("r")   ? `1px solid ${C.goldDk}` : "none",
+                  borderTop:    c.startsWith("t") ? `1px solid rgba(14,165,233,0.4)` : "none",
+                  borderBottom: c.startsWith("b") ? `1px solid rgba(14,165,233,0.4)` : "none",
+                  borderLeft:   c.endsWith("l")   ? `1px solid rgba(14,165,233,0.4)` : "none",
+                  borderRight:  c.endsWith("r")   ? `1px solid rgba(14,165,233,0.4)` : "none",
                 }}/>
               ))}
 
-              {/* Roman numeral badge */}
+              {/* Article badge */}
               <div style={{
                 position:"absolute", top:-14, left:20,
-                backgroundColor:C.gold, color:"#1a1008",
+                backgroundColor:"#0ea5e9", color:"#06090f",
                 fontFamily:"'Cinzel',serif", fontSize:10, fontWeight:700,
                 padding:"2px 12px", letterSpacing:"2px"
               }}>
@@ -104,12 +106,12 @@ export default function ConductPage() {
 
               <h3 style={{
                 fontFamily:"'Cinzel',serif", fontWeight:700, fontSize:13,
-                color:C.gold, letterSpacing:"1.5px", marginBottom:14, marginTop:8
+                color:"#f0f6ff", letterSpacing:"1.5px", marginBottom:14, marginTop:8
               }}>
                 {r.title}
               </h3>
-              <div style={{ height:1, background:`linear-gradient(to right, ${C.goldDk}, transparent)`, marginBottom:14 }}/>
-              <p style={{ fontFamily:"'EB Garamond',serif", fontSize:14.5, color:C.lightText, lineHeight:1.7, opacity:0.85 }}>
+              <div style={{ height:1, background:`linear-gradient(to right, rgba(14,165,233,0.4), transparent)`, marginBottom:14 }}/>
+              <p style={{ fontFamily:"'EB Garamond',serif", fontSize:14.5, color:"#94a3b8", lineHeight:1.7 }}>
                 {r.desc}
               </p>
             </div>
@@ -119,31 +121,35 @@ export default function ConductPage() {
 
       {/* Closing declaration */}
       <section style={{
-        width:"100%", backgroundColor:"#2a1a06", backgroundImage:LEATHER_TEX,
-        borderTop:`1px solid ${C.goldDk}`, padding:"44px 32px", textAlign:"center", position:"relative", overflow:"hidden"
+        width:"100%", backgroundColor:"#060b14", backgroundImage:LEATHER_TEX,
+        borderTop:`1px solid rgba(14,165,233,0.2)`, padding:"44px 32px", textAlign:"center", position:"relative", overflow:"hidden"
       }}>
-        <div style={{ position:"absolute", inset:8, border:"1px solid rgba(139,105,20,0.45)", pointerEvents:"none" }}>
-          {[{top:6,left:6,width:20,height:20,borderTop:"1.5px solid #c9a84c",borderLeft:"1.5px solid #c9a84c"},
-            {top:6,right:6,width:20,height:20,borderTop:"1.5px solid #c9a84c",borderRight:"1.5px solid #c9a84c"},
-            {bottom:6,left:6,width:20,height:20,borderBottom:"1.5px solid #c9a84c",borderLeft:"1.5px solid #c9a84c"},
-            {bottom:6,right:6,width:20,height:20,borderBottom:"1.5px solid #c9a84c",borderRight:"1.5px solid #c9a84c"},
-          ].map((s,i)=><div key={i} style={{ position:"absolute", ...s }}/>)}
+        <div style={{ position:"absolute", inset:8, border:"1px solid rgba(139,105,20,0.3)", pointerEvents:"none" }}>
+          {[{top:6,left:6},{top:6,right:6},{bottom:6,left:6},{bottom:6,right:6}].map((pos,i) => (
+            <div key={i} style={{ position:"absolute", width:20, height:20,
+              borderTop: i < 2 ? "1.5px solid #c9a84c" : undefined,
+              borderBottom: i >= 2 ? "1.5px solid #c9a84c" : undefined,
+              borderLeft: i % 2 === 0 ? "1.5px solid #c9a84c" : undefined,
+              borderRight: i % 2 === 1 ? "1.5px solid #c9a84c" : undefined,
+              ...pos
+            }}/>
+          ))}
         </div>
         <div style={{ position:"relative", zIndex:1 }}>
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke={C.gold} strokeWidth="1" style={{ marginBottom:16, opacity:0.7 }}>
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" strokeWidth="1" style={{ marginBottom:16, opacity:0.7 }}>
             <path d="M12 2L20 5.5V12C20 17,16 20,12 22C8 20,4 17,4 12V5.5Z"/>
             <path d="M9 12l2 2 4-4"/>
           </svg>
-          <h2 style={{ fontFamily:"'Cinzel',serif", fontWeight:900, fontSize:22, color:C.gold, letterSpacing:"2px", marginBottom:16 }}>
+          <h2 style={{ fontFamily:"'Cinzel',serif", fontWeight:900, fontSize:22, color:"#f0f6ff", letterSpacing:"2px", marginBottom:16, textShadow:"0 0 30px rgba(14,165,233,0.3)" }}>
             I PLEDGE TO UPHOLD THIS CODE
           </h2>
-          <p style={{ fontFamily:"'EB Garamond',serif", fontStyle:"italic", fontSize:16, color:C.lightText, opacity:0.75, maxWidth:500, margin:"0 auto 28px" }}>
+          <p style={{ fontFamily:"'EB Garamond',serif", fontStyle:"italic", fontSize:16, color:"#94a3b8", maxWidth:500, margin:"0 auto 28px" }}>
             By participating in Legacy Secured, I agree to abide by all articles of this Code of Conduct and understand the consequences of violation.
           </p>
           <a href="/contact" style={{
             display:"inline-block", fontFamily:"'Cinzel',serif", fontSize:11, fontWeight:700,
             letterSpacing:"2px", textTransform:"uppercase", padding:"12px 32px",
-            border:"1.5px solid #c9a84c", color:"#c9a84c", backgroundColor:"rgba(42,26,6,0.9)",
+            border:"1.5px solid #0ea5e9", color:"#0ea5e9", backgroundColor:"rgba(14,165,233,0.08)",
             textDecoration:"none", cursor:"pointer"
           }}>
             REGISTER NOW →

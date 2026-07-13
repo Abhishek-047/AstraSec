@@ -24,15 +24,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             display: "flex",
             flexDirection: "column",
             minHeight: "100vh",
-            backgroundColor: "#e8d9b0",
-            backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E")`,
+            backgroundColor: "#0a0f1e",
             position: "relative",
           }}
         >
           {/* Vignette overlay */}
           <div style={{
-            position: "absolute", inset: 0, pointerEvents: "none", zIndex: 0,
-            background: "radial-gradient(ellipse at center, rgba(0,0,0,0) 40%, rgba(30,18,4,0.45) 100%)",
+            position:"absolute", inset:0, pointerEvents:"none", zIndex:0,
+            background:"radial-gradient(ellipse at 20% 0%, rgba(14,165,233,0.04) 0%, transparent 60%)",
           }} />
 
           <MobileNav />

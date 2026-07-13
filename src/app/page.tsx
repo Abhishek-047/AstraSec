@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { C, PARCH_TEX, LEATHER_TEX, SectionHeading, HighlightCard, GoldBtn } from "@/lib/design";
+import { C, LEATHER_TEX, SectionHeading, HighlightCard, GoldBtn } from "@/lib/design";
 
 /* ── Inline SVG Icons ──────────────────────────────────────── */
 function Icon({ d, size=46 }: { d: string; size?: number }) {
@@ -22,14 +22,14 @@ function TNode({ day, date, desc, iconD }: { day:string; date:string; desc:strin
         width:44, height:44, borderRadius:"50%",
         backgroundColor:"#1c1409",
         border:"2px solid #c9a84c",
-        boxShadow:"0 0 0 5px #f0e6c8, 0 0 0 6px #8b6914",
+        boxShadow:"0 0 0 5px #0d1424, 0 0 0 6px #0ea5e9",
         display:"flex", alignItems:"center", justifyContent:"center", marginBottom:12, position:"relative", zIndex:2,
       }}>
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={C.gold} strokeWidth="1.5" strokeLinecap="round">
           <path d={iconD}/>
         </svg>
       </div>
-      <p style={{ fontFamily:"'EB Garamond',serif", fontSize:13, color:C.bodyText, lineHeight:1.5, maxWidth:120 }}>{desc}</p>
+      <p style={{ fontFamily:"'EB Garamond',serif", fontSize:13, color:"#94a3b8", lineHeight:1.5, maxWidth:120 }}>{desc}</p>
     </div>
   );
 }
@@ -51,6 +51,7 @@ export default function Home() {
       }}>
         {/* Decorative thin gold border inset */}
         <div style={{ position:"absolute", inset: 12, border:`1px solid rgba(201,168,76,0.3)`, pointerEvents:"none", zIndex:10 }}>
+          <div style={{ position:"absolute", inset:0, pointerEvents:"none", boxShadow:"inset 0 0 60px rgba(14,165,233,0.06), inset 0 0 120px rgba(14,165,233,0.03)" }}/>
           {([{top:-4,left:-4},{top:-4,right:-4},{bottom:-4,left:-4},{bottom:-4,right:-4}] as any[]).map((pos,i)=>(
             <div key={i} style={{ position:"absolute", width:8, height:8, borderRadius:"50%", border:`1.5px solid ${C.goldDk}`, backgroundColor:"#1c1209", ...pos }}/>
           ))}
@@ -98,8 +99,12 @@ export default function Home() {
           <h1 style={{
             fontFamily:"'Cinzel',serif", fontWeight:900,
             fontSize:"clamp(32px, 12vw, 72px)", lineHeight:1.0,
-            color:"#c9a84c", letterSpacing:"3px", textTransform:"uppercase",
-            textShadow:"0 0 40px rgba(201,168,76,0.5), 0 0 80px rgba(201,168,76,0.2), 0 2px 4px rgba(0,0,0,0.9)",
+            color:"transparent", letterSpacing:"3px", textTransform:"uppercase",
+            background: "linear-gradient(135deg, #f0f6ff 0%, #c9a84c 40%, #0ea5e9 100%)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            backgroundClip: "text",
+            textShadow: "none",
             margin:0, marginBottom:18,
           }}>
             LEGACY<br/>SECURED
@@ -114,8 +119,8 @@ export default function Home() {
             Explore. Learn. Compete.<br/>Join us for an unforgettable journey into cybersecurity and technology.
           </p>
           <div style={{ display:"flex", gap:16, flexWrap:"wrap" }}>
-            <GoldBtn href="/contact">REGISTER NOW</GoldBtn>
-            <GoldBtn href="/events" outline>EXPLORE EVENTS</GoldBtn>
+            <GoldBtn href="/contact" variant="cyber">REGISTER NOW</GoldBtn>
+            <GoldBtn href="/events" variant="gold" outline>EXPLORE EVENTS</GoldBtn>
           </div>
         </div>
       </section>
@@ -123,8 +128,8 @@ export default function Home() {
       {/* ══════════════════════════════════
           ABOUT SECTION
       ══════════════════════════════════ */}
-      <section id="about" className="px-6 py-10 md:px-8 md:py-12" style={{ width:"100%", backgroundColor:C.parchmentLt, backgroundImage:PARCH_TEX, marginBottom:0, borderTop:`1px solid ${C.goldDk}` }}>
-        <SectionHeading text="About The Event" />
+      <section id="about" className="px-6 py-10 md:px-8 md:py-12" style={{ width:"100%", backgroundColor:"#0d1424", marginBottom:0, borderTop:`1px solid rgba(14,165,233,0.15)` }}>
+        <SectionHeading text="About The Event" variant="gold" />
         <div style={{ display:"flex", gap:36, alignItems:"flex-start", flexWrap:"wrap" }}>
           {/* Sketch illustration */}
           <div style={{ flex:"0 0 200px", display:"flex", justifyContent:"center" }}>
@@ -154,7 +159,7 @@ export default function Home() {
           </div>
 
           <div style={{ flex:1, minWidth:240 }}>
-            <p style={{ fontFamily:"'EB Garamond',serif", fontSize:16, color:C.bodyText, lineHeight:1.8, marginBottom:32 }}>
+            <p style={{ fontFamily:"'EB Garamond',serif", fontSize:16, color:"#94a3b8", lineHeight:1.8, marginBottom:32 }}>
               AstraSec presents its annual tech fest focused on cybersecurity and emerging technologies. A platform to learn, collaborate, and compete in an ever-evolving digital world.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4" style={{ borderTop:`1px solid ${C.gold}`, paddingTop:28 }}>
@@ -165,11 +170,11 @@ export default function Home() {
                 { d:"M9 18h6M12 2v2M12 18v2M12 6a6 6 0 0 1 0 12 6 6 0 0 1 0-12z", label:"INNOVATE", cap:"Build solutions for tomorrow" },
               ].map(f=>(
                 <div key={f.label} style={{ display:"flex", flexDirection:"column", alignItems:"center", textAlign:"center", padding:"0 4px" }}>
-                  <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#8b6914" strokeWidth="1.3" strokeLinecap="round" style={{ marginBottom:8 }}>
+                  <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" strokeWidth="1.3" strokeLinecap="round" style={{ marginBottom:8 }}>
                     <path d={f.d}/>
                   </svg>
-                  <div style={{ fontFamily:"'Cinzel',serif", fontSize:11, fontWeight:700, color:"#8b6914", letterSpacing:"1px", marginBottom:6 }}>{f.label}</div>
-                  <p style={{ fontFamily:"'EB Garamond',serif", fontSize:13, color:"#3d2b0e", lineHeight:1.5 }}>{f.cap}</p>
+                  <div style={{ fontFamily:"'Cinzel',serif", fontSize:11, fontWeight:700, color:"#c9a84c", letterSpacing:"1px", marginBottom:6 }}>{f.label}</div>
+                  <p style={{ fontFamily:"'EB Garamond',serif", fontSize:13, color:"#94a3b8", lineHeight:1.5 }}>{f.cap}</p>
                 </div>
               ))}
             </div>
@@ -180,8 +185,8 @@ export default function Home() {
       {/* ══════════════════════════════════
           EVENT HIGHLIGHTS
       ══════════════════════════════════ */}
-      <section id="highlights" className="px-6 py-12 md:px-8 md:py-16" style={{ width:"100%", backgroundColor:C.parchment, backgroundImage:PARCH_TEX, borderTop:`1px solid ${C.goldDk}` }}>
-        <SectionHeading text="Event Highlights" />
+      <section id="highlights" className="px-6 py-12 md:px-8 md:py-16" style={{ width:"100%", backgroundColor:"#111827", borderTop:`1px solid rgba(201,168,76,0.15)` }}>
+        <SectionHeading text="Event Highlights" variant="cyber" />
         <div style={{ display:"flex", gap:24, flexWrap:"nowrap", overflowX:"auto", paddingBottom:24, paddingTop:12, scrollbarWidth:"thin" }}>
           {[
             { d:"M3 3h8v8H3z M13 3h8v8h-8z M3 13h8v8H3z M17 17h.01", title:"CTF CHALLENGE",  desc:"Test your hacking skills in our Capture The Flag competition." },
@@ -198,8 +203,8 @@ export default function Home() {
       {/* ══════════════════════════════════
           EVENT SCHEDULE
       ══════════════════════════════════ */}
-      <section id="schedule" className="px-6 py-10 md:px-8 md:py-12" style={{ width:"100%", backgroundColor:C.parchmentLt, backgroundImage:PARCH_TEX, borderTop:`1px solid ${C.goldDk}` }}>
-        <SectionHeading text="Event Schedule" />
+      <section id="schedule" className="px-6 py-10 md:px-8 md:py-12" style={{ width:"100%", backgroundColor:"#0d1424", borderTop:`1px solid ${C.goldDk}` }}>
+        <SectionHeading text="Event Schedule" variant="gold" />
         <div style={{ border:`1px solid ${C.gold}`, padding:"32px 24px", position:"relative" }}>
           <div style={{ position:"relative" }}>
             {/* Connecting line */}
@@ -220,7 +225,7 @@ export default function Home() {
           CTA BANNER
       ══════════════════════════════════ */}
       <section className="px-6 py-10 md:px-8 md:py-12" style={{
-        width:"100%", backgroundColor:"#2a1a06", backgroundImage:LEATHER_TEX,
+        width:"100%", backgroundColor:"#060b14", backgroundImage:LEATHER_TEX,
         borderTop:`1px solid ${C.goldDk}`,
         textAlign:"center", position:"relative", overflow:"hidden",
       }}>
@@ -262,12 +267,12 @@ export default function Home() {
           </p>
           <h2 style={{
             fontFamily:"'Cinzel',serif", fontWeight:900, fontSize:"clamp(22px,3vw,36px)",
-            letterSpacing:"2px", color:C.gold, textTransform:"uppercase",
-            textShadow:`0 0 20px rgba(201,168,76,0.25)`, marginBottom:28,
+            letterSpacing:"2px", color:"#f0f6ff", textTransform:"uppercase",
+            textShadow:`0 0 40px rgba(14,165,233,0.3)`, marginBottom:28,
           }}>
             BE A PART OF THE LEGACY.
           </h2>
-          <GoldBtn href="/contact">REGISTER NOW</GoldBtn>
+          <GoldBtn href="/contact" variant="cyber">REGISTER NOW</GoldBtn>
         </div>
       </section>
     </>

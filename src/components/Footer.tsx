@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 
 const GOLD = "#c9a84c";
@@ -8,14 +9,14 @@ const WHITE_WM = "#f5e6c8";
 export default function Footer() {
   return (
     <footer style={{
-      backgroundColor: FOOTER_BG,
+      backgroundColor: "#060b14",
       backgroundImage:`linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='t'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23t)' opacity='0.07'/%3E%3C/svg%3E")`,
-      borderTop:`2px solid ${GOLD_DK}`,
+      borderTop:`2px solid rgba(14,165,233,0.2)`,
       padding:"48px 40px 28px",
       position:"relative",
       zIndex:1,
     }}>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.8fr_1fr_1fr_1.4fr] gap-8 mb-8" style={{ maxWidth:1060, margin:"0 auto" }}>
+      <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(200px, 1fr))", gap:32, maxWidth:1060, margin:"0 auto", marginBottom:32 }}>
 
         {/* Logo column */}
         <div>
@@ -38,7 +39,7 @@ export default function Footer() {
           <ul style={{ listStyle:"none" }}>
             {[["Home","/"],["About Event","/about"],["Schedule","/schedule"],["Events","/events"]].map(([name,href])=>(
               <li key={name} style={{ marginBottom:10 }}>
-                <Link href={href} style={{ fontFamily:"'EB Garamond',serif", fontSize:14, color: GOLD, opacity:0.75, textDecoration:"none" }}>{name}</Link>
+                <Link href={href} style={{ fontFamily:"'EB Garamond',serif", fontSize:14, color: "#94a3b8", textDecoration:"none" }}>{name}</Link>
               </li>
             ))}
           </ul>
@@ -50,7 +51,7 @@ export default function Footer() {
           <ul style={{ listStyle:"none" }}>
             {[["FAQ","/faq"],["Contact Us","/contact"],["Venue Map","/contact"],["Code of Conduct","/conduct"]].map(([name,href])=>(
               <li key={name} style={{ marginBottom:10 }}>
-                <Link href={href} style={{ fontFamily:"'EB Garamond',serif", fontSize:14, color: GOLD, opacity:0.75, textDecoration:"none" }}>{name}</Link>
+                <Link href={href} style={{ fontFamily:"'EB Garamond',serif", fontSize:14, color: "#94a3b8", textDecoration:"none" }}>{name}</Link>
               </li>
             ))}
           </ul>
@@ -65,9 +66,9 @@ export default function Footer() {
               style={{ flex:1, backgroundColor:"#1a1008", border:`1px solid ${GOLD_DK}`, borderRight:"none", padding:"0 10px", fontFamily:"'Cinzel',serif", fontSize:10, color: GOLD, outline:"none", borderRadius:0 }}
             />
             <button style={{
-              backgroundColor:"#3a2a08", border:`1px solid ${GOLD_DK}`,
+              backgroundColor:"#0369a1", border:`1px solid #0ea5e9`,
               padding:"0 14px", fontFamily:"'Cinzel',serif", fontSize:10, letterSpacing:"1px",
-              color: GOLD, cursor:"pointer", height:36
+              color: "#f0f6ff", cursor:"pointer", height:36
             }}>JOIN</button>
           </div>
           <div style={{ display:"flex", gap:16, marginTop:14 }}>
@@ -79,7 +80,7 @@ export default function Footer() {
       </div>
 
       {/* Gold rule + copyright */}
-      <div style={{ height:1, background:`linear-gradient(to right, transparent, ${GOLD_DK} 20%, ${GOLD_DK} 80%, transparent)`, marginBottom:16 }}/>
+      <div style={{ height:1, background:`linear-gradient(to right, transparent, #0369a1 20%, #0369a1 80%, transparent)`, marginBottom:16 }}/>
       <div style={{ textAlign:"center", fontFamily:"'Cinzel',serif", fontSize:9, letterSpacing:"2px", color: GOLD, opacity:0.45, textTransform:"uppercase" }}>
         © {new Date().getFullYear()} AstraSec — SOCS (Society Of CyberSecurity Club). All Rights Reserved.
       </div>

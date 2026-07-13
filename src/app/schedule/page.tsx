@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { C, PARCH_TEX, PageHero } from "@/lib/design";
+import { PageHero } from "@/lib/design";
 
 const SCHEDULE = {
   "DAY 1 — 25 JULY": [
@@ -36,13 +36,13 @@ export default function SchedulePage() {
 
       <section style={{ width:"100%", padding:"0 24px", marginBottom:52 }}>
         {/* Day Tab Switcher */}
-        <div style={{ display:"flex", border:`1px solid ${C.gold}`, backgroundColor:C.cardBg, marginBottom:32, overflowX:"auto" }}>
+        <div style={{ display:"flex", border:`1px solid rgba(14,165,233,0.3)`, backgroundColor:"#0f172a", marginBottom:32, overflowX:"auto" }}>
           {tabs.map(tab => (
             <button key={tab} onClick={() => setActiveTab(tab)} style={{
               flex:1, padding:"16px 24px", fontFamily:"'Cinzel',serif", fontSize:12, letterSpacing:"2px",
-              color: activeTab === tab ? "#1a1008" : C.gold,
-              backgroundColor: activeTab === tab ? C.gold : "transparent",
-              border:"none", borderRight:`1px solid ${C.gold}`,
+              color: activeTab === tab ? "#06090f" : "#94a3b8",
+              backgroundColor: activeTab === tab ? "#0ea5e9" : "transparent",
+              border:"none", borderRight:`1px solid rgba(14,165,233,0.2)`,
               cursor:"pointer", transition:"all 0.2s ease", whiteSpace:"nowrap"
             }}>
               {tab}
@@ -53,24 +53,24 @@ export default function SchedulePage() {
         {/* Timeline */}
         <div style={{ position:"relative", paddingLeft:20 }}>
           {/* Vertical line */}
-          <div style={{ position:"absolute", top:0, bottom:0, left:104, width:2, backgroundColor:C.gold }}/>
+          <div style={{ position:"absolute", top:0, bottom:0, left:104, width:2, backgroundColor:"#0ea5e9", opacity:0.4 }}/>
           
           {SCHEDULE[activeTab as keyof typeof SCHEDULE].map((ev, i) => (
             <div key={i} style={{
               display:"flex", alignItems:"flex-start", marginBottom:0,
-              backgroundColor: i % 2 === 0 ? C.parchmentLt : C.parchment,
-              borderBottom:`1px solid ${C.goldDk}`, padding:"24px 0",
+              backgroundColor: i % 2 === 0 ? "#0d1424" : "#111827",
+              borderBottom:`1px solid rgba(14,165,233,0.1)`, padding:"24px 0",
               position:"relative"
             }}>
-              <div style={{ width:84, textAlign:"right", fontFamily:"'Cinzel',serif", fontSize:12, color:C.goldDk, paddingTop:2 }}>
+              <div style={{ width:84, textAlign:"right", fontFamily:"'Cinzel',serif", fontSize:12, color:"#0ea5e9", paddingTop:2 }}>
                 {ev.time}
               </div>
-              <div style={{ width:12, height:12, borderRadius:"50%", backgroundColor:C.gold, margin:"6px 20px 0 20px", position:"relative", zIndex:1 }}/>
+              <div style={{ width:12, height:12, borderRadius:"50%", backgroundColor:"#0ea5e9", margin:"6px 20px 0 20px", position:"relative", zIndex:1, boxShadow:"0 0 8px rgba(14,165,233,0.6)" }}/>
               <div style={{ flex:1 }}>
-                <div style={{ fontFamily:"'Cinzel',serif", fontWeight:700, fontSize:15, color:C.goldDk, marginBottom:8 }}>{ev.title}</div>
+                <div style={{ fontFamily:"'Cinzel',serif", fontWeight:700, fontSize:15, color:"#f0f6ff", marginBottom:8 }}>{ev.title}</div>
                 <div style={{ display:"flex", gap:8, flexWrap:"wrap" }}>
-                  <span style={{ backgroundColor:C.cardBg, border:`1px solid ${C.gold}`, color:C.gold, fontFamily:"'Cinzel',serif", fontSize:9, padding:"3px 8px", letterSpacing:"1px" }}>📍 {ev.loc}</span>
-                  {ev.spk && <span style={{ backgroundColor:C.cardBg, border:`1px solid ${C.gold}`, color:C.gold, fontFamily:"'Cinzel',serif", fontSize:9, padding:"3px 8px", letterSpacing:"1px" }}>🎤 {ev.spk}</span>}
+                  <span style={{ backgroundColor:"#0f172a", border:`1px solid rgba(14,165,233,0.3)`, color:"#94a3b8", fontFamily:"'Cinzel',serif", fontSize:9, padding:"3px 8px", letterSpacing:"1px" }}>📍 {ev.loc}</span>
+                  {ev.spk && <span style={{ backgroundColor:"#0f172a", border:`1px solid rgba(201,168,76,0.2)`, color:"#c9a84c", fontFamily:"'Cinzel',serif", fontSize:9, padding:"3px 8px", letterSpacing:"1px" }}>🎤 {ev.spk}</span>}
                 </div>
               </div>
             </div>
