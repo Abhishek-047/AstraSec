@@ -60,7 +60,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Sidebar margin on desktop */}
         <style>{`
           @media (min-width: 1024px) {
-            #main-col { margin-left: 220px; }
+            #main-col { margin-left: 260px; }
           }
         `}</style>
       </body>
