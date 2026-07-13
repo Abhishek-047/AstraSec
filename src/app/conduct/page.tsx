@@ -50,7 +50,7 @@ export default function ConductPage() {
       <PageHero title="CODE OF CONDUCT" subtitle="With Great Power Comes Great Responsibility." />
 
       {/* Preamble */}
-      <section style={{ width:"100%", backgroundColor:"#0d1424", padding:"44px 32px", borderTop:`1px solid #c9a84c` }}>
+      <section style={{ width:"100%", backgroundColor:"#0d1424", padding:"44px 32px", borderTop:`1px solid #8b6914` }}>
         <SectionHeading text="The Pledge" variant="gold" />
         <div style={{ maxWidth:720, margin:"0 auto", textAlign:"center" }}>
           <p style={{ fontFamily:"'EB Garamond',serif", fontStyle:"italic", fontSize:18, color:"#94a3b8", lineHeight:1.9, marginBottom:16 }}>
@@ -66,13 +66,13 @@ export default function ConductPage() {
       </section>
 
       {/* Rules grid */}
-      <section style={{ width:"100%", backgroundColor:"#111827", padding:"44px 32px", borderTop:`1px solid #c9a84c` }}>
+      <section style={{ width:"100%", backgroundColor:"#111827", padding:"44px 32px", borderTop:`1px solid #8b6914` }}>
         <SectionHeading text="Articles of Conduct" variant="gold" />
         <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill, minmax(300px, 1fr))", gap:24 }}>
           {rules.map(r => (
             <div key={r.num} style={{
               backgroundColor:"#0f172a",
-              border:`1px solid #c9a84c`,
+              border:`1px solid #8b6914`,
               padding:"28px 24px",
               position:"relative",
             }}>
@@ -122,7 +122,7 @@ export default function ConductPage() {
       {/* Closing declaration */}
       <section style={{
         width:"100%", backgroundColor:"#060b14", backgroundImage:LEATHER_TEX,
-        borderTop:`1px solid #c9a84c`, padding:"44px 32px", textAlign:"center", position:"relative", overflow:"hidden"
+        borderTop:`1px solid #8b6914`, padding:"44px 32px", textAlign:"center", position:"relative", overflow:"hidden"
       }}>
         <div style={{ position:"absolute", inset:8, border:"1px solid rgba(139,105,20,0.3)", pointerEvents:"none" }}>
           {[{top:6,left:6},{top:6,right:6},{bottom:6,left:6},{bottom:6,right:6}].map((pos,i) => (
@@ -149,7 +149,7 @@ export default function ConductPage() {
           <a href="/contact" style={{
             display:"inline-block", fontFamily:"'Cinzel',serif", fontSize:11, fontWeight:700,
             letterSpacing:"2px", textTransform:"uppercase", padding:"12px 32px",
-            border:"1.5px solid #c9a84c", color:"#c9a84c", backgroundColor:"rgba(139,105,20,0.08)",
+            border:"1.5px solid #8b6914", color:"#c9a84c", backgroundColor:"rgba(139,105,20,0.08)",
             textDecoration:"none", cursor:"pointer"
           }}>
             REGISTER NOW →
