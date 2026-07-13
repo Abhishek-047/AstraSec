@@ -73,7 +73,7 @@ export default function SponsorsPage() {
           <p style={{ fontFamily:"'EB Garamond',serif", fontSize:16, color:C.lightText, opacity:0.8, maxWidth:500, margin:"0 auto 32px" }}>
             Align your brand with the next generation of cybersecurity leaders. Explore our sponsorship packages to find the perfect fit for your organization.
           </p>
-          <GoldBtn>BECOME A SPONSOR</GoldBtn>
+          <GoldBtn href="/contact">BECOME A SPONSOR</GoldBtn>
         </div>
       </section>
     </>

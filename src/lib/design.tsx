@@ -123,21 +123,38 @@ export function HighlightCard({ icon, title, desc }: { icon: React.ReactNode; ti
 }
 
 /** Gold primary button */
-export function GoldBtn({ children, outline=false }: { children: React.ReactNode; outline?: boolean }) {
+export function GoldBtn({
+  children, outline=false, href, onClick, type="button"
+}: {
+  children: React.ReactNode;
+  outline?: boolean;
+  href?: string;
+  onClick?: () => void;
+  type?: "button" | "submit" | "reset";
+}) {
+  const style: React.CSSProperties = {
+    fontFamily:"'Cinzel',serif", fontSize:11, fontWeight:700,
+    letterSpacing:"2px", textTransform:"uppercase",
+    padding:"12px 28px",
+    border:`1.5px solid ${C.gold}`,
+    color:C.gold,
+    backgroundColor: outline ? "transparent" : "rgba(42,26,6,0.9)",
+    cursor:"pointer",
+    transition:"all 0.2s ease",
+    borderRadius:0,
+    textDecoration:"none",
+    display:"inline-block",
+  };
+  const hoverIn  = (e: React.MouseEvent<HTMLElement>) => { const el=e.currentTarget; el.style.backgroundColor="rgba(201,168,76,0.12)"; el.style.boxShadow="0 0 16px rgba(201,168,76,0.3)"; };
+  const hoverOut = (e: React.MouseEvent<HTMLElement>) => { const el=e.currentTarget; el.style.backgroundColor=outline?"transparent":"rgba(42,26,6,0.9)"; el.style.boxShadow="none"; };
+  if (href) {
+    return (
+      <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer"
+        style={style} onMouseEnter={hoverIn} onMouseLeave={hoverOut}>{children}</a>
+    );
+  }
   return (
-    <button style={{
-      fontFamily:"'Cinzel',serif", fontSize:11, fontWeight:700,
-      letterSpacing:"2px", textTransform:"uppercase",
-      padding:"12px 28px",
-      border:`1.5px solid ${C.gold}`,
-      color:C.gold,
-      backgroundColor: outline ? "transparent" : "rgba(42,26,6,0.9)",
-      cursor:"pointer",
-      transition:"all 0.2s ease",
-      borderRadius:0,
-    }}
-    onMouseEnter={e=>{const el=e.currentTarget;el.style.backgroundColor="rgba(201,168,76,0.12)";el.style.boxShadow="0 0 16px rgba(201,168,76,0.3)"}}
-    onMouseLeave={e=>{const el=e.currentTarget;el.style.backgroundColor=outline?"transparent":"rgba(42,26,6,0.9)";el.style.boxShadow="none"}}
-    >{children}</button>
+    <button type={type} style={style} onClick={onClick}
+      onMouseEnter={hoverIn} onMouseLeave={hoverOut}>{children}</button>
   );
 }

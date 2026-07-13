@@ -41,17 +41,17 @@ function EventCard({ tag, icon, title, desc, meta }: { tag:string; icon:string; 
         <div style={{ display:"flex", alignItems:"center", gap:6 }}><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> {meta.split('|')[1]}</div>
       </div>
       
-      <button style={{
+      <a href="/contact" style={{
         marginTop:20, width:"100%", padding:"10px",
         backgroundColor:"transparent", border:`1px solid ${C.gold}`, color:C.gold,
         fontFamily:"'Cinzel',serif", fontSize:11, letterSpacing:"2px", cursor:"pointer",
-        transition:"all 0.2s ease"
+        transition:"all 0.2s ease", textDecoration:"none", textAlign:"center", display:"block"
       }}
       onMouseEnter={e=>e.currentTarget.style.backgroundColor="rgba(201,168,76,0.1)"}
       onMouseLeave={e=>e.currentTarget.style.backgroundColor="transparent"}
       >
-        LEARN MORE →
-      </button>
+        REGISTER →
+      </a>
     </div>
   );
 }

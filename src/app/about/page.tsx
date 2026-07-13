@@ -1,43 +1,71 @@
+"use client";
 import { C, PARCH_TEX, LEATHER_TEX, SectionHeading, PageHero, GoldBtn } from "@/lib/design";
 
 function StatBox({ num, label }: { num: string; label: string }) {
   return (
-    <div style={{ flex:1, textAlign:"center", padding:"0 16px", borderRight:`1px solid ${C.goldDk}` }}>
-      <div style={{ fontFamily:"'Cinzel',serif", fontWeight:900, fontSize:48, color:C.gold, lineHeight:1 }}>{num}</div>
-      <div style={{ fontFamily:"'Cinzel',serif", fontSize:11, letterSpacing:"3px", color:C.goldMuted, marginTop:8 }}>{label}</div>
+    <div style={{ flex:1, textAlign:"center", padding:"0 16px", minWidth: 120 }}>
+      <div style={{ fontFamily:"'Cinzel',serif", fontWeight:900, fontSize:48, color:"#3a2a08", lineHeight:1 }}>{num}</div>
+      <div style={{ fontFamily:"'Cinzel',serif", fontSize:11, letterSpacing:"3px", color:"#5c4018", marginTop:8 }}>{label}</div>
     </div>
   );
 }
 
 function TeamCard({ name, role }: { name: string; role: string }) {
+  const initials = name.split(" ").map(n => n[0]).join("");
   return (
-    <div style={{ backgroundColor:C.cardBg, backgroundImage:LEATHER_TEX, border:`1px solid ${C.gold}`, padding:"20px 16px", textAlign:"center", position:"relative" }}>
-      {/* Corner brackets */}
-      {["tl","tr","bl","br"].map(c=>(
-        <div key={c} style={{ position:"absolute",
-          top:c.startsWith("t")?5:"auto", bottom:c.startsWith("b")?5:"auto",
-          left:c.endsWith("l")?5:"auto", right:c.endsWith("r")?5:"auto",
-          width:8, height:8,
-          borderTop:c.startsWith("t")?`1px solid ${C.goldDk}`:"none",
-          borderBottom:c.startsWith("b")?`1px solid ${C.goldDk}`:"none",
-          borderLeft:c.endsWith("l")?`1px solid ${C.goldDk}`:"none",
-          borderRight:c.endsWith("r")?`1px solid ${C.goldDk}`:"none",
-        }}/>
-      ))}
-      {/* Avatar */}
-      <div style={{ width:80, height:80, borderRadius:"50%", border:`2px solid ${C.gold}`, margin:"0 auto 12px", display:"flex", alignItems:"center", justifyContent:"center", backgroundColor:"#2a1a06" }}>
-        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke={C.gold} strokeWidth="1.2">
-          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11A4 4 0 1 0 12 3a4 4 0 0 0 0 8z"/>
+    <div style={{ padding:"12px 8px", textAlign:"center", display:"flex", flexDirection:"column", alignItems:"center" }}>
+      {/* Animated SVG Avatar */}
+      <div style={{ position:"relative", width:100, height:100, margin:"0 auto 14px" }}>
+        <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          {/* Outer pulsing ring */}
+          <circle cx="50" cy="50" r="46" stroke="#c9a84c" strokeWidth="0.8" strokeDasharray="4 3" opacity="0.4">
+            <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="18s" repeatCount="indefinite"/>
+          </circle>
+          {/* Mid ring */}
+          <circle cx="50" cy="50" r="40" stroke="#8b6914" strokeWidth="0.5" opacity="0.5">
+            <animate attributeName="r" values="39;41;39" dur="3s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.3;0.7;0.3" dur="3s" repeatCount="indefinite"/>
+          </circle>
+          {/* Inner circle background */}
+          <circle cx="50" cy="50" r="34" fill="#1a1008"/>
+          <circle cx="50" cy="50" r="34" stroke="#c9a84c" strokeWidth="1.2"/>
+          {/* Corner circuit marks */}
+          <path d="M20 20 h8 M20 20 v8" stroke="#c9a84c" strokeWidth="0.8" opacity="0.6"/>
+          <path d="M80 20 h-8 M80 20 v8" stroke="#c9a84c" strokeWidth="0.8" opacity="0.6"/>
+          <path d="M20 80 h8 M20 80 v-8" stroke="#c9a84c" strokeWidth="0.8" opacity="0.6"/>
+          <path d="M80 80 h-8 M80 80 v-8" stroke="#c9a84c" strokeWidth="0.8" opacity="0.6"/>
+          {/* Scan line */}
+          <line x1="17" y1="50" x2="83" y2="50" stroke="#c9a84c" strokeWidth="0.6" opacity="0.25">
+            <animate attributeName="y1" values="22;78;22" dur="2.5s" repeatCount="indefinite"/>
+            <animate attributeName="y2" values="22;78;22" dur="2.5s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0;0.35;0" dur="2.5s" repeatCount="indefinite"/>
+          </line>
+          {/* Initials */}
+          <text x="50" y="56" textAnchor="middle" fontFamily="Cinzel, serif" fontSize="18" fontWeight="700" fill="#c9a84c" letterSpacing="2">{initials}</text>
+          {/* Bottom status dot */}
+          <circle cx="50" cy="86" r="3" fill="#4caf50">
+            <animate attributeName="opacity" values="1;0.3;1" dur="1.8s" repeatCount="indefinite"/>
+          </circle>
         </svg>
       </div>
-      <div style={{ fontFamily:"'Cinzel',serif", fontWeight:700, fontSize:13, color:C.gold, letterSpacing:"1px", marginBottom:4 }}>{name}</div>
-      <div style={{ height:1, background:C.goldDk, margin:"8px 0" }}/>
-      <div style={{ fontFamily:"'EB Garamond',serif", fontStyle:"italic", fontSize:13, color:C.goldMuted }}>{role}</div>
-      <div style={{ display:"flex", justifyContent:"center", gap:8, marginTop:10 }}>
-        {["LI","TW","IG"].map(s=>(
-          <div key={s} style={{ width:20, height:20, borderRadius:"50%", border:`1px solid ${C.goldDk}`, display:"flex", alignItems:"center", justifyContent:"center" }}>
-            <span style={{ fontFamily:"'Cinzel',serif", fontSize:7, color:C.goldMuted }}>{s}</span>
-          </div>
+      <div style={{ fontFamily:"'Cinzel',serif", fontWeight:700, fontSize:13, color:"#3a2a08", letterSpacing:"1px", marginBottom:4 }}>{name}</div>
+      <div style={{ fontFamily:"'EB Garamond',serif", fontStyle:"italic", fontSize:13, color:"#5c4018", marginBottom:10 }}>{role}</div>
+      <div style={{ display:"flex", justifyContent:"center", gap:10 }}>
+        {[
+          { l:"LI", href:"https://www.linkedin.com/company/society-of-cyber-security/" },
+          { l:"GH", href:"https://github.com/Society-of-Cyber-Security" },
+          { l:"IG", href:"https://www.instagram.com/socs_ru/" },
+        ].map(s=>(
+          <a key={s.l} href={s.href} target="_blank" rel="noopener noreferrer" style={{
+            width:22, height:22, borderRadius:"50%", border:"1px solid #8b6914",
+            display:"flex", alignItems:"center", justifyContent:"center", textDecoration:"none",
+            transition:"all 0.2s ease",
+          }}
+          onMouseEnter={e=>{e.currentTarget.style.borderColor="#c9a84c"; e.currentTarget.style.backgroundColor="rgba(201,168,76,0.1)";}}
+          onMouseLeave={e=>{e.currentTarget.style.borderColor="#8b6914"; e.currentTarget.style.backgroundColor="transparent";}}
+          >
+            <span style={{ fontFamily:"'Cinzel',serif", fontSize:7, color:"#5c4018", letterSpacing:"0.5px" }}>{s.l}</span>
+          </a>
         ))}
       </div>
     </div>
@@ -127,8 +155,8 @@ export default function AboutPage() {
       </section>
 
       {/* Stats */}
-      <section className="px-6 py-10 md:px-8 md:py-12" style={{ width:"100%", backgroundColor:C.footerBg, backgroundImage:LEATHER_TEX, borderTop:`1px solid ${C.gold}`, borderBottom:`1px solid ${C.gold}`, marginBottom:52 }}>
-        <div style={{ display:"flex", flexWrap:"wrap", gap:16, maxWidth:900, margin:"0 auto", justifyContent:"center" }}>
+      <section className="px-6 py-10 md:px-8 md:py-12" style={{ width:"100%", marginBottom:52 }}>
+        <div style={{ display:"flex", flexWrap:"wrap", gap:16, maxWidth:900, margin:"0 auto", justifyContent:"space-between" }}>
           {[["500+","MEMBERS"],["25+","EVENTS"],["10+","WORKSHOPS"],["3","YEARS"]].map(([n,l],i)=>(
             <StatBox key={l} num={n} label={l}/>
           ))}
@@ -136,9 +164,9 @@ export default function AboutPage() {
       </section>
 
       {/* Team */}
-      <section className="px-6 py-10 md:px-8 md:py-12" style={{ width:"100%", marginBottom:52 }}>
+      <section className="px-6 md:px-8" style={{ width:"100%", marginBottom:80 }}>
         <SectionHeading text="Our Team" />
-        <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(140px,1fr))", gap:20 }}>
+        <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(140px, 1fr))", gap:20, maxWidth:1100, margin:"0 auto" }}>
           {[
             { name:"Arjun Sharma",   role:"Club President" },
             { name:"Priya Gupta",    role:"Vice President" },
@@ -151,13 +179,12 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="px-6 py-10 md:px-8 md:py-12" style={{ width:"100%", backgroundColor:C.footerBg, backgroundImage:LEATHER_TEX, border:`1.5px solid ${C.goldDk}`, textAlign:"center", position:"relative" }}>
-        <div style={{ position:"absolute", inset:7, border:`1px solid rgba(139,105,20,0.4)`, pointerEvents:"none" }}/>
+      <section className="px-6 py-10 md:px-8 md:py-12" style={{ width:"100%", borderTop:`1px solid ${C.goldDk}`, borderBottom:`1px solid ${C.goldDk}`, textAlign:"center", position:"relative" }}>
         <div style={{ position:"relative", zIndex:1 }}>
-          <h2 style={{ fontFamily:"'Cinzel',serif", fontWeight:900, fontSize:28, color:C.gold, letterSpacing:"2px", textTransform:"uppercase", marginBottom:20 }}>
+          <h2 style={{ fontFamily:"'Cinzel',serif", fontWeight:900, fontSize:28, color:"#3a2a08", letterSpacing:"2px", textTransform:"uppercase", marginBottom:24 }}>
             JOIN THE LEGACY. BECOME A MEMBER.
           </h2>
-          <GoldBtn>JOIN NOW</GoldBtn>
+          <GoldBtn href="/contact">JOIN NOW</GoldBtn>
         </div>
       </section>
     </>

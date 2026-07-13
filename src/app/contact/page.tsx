@@ -69,45 +69,38 @@ export default function ContactPage() {
           
           <div style={{ display:"flex", gap:12, alignItems:"flex-start", marginBottom:20, borderBottom:`1px solid ${C.goldDk}`, paddingBottom:20 }}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={C.gold} strokeWidth="1.5" style={{ flexShrink:0, marginTop:2 }}><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            <div style={{ fontFamily:"'EB Garamond',serif", fontSize:15, color:C.bodyText }}>contact@codexsecuritas.in</div>
+            <div style={{ fontFamily:"'EB Garamond',serif", fontSize:15, color:C.bodyText }}>Socs.club@rishihood.edu.in</div>
           </div>
           
           <div style={{ display:"flex", gap:12, alignItems:"flex-start", marginBottom:20, borderBottom:`1px solid ${C.goldDk}`, paddingBottom:20 }}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={C.gold} strokeWidth="1.5" style={{ flexShrink:0, marginTop:2 }}><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <div style={{ fontFamily:"'EB Garamond',serif", fontSize:15, color:C.bodyText }}>Technology Block Auditorium,<br/>Jaipur, Rajasthan, India</div>
+            <div style={{ fontFamily:"'EB Garamond',serif", fontSize:15, color:C.bodyText }}>Technology Block Auditorium,<br/>Sonipat, Haryana, Delhi NCR, India</div>
           </div>
           
           <div style={{ display:"flex", gap:12, alignItems:"flex-start", marginBottom:32, borderBottom:`1px solid ${C.goldDk}`, paddingBottom:20 }}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={C.gold} strokeWidth="1.5" style={{ flexShrink:0, marginTop:2 }}><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            <div style={{ fontFamily:"'EB Garamond',serif", fontSize:15, color:C.bodyText }}>+91 98765 43210</div>
+            <div style={{ fontFamily:"'EB Garamond',serif", fontSize:15, color:C.bodyText }}>‭+91 88152 88895‬<br /> +91 8999099822 <br /> +91 7319956809</div>
           </div>
           
           <h2 style={{ fontFamily:"'Cinzel',serif", fontSize:14, color:C.goldDk, letterSpacing:"2px", marginBottom:16 }}>FOLLOW THE LEGACY</h2>
           <div style={{ display:"flex", gap:10 }}>
-            {["FB","IG","TW","LI"].map(s=>(
-              <button key={s} style={{
+            {[
+              { label: "GITHUB", href: "https://github.com/Society-of-Cyber-Security" },
+              { label: "LINKEDIN", href: "https://www.linkedin.com/company/society-of-cyber-security/" },
+              { label: "INSTAGRAM", href: "https://www.instagram.com/socs_ru/" }
+            ].map(s=>(
+              <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" style={{
                 flex:1, padding:"10px 0", backgroundColor:C.cardBg, border:`1px solid ${C.gold}`,
                 fontFamily:"'Cinzel',serif", fontSize:12, color:C.gold, cursor:"pointer",
-                transition:"all 0.2s ease"
+                transition:"all 0.2s ease", textDecoration:"none", textAlign:"center", display:"block"
               }}
               onMouseEnter={e=>e.currentTarget.style.backgroundColor="rgba(201,168,76,0.1)"}
               onMouseLeave={e=>e.currentTarget.style.backgroundColor=C.cardBg}
               >
-                {s}
-              </button>
+                {s.label}
+              </a>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Map Placeholder */}
-      <section style={{ width:"100%", padding:"0 24px", marginBottom:64 }}>
-        <div style={{
-          width:"100%", height:260, backgroundColor:C.cardBg, backgroundImage:LEATHER_TEX,
-          border:`1px solid ${C.gold}`, display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center"
-        }}>
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke={C.goldDk} strokeWidth="1.5" style={{ marginBottom:12 }}><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          <div style={{ fontFamily:"'Cinzel',serif", fontSize:14, color:C.gold, letterSpacing:"2px" }}>TECHNOLOGY BLOCK AUDITORIUM, JAIPUR</div>
         </div>
       </section>
     </>

@@ -137,9 +137,17 @@ export default function ConductPage() {
           <h2 style={{ fontFamily:"'Cinzel',serif", fontWeight:900, fontSize:22, color:C.gold, letterSpacing:"2px", marginBottom:16 }}>
             I PLEDGE TO UPHOLD THIS CODE
           </h2>
-          <p style={{ fontFamily:"'EB Garamond',serif", fontStyle:"italic", fontSize:16, color:C.lightText, opacity:0.75, maxWidth:500, margin:"0 auto" }}>
+          <p style={{ fontFamily:"'EB Garamond',serif", fontStyle:"italic", fontSize:16, color:C.lightText, opacity:0.75, maxWidth:500, margin:"0 auto 28px" }}>
             By participating in Legacy Secured, I agree to abide by all articles of this Code of Conduct and understand the consequences of violation.
           </p>
+          <a href="/contact" style={{
+            display:"inline-block", fontFamily:"'Cinzel',serif", fontSize:11, fontWeight:700,
+            letterSpacing:"2px", textTransform:"uppercase", padding:"12px 32px",
+            border:"1.5px solid #c9a84c", color:"#c9a84c", backgroundColor:"rgba(42,26,6,0.9)",
+            textDecoration:"none", cursor:"pointer"
+          }}>
+            REGISTER NOW →
+          </a>
         </div>
       </section>
     </>

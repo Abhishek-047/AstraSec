@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { C, PARCH_TEX, LEATHER_TEX, SectionHeading, HighlightCard, GoldBtn } from "@/lib/design";
 
 /* ── Inline SVG Icons ──────────────────────────────────────── */
@@ -114,85 +113,60 @@ export default function Home() {
             Explore. Learn. Compete.<br/>Join us for an unforgettable journey into cybersecurity and technology.
           </p>
           <div style={{ display:"flex", gap:16, flexWrap:"wrap" }}>
-            <GoldBtn>REGISTER NOW</GoldBtn>
-            <Link href="/events" style={{ textDecoration:"none" }}>
-              <GoldBtn outline>EXPLORE EVENTS</GoldBtn>
-            </Link>
+            <GoldBtn href="/contact">REGISTER NOW</GoldBtn>
+            <GoldBtn href="/events" outline>EXPLORE EVENTS</GoldBtn>
           </div>
         </div>
       </section>
 
-      {/* ══════════════════════════════════
-          ABOUT SECTION
-      ══════════════════════════════════ */}
+      {/* ABOUT SECTION */}
       <section id="about" className="px-6 py-10 md:px-8 md:py-12" style={{ width:"100%", backgroundColor:C.parchmentLt, backgroundImage:PARCH_TEX, marginBottom:0, borderTop:`1px solid ${C.goldDk}` }}>
         <SectionHeading text="About The Event" />
-        <div style={{ display:"flex", gap:36, alignItems:"flex-start", flexWrap:"wrap" }}>
-          {/* Sketch illustration */}
-          <div style={{ flex:"0 0 200px", display:"flex", justifyContent:"center" }}>
-            <svg width="190" height="210" viewBox="0 0 190 210" fill="none">
-              {/* Book stack — 5 books with varying widths/colors */}
-              <rect x="15" y="152" width="155" height="18" rx="2" fill="#8b6914" opacity="0.6" stroke="#c9a84c" strokeWidth="0.8"/>
-              <rect x="25" y="136" width="140" height="18" rx="2" fill="#6b4c18" opacity="0.7" stroke="#c9a84c" strokeWidth="0.8"/>
-              <rect x="10" y="120" width="160" height="18" rx="2" fill="#5c3d10" opacity="0.7" stroke="#c9a84c" strokeWidth="0.8"/>
-              <rect x="30" y="104" width="130" height="18" rx="2" fill="#c9a84c" opacity="0.45" stroke="#c9a84c" strokeWidth="0.8"/>
-              <rect x="20" y="88" width="145" height="18" rx="2" fill="#8b6914" opacity="0.5" stroke="#c9a84c" strokeWidth="0.8"/>
-              {/* Book spines — vertical lines */}
-              <line x1="15" y1="152" x2="15" y2="170" stroke="#c9a84c" strokeWidth="0.5" opacity="0.5"/>
-              <line x1="25" y1="136" x2="25" y2="154" stroke="#c9a84c" strokeWidth="0.5" opacity="0.5"/>
-              {/* Quill pen */}
-              <path d="M130 30 C160 10,175 30,160 70 C148 95,134 110,122 122 L116 104 C130 90,145 68,136 50 Z" fill="#8b6914" opacity="0.4" stroke="#c9a84c" strokeWidth="0.7"/>
-              <line x1="122" y1="122" x2="108" y2="155" stroke="#8b6914" strokeWidth="1.2" opacity="0.5"/>
-              {/* Ink bottle */}
-              <rect x="42" y="158" width="24" height="34" rx="2" fill="#3d2b0e" opacity="0.65" stroke="#c9a84c" strokeWidth="0.8"/>
-              <rect x="47" y="152" x2="14" height="10" rx="1" fill="#c9a84c" opacity="0.4"/>
-              <ellipse cx="54" cy="158" rx="8" ry="4" fill="#c9a84c" opacity="0.3"/>
-              {/* Padlock */}
-              <rect x="128" y="148" width="22" height="17" rx="1.5" fill="none" stroke="#c9a84c" strokeWidth="1.2"/>
-              <path d="M131 148V144A6 6 0 0 1 147 144V148" fill="none" stroke="#c9a84c" strokeWidth="1.2"/>
-              <circle cx="139" cy="157" r="3" fill="none" stroke="#c9a84c" strokeWidth="1.2"/>
-              <line x1="139" y1="157" x2="139" y2="161" stroke="#c9a84c" strokeWidth="1.2"/>
-            </svg>
-          </div>
-
-          <div style={{ flex:1, minWidth:240 }}>
-            <p style={{ fontFamily:"'EB Garamond',serif", fontSize:16, color:C.bodyText, lineHeight:1.8, marginBottom:32 }}>
-              AstraSec presents its annual tech fest focused on cybersecurity and emerging technologies. A platform to learn, collaborate, and compete in an ever-evolving digital world.
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4" style={{ borderTop:`1px solid ${C.gold}`, paddingTop:28 }}>
-              {[
-                { d:"M12 3L20 6V11C20 16,16 19,12 21C8 19,4 16,4 11V6Z M8 13l2 2 5-5", label:"LEARN",    cap:"Gain knowledge from experts" },
-                { d:"M17 20C17 17,14.5 15,12 15C9.5 15,7 17,7 20 M4 20C4 18,6 16,7 15.5 M20 20C20 18,18 16,17 15.5 M12 12A4 4 0 1 1 12 4A4 4 0 0 1 12 12", label:"NETWORK",  cap:"Connect with like-minded people" },
-                { d:"M12 2L15 9L22 9L16.5 14L18.5 21L12 17L5.5 21L7.5 14L2 9L9 9Z",       label:"COMPETE",  cap:"Solve challenges and win rewards" },
-                { d:"M9 18h6M12 2v2M12 18v2M12 6a6 6 0 0 1 0 12 6 6 0 0 1 0-12z", label:"INNOVATE", cap:"Build solutions for tomorrow" },
-              ].map(f=>(
-                <div key={f.label} style={{ display:"flex", flexDirection:"column", alignItems:"center", textAlign:"center", padding:"0 4px" }}>
-                  <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#8b6914" strokeWidth="1.3" strokeLinecap="round" style={{ marginBottom:8 }}>
-                    <path d={f.d}/>
-                  </svg>
-                  <div style={{ fontFamily:"'Cinzel',serif", fontSize:11, fontWeight:700, color:"#8b6914", letterSpacing:"1px", marginBottom:6 }}>{f.label}</div>
-                  <p style={{ fontFamily:"'EB Garamond',serif", fontSize:13, color:"#3d2b0e", lineHeight:1.5 }}>{f.cap}</p>
+        <div style={{ maxWidth:700, margin:"0 auto", textAlign:"center" }}>
+          <p style={{ fontFamily:"'EB Garamond',serif", fontSize:18, color:C.bodyText, lineHeight:1.9, marginBottom:32 }}>
+            AstraSec presents its annual tech fest focused on cybersecurity and emerging technologies. A platform to <em>learn</em>, <em>collaborate</em>, and <em>compete</em> in an ever-evolving digital world.
+          </p>
+          <div style={{ display:"flex", justifyContent:"center", flexWrap:"wrap", gap:20, borderTop:`1px solid ${C.goldDk}`, paddingTop:32 }}>
+            {[
+              { icon:"M12 3L20 6V11C20 16,16 19,12 21C8 19,4 16,4 11V6Z", label:"LEARN",    cap:"Expert-led sessions" },
+              { icon:"M17 20C17 17,14.5 15,12 15C9.5 15,7 17,7 20 M12 12A4 4 0 1 1 12 4", label:"NETWORK",  cap:"Connect & collaborate" },
+              { icon:"M12 2L15 9L22 9L16.5 14L18.5 21L12 17L5.5 21L7.5 14L2 9L9 9Z",       label:"COMPETE",  cap:"Win exciting prizes" },
+              { icon:"M9 18h6M12 2v2M12 18v2M12 6a6 6 0 0 1 0 12",                          label:"INNOVATE", cap:"Build for tomorrow" },
+            ].map(f=>(
+              <div key={f.label} style={{ display:"flex", flexDirection:"column", alignItems:"center", minWidth:110 }}>
+                <div style={{ width:48, height:48, borderRadius:"50%", border:`1px solid ${C.goldDk}`, display:"flex", alignItems:"center", justifyContent:"center", marginBottom:10, backgroundColor:"rgba(139,101,51,0.08)" }}>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={C.goldDk} strokeWidth="1.4" strokeLinecap="round"><path d={f.icon}/></svg>
                 </div>
-              ))}
-            </div>
+                <div style={{ fontFamily:"'Cinzel',serif", fontSize:10, fontWeight:700, color:C.goldDk, letterSpacing:"1.5px", marginBottom:4 }}>{f.label}</div>
+                <p style={{ fontFamily:"'EB Garamond',serif", fontSize:13, color:C.bodyText, lineHeight:1.5, textAlign:"center", maxWidth:100 }}>{f.cap}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ══════════════════════════════════
-          EVENT HIGHLIGHTS
-      ══════════════════════════════════ */}
+      {/* EVENT HIGHLIGHTS */}
       <section id="highlights" className="px-6 py-10 md:px-8 md:py-12" style={{ width:"100%", backgroundColor:C.parchment, backgroundImage:PARCH_TEX, borderTop:`1px solid ${C.goldDk}` }}>
         <SectionHeading text="Event Highlights" />
-        <div style={{ display:"flex", gap:12, flexWrap:"nowrap", overflowX:"auto" }}>
+        <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(180px, 1fr))", gap:16 }}>
           {[
-            { d:"M3 3h8v8H3z M13 3h8v8h-8z M3 13h8v8H3z M17 17h.01", title:"CTF CHALLENGE",  desc:"Test your hacking skills in our Capture The Flag competition." },
-            { d:"M16 18l6-6-6-6 M8 6l-6 6 6 6", title:"WORKSHOPS",      desc:"Hands-on sessions on tools, techniques and technologies." },
-            { d:"M12 2A4 4 0 0 1 16 6V12A4 4 0 0 1 8 12V6A4 4 0 0 1 12 2Z M8 12C8 14.21 9.79 16 12 16C14.21 16 16 14.21 16 12 M12 16V22 M8 22H16", title:"TECH TALKS",      desc:"Insightful talks by industry experts on latest trends." },
-            { d:"M12 9A4 4 0 1 1 12 17A4 4 0 1 1 12 9Z M12 5V9 M5 12H9 M15 12H19 M7 7L9 9 M15 9L17 7 M7 17L9 15 M15 15L17 17",       title:"BUG BOUNTY",      desc:"Find vulnerabilities and earn exciting rewards." },
-            { d:"M14.5 9.5L19 5 M5 19l4.5-4.5 M5 5l14 14 M9.5 9.5L5 5 M19 19l-4.5-4.5",                       title:"CYBER ARENA",     desc:"Compete, collaborate & conquer in the ultimate cyber arena." },
+            { d:"M3 3h8v8H3z M13 3h8v8h-8z M3 13h8v8H3z M17 17h.01",     title:"CTF CHALLENGE",  desc:"Test your hacking skills in our Capture The Flag competition." },
+            { d:"M16 18l6-6-6-6 M8 6l-6 6 6 6",                             title:"WORKSHOPS",      desc:"Hands-on sessions on tools, techniques and technologies." },
+            { d:"M12 2A4 4 0 0 1 16 6V12A4 4 0 0 1 8 12V6A4 4 0 0 1 12 2Z M12 16V22 M8 22H16", title:"TECH TALKS", desc:"Insightful talks by industry experts on latest trends." },
+            { d:"M12 9A4 4 0 1 1 12 17A4 4 0 1 1 12 9Z M12 5V9 M5 12H9 M15 12H19", title:"BUG BOUNTY", desc:"Find vulnerabilities and earn exciting rewards." },
+            { d:"M14.5 9.5L19 5 M5 19l4.5-4.5 M5 5l14 14",                 title:"CYBER ARENA",    desc:"Compete, collaborate & conquer in the ultimate cyber arena." },
           ].map(c=>(
-            <HighlightCard key={c.title} icon={<Icon d={c.d} size={52}/>} title={c.title} desc={c.desc}/>
+            <div key={c.title} style={{
+              backgroundColor:C.cardBg, backgroundImage:LEATHER_TEX,
+              border:`1px solid ${C.goldDk}`, padding:"24px 20px",
+              position:"relative", textAlign:"center",
+            }}>
+              <div style={{ width:44, height:44, borderRadius:"50%", border:`1px solid ${C.gold}`, display:"flex", alignItems:"center", justifyContent:"center", margin:"0 auto 14px", backgroundColor:"rgba(201,168,76,0.08)" }}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={C.gold} strokeWidth="1.4" strokeLinecap="round"><path d={c.d}/></svg>
+              </div>
+              <div style={{ fontFamily:"'Cinzel',serif", fontSize:11, fontWeight:700, letterSpacing:"1.5px", color:C.gold, marginBottom:10 }}>{c.title}</div>
+              <p style={{ fontFamily:"'EB Garamond',serif", fontSize:13, color:C.lightText, opacity:0.8, lineHeight:1.6 }}>{c.desc}</p>
+            </div>
           ))}
         </div>
       </section>
@@ -269,7 +243,7 @@ export default function Home() {
           }}>
             BE A PART OF THE LEGACY.
           </h2>
-          <GoldBtn>REGISTER NOW</GoldBtn>
+          <GoldBtn href="/contact">REGISTER NOW</GoldBtn>
         </div>
       </section>
     </>

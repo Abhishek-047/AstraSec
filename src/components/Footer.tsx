@@ -81,7 +81,7 @@ export default function Footer() {
       {/* Gold rule + copyright */}
       <div style={{ height:1, background:`linear-gradient(to right, transparent, ${GOLD_DK} 20%, ${GOLD_DK} 80%, transparent)`, marginBottom:16 }}/>
       <div style={{ textAlign:"center", fontFamily:"'Cinzel',serif", fontSize:9, letterSpacing:"2px", color: GOLD, opacity:0.45, textTransform:"uppercase" }}>
-        © 2025 AstraSec — SOCS (Society Of CyberSecurity Club). All Rights Reserved.
+        © {new Date().getFullYear()} AstraSec — SOCS (Society Of CyberSecurity Club). All Rights Reserved.
       </div>
     </footer>
   );

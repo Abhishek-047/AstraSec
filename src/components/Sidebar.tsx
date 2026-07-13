@@ -37,10 +37,9 @@ const WreathSVG = () => (
 );
 
 const navItems = [
-  { icon: "M12 3 L20 6 V11 C20 16,16 19,12 21 C8 19,4 16,4 11 V6 Z M8 13l2 2 5-5", label: "THE EVENT",        href: "/about" },
+  { icon: "M12 3 L20 6 V11 C20 16,16 19,12 21 C8 19,4 16,4 11 V6 Z M8 13l2 2 5-5", label: "ABOUT US",         href: "/about" },
   { icon: "M3 5 h18 M3 10 h18 M3 15 h12 M17 13 v8 M17 17 h4",                       label: "SCHEDULE",         href: "/schedule" },
   { icon: "M12 21 C12 21,4 16,4 9 A8 8 0 0 1 20 9 C20 16,12 21,12 21 Z",            label: "EVENTS",           href: "/events" },
-  { icon: "M12 2 A4 4 0 1 1 12 10 A4 4 0 0 1 12 2 M4 22 C4 17,8 14,12 14 C16 14,20 17,20 22", label: "SPEAKERS", href: "/about" },
   { icon: "M12 2 C8 2,5 5,5 9 A7 7 0 0 0 12 16 A7 7 0 0 0 19 9 C19 5,16 2,12 2 M7 20 C7 17,12 15,12 15 C12 15,17 17,17 20", label: "VENUE", href: "/contact" },
   { icon: "M17 20 C17 17,14.5 15,12 15 C9.5 15,7 17,7 20 M12 12 A4 4 0 1 1 12 4 A4 4 0 0 1 12 12 M4 20 C4 18,6 16,7 15.5 M20 20 C20 18,18 16,17 15.5", label: "SPONSORS", href: "/sponsors" },
   { icon: "M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2M9 12l2 2 4-4", label: "CODE OF CONDUCT", href: "/conduct" },
@@ -165,7 +164,7 @@ export default function Sidebar() {
           <div style={{ display:"flex", alignItems:"flex-start", gap:10 }}>
             <svg width="14" height="16" viewBox="0 0 24 24" fill="none" stroke={GOLD_DIM} strokeWidth="1.5" style={{ flexShrink:0, marginTop:2 }}><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             <span style={{ fontFamily:"'Cinzel',serif", fontSize:10, color: GOLD, letterSpacing:"1px", lineHeight:1.6, opacity:0.9 }}>
-              TECHNOLOGY BLOCK<br/>AUDITORIUM<br/>JAIPUR, RAJASTHAN
+              TECHNOLOGY BLOCK<br/>AUDITORIUM<br/>Sonipat, Haryana, Delhi NCR 
             </span>
           </div>
         </div>
@@ -196,36 +195,37 @@ export default function Sidebar() {
         {/* Quote Scroll */}
         <div style={{ width:"100%", position:"relative", marginBottom:6 }}>
           {/* Scroll rod top */}
-          <div style={{ height:12, background:"linear-gradient(to bottom, #d5bc94, #a88a5d)", borderRadius:6, border:"1.5px solid #a88a5d", marginBottom:-2, boxShadow:"0 3px 5px rgba(0,0,0,0.6)", position:"relative", zIndex:2 }}/>
+          <div style={{ height:10, background:"linear-gradient(to bottom, #d5bc94, #a88a5d)", borderRadius:6, border:"1.5px solid #a88a5d", marginBottom:-2, boxShadow:"0 3px 5px rgba(0,0,0,0.6)", position:"relative", zIndex:2 }}/>
           {/* Parchment */}
           <div style={{
-            backgroundColor:"#e8d9b0",
-            backgroundImage:`url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.1'/%3E%3C/svg%3E")`,
-            padding:"16px 16px 20px",
+            backgroundColor:"#ede2bc",
+            padding:"12px 18px 18px",
             borderLeft:"2px solid #a88a5d", borderRight:"2px solid #a88a5d",
-            boxShadow:"inset 0 0 16px rgba(139,101,51,0.4)",
-            position:"relative",
-            zIndex: 1
+            boxShadow:"inset 0 0 14px rgba(139,101,51,0.35)",
+            position:"relative", zIndex: 1
           }}>
-            <p style={{ fontFamily:"'EB Garamond',serif", fontStyle:"italic", fontSize:13, lineHeight:1.5, textAlign:"center", color:"#3d2b0e", opacity:0.9, margin:0 }}>
-              &ldquo;The greatest security lies in knowledge, vigilance, and innovation.&rdquo;
+            {/* Decorative curly quotes */}
+            <div style={{ fontFamily:"'EB Garamond',serif", fontSize:28, color:"#8b6914", opacity:0.35, lineHeight:0.6, marginBottom:4, textAlign:"left" }}>❝</div>
+            <p style={{ fontFamily:"'EB Garamond',serif", fontStyle:"italic", fontSize:12, lineHeight:1.55, textAlign:"center", color:"#3d2b0e", opacity:0.9, margin:0 }}>
+              The greatest security lies in knowledge, vigilance, and innovation.
             </p>
+            <div style={{ fontFamily:"'EB Garamond',serif", fontSize:28, color:"#8b6914", opacity:0.35, lineHeight:0.6, marginTop:4, textAlign:"right" }}>❞</div>
             {/* Wax seal */}
             <div style={{
-              position:"absolute", bottom:-16, right:-8,
-              width:38, height:38, borderRadius:"50%",
-              background:"radial-gradient(circle at top left, #b03030, #5a1010)",
-              border:"2px solid #3a0a0a",
-              boxShadow:"3px 5px 8px rgba(0,0,0,0.8)",
+              position:"absolute", bottom:-14, right:-6,
+              width:34, height:34, borderRadius:"50%",
+              background:"radial-gradient(circle at 35% 35%, #c83030, #5a1010)",
+              border:"1.5px solid #3a0a0a",
+              boxShadow:"2px 4px 8px rgba(0,0,0,0.8)",
               display:"flex", alignItems:"center", justifyContent:"center", zIndex:10,
             }}>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.45)" strokeWidth="1.5">
-                <path d="M12 3L15 9L22 9L16.5 14L18.5 21L12 17L5.5 21L7.5 14L2 9L9 9Z"/>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="rgba(255,220,180,0.6)" strokeWidth="1.8">
+                <path d="M12 2L20 5.5V12C20 17,16 20,12 22C8 20,4 17,4 12V5.5Z"/>
               </svg>
             </div>
           </div>
           {/* Scroll rod bottom */}
-          <div style={{ height:12, background:"linear-gradient(to bottom, #a88a5d, #d5bc94)", borderRadius:6, border:"1.5px solid #a88a5d", marginTop:-2, boxShadow:"0 -2px 5px rgba(0,0,0,0.5)", position:"relative", zIndex:2 }}/>
+          <div style={{ height:10, background:"linear-gradient(to bottom, #a88a5d, #d5bc94)", borderRadius:6, border:"1.5px solid #a88a5d", marginTop:-2, boxShadow:"0 -2px 5px rgba(0,0,0,0.5)", position:"relative", zIndex:2 }}/>
         </div>
 
         {/* Decorative corner pieces */}
