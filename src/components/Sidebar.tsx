@@ -114,14 +114,14 @@ export default function Sidebar() {
         </Link>
 
         {/* Divider */}
-        <div style={{ width:"100%", height:1, background:`linear-gradient(to right, transparent, ${GOLD_DIM}, transparent)`, margin:"4px 0 14px" }}/>
+        <div style={{ width:"100%", height:1, background:`linear-gradient(to right, transparent, ${GOLD_DIM}, transparent)`, margin:"4px 0 8px" }}/>
 
         {/* Navigation */}
         <nav style={{ width:"100%", flex:1 }}>
           {navItems.map((item) => (
             <Link key={item.label} href={item.href} style={{
               display:"flex", alignItems:"center", gap:14,
-              padding:"12px 16px", textDecoration:"none",
+              padding:"8px 16px", textDecoration:"none",
               transition:"all 0.2s ease",
             }}
             className="sidebar-link"
@@ -158,7 +158,7 @@ export default function Sidebar() {
 
           <div style={{ height:1, background:`linear-gradient(to right, transparent, ${GOLD_DIM}, transparent)`, marginBottom:16 }}/>
 
-          <div style={{ display:"flex", alignItems:"center", gap:10, marginBottom:12 }}>
+          <div style={{ display:"flex", alignItems:"center", gap:10, marginBottom:8 }}>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={GOLD_DIM} strokeWidth="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
             <span style={{ fontFamily:"'Cinzel',serif", fontSize:11, color: GOLD, letterSpacing:"1px" }}>25 - 27 October, 2025</span>
           </div>
@@ -171,8 +171,8 @@ export default function Sidebar() {
         </div>
 
         {/* Follow Us — GitHub, LinkedIn, Instagram */}
-        <div style={{ width:"100%", textAlign:"center", marginBottom:20 }}>
-          <div style={{ fontFamily:"'Cinzel',serif", fontSize:11, letterSpacing:"3px", color: GOLD, marginBottom:12, opacity:0.8 }}>FOLLOW US</div>
+        <div style={{ width:"100%", textAlign:"center", marginBottom:12 }}>
+          <div style={{ fontFamily:"'Cinzel',serif", fontSize:11, letterSpacing:"3px", color: GOLD, marginBottom:8, opacity:0.8 }}>FOLLOW US</div>
           <div style={{ display:"flex", justifyContent:"center", gap:14 }}>
             {socialLinks.map((s) => (
               <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
@@ -194,7 +194,7 @@ export default function Sidebar() {
         </div>
 
         {/* Quote Scroll */}
-        <div style={{ width:"100%", position:"relative", marginBottom:24 }}>
+        <div style={{ width:"100%", position:"relative", marginBottom:12 }}>
           {/* Scroll rod top */}
           <div style={{ height:12, background:"linear-gradient(to bottom, #d5bc94, #a88a5d)", borderRadius:6, border:"1.5px solid #a88a5d", marginBottom:-2, boxShadow:"0 3px 5px rgba(0,0,0,0.6)", position:"relative", zIndex:2 }}/>
           {/* Parchment */}
@@ -207,7 +207,7 @@ export default function Sidebar() {
             position:"relative",
             zIndex: 1
           }}>
-            <p style={{ fontFamily:"'EB Garamond',serif", fontStyle:"italic", fontSize:14, lineHeight:1.7, textAlign:"center", color:"#3d2b0e", opacity:0.9 }}>
+            <p style={{ fontFamily:"'EB Garamond',serif", fontStyle:"italic", fontSize:13, lineHeight:1.5, textAlign:"center", color:"#3d2b0e", opacity:0.9, margin:0 }}>
               &ldquo;The greatest security lies in knowledge, vigilance, and innovation.&rdquo;
             </p>
             {/* Wax seal */}
@@ -229,7 +229,7 @@ export default function Sidebar() {
         </div>
 
         {/* Building illustration */}
-        <div style={{ width:"100%", position:"relative", overflow:"hidden", height:100, marginTop:"auto", opacity:0.32 }}>
+        <div style={{ width:"100%", position:"relative", overflow:"hidden", height:50, marginTop:"auto", opacity:0.32 }}>
           <img
             src="https://images.unsplash.com/photo-1599661046289-e31897846e41?w=400&auto=format&fit=crop&q=60"
             alt="Historic Architecture"

@@ -56,10 +56,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* KEY FIX: Remove sidebar from flex flow. Use position:fixed on sidebar (already set).
             Main col takes full width, then offset on desktop only. */}
         <style>{`
-          body { margin: 0; }
+          body { margin: 0; overflow-x: hidden; }
           #main-col {
             margin-left: 0;
             width: 100%;
+            overflow-x: hidden;
           }
           @media (max-width: 1023px) {
             #main-col {

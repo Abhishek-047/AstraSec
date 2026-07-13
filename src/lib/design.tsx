@@ -30,8 +30,9 @@ export function SectionHeading({ text }: { text: string }) {
       <div style={{ display:"flex", alignItems:"center", gap:16, width:"100%" }}>
         <div style={{ flex:1, height:1, background:`linear-gradient(to right, transparent, ${C.goldDk})` }}/>
         <span style={{
-          fontFamily:"'Cinzel',serif", fontSize:16, fontWeight:700,
-          letterSpacing:"3px", color:C.goldDk, textTransform:"uppercase", whiteSpace:"nowrap",
+          fontFamily:"'Cinzel',serif", fontSize:"clamp(13px, 4vw, 16px)", fontWeight:700,
+          letterSpacing:"3px", color:C.goldDk, textTransform:"uppercase", textAlign:"center",
+          whiteSpace: "normal", wordWrap: "break-word"
         }}>— {text} —</span>
         <div style={{ flex:1, height:1, background:`linear-gradient(to left, transparent, ${C.goldDk})` }}/>
       </div>
