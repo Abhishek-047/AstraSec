@@ -6,15 +6,15 @@ function EventCard({ tag, icon, title, desc, meta }: { tag:string; icon:string; 
   return (
     <div style={{
       backgroundColor:"#0f172a",
-      border:`1px solid #8b6914`, padding:"24px 20px", position:"relative",
+      border:`1px solid #c9a84c`, padding:"24px 20px", position:"relative",
       display:"flex", flexDirection:"column",
       transition:"all 0.2s ease", cursor:"default"
     }}
-    onMouseEnter={e=>{(e.currentTarget as HTMLElement).style.cssText+="box-shadow:0 0 24px rgba(139,105,20,0.2);transform:translateY(-3px);border-color:#c9a84c"}}
-    onMouseLeave={e=>{(e.currentTarget as HTMLElement).style.boxShadow="none";(e.currentTarget as HTMLElement).style.transform="none";(e.currentTarget as HTMLElement).style.borderColor="#8b6914"}}
+    onMouseEnter={e=>{(e.currentTarget as HTMLElement).style.cssText+="box-shadow:0 0 24px rgba(201,168,76,0.25);transform:translateY(-3px);border-color:#f0c96a"}}
+    onMouseLeave={e=>{(e.currentTarget as HTMLElement).style.boxShadow="none";(e.currentTarget as HTMLElement).style.transform="none";(e.currentTarget as HTMLElement).style.borderColor="#c9a84c"}}
     >
       {/* Gold inner frame ornament */}
-      <div style={{ position:"absolute", inset:5, border:"1px solid rgba(201,168,76,0.08)", pointerEvents:"none" }}/>
+      <div style={{ position:"absolute", inset:5, border:"1px solid rgba(201,168,76,0.15)", pointerEvents:"none" }}/>
       {["tl","tr","bl","br"].map(c=>(
         <div key={c} style={{ position:"absolute",
           top:c.startsWith("t")?5:"auto", bottom:c.startsWith("b")?5:"auto",
@@ -35,7 +35,7 @@ function EventCard({ tag, icon, title, desc, meta }: { tag:string; icon:string; 
         </svg>
       </div>
       <div style={{ fontFamily:"'Cinzel',serif", fontWeight:700, fontSize:16, color:"#f0f6ff", textAlign:"center" }}>{title}</div>
-      <div style={{ height:1, background:`linear-gradient(to right, transparent, #8b6914, transparent)`, margin:"14px 0" }}/>
+      <div style={{ height:1, background:`linear-gradient(to right, transparent, #c9a84c, transparent)`, margin:"14px 0" }}/>
       <p style={{ fontFamily:"'EB Garamond',serif", fontSize:14, color:"#94a3b8", lineHeight:1.6, flex:1 }}>{desc}</p>
       
       <div style={{ marginTop:20, fontFamily:"'Cinzel',serif", fontSize:11, color:"#475569", lineHeight:1.8 }}>
@@ -45,12 +45,12 @@ function EventCard({ tag, icon, title, desc, meta }: { tag:string; icon:string; 
       
       <a href="/contact" style={{
         marginTop:20, width:"100%", padding:"10px",
-        backgroundColor:"rgba(139,105,20,0.08)", border:`1.5px solid #8b6914`, color:"#c9a84c",
+        backgroundColor:"rgba(201,168,76,0.08)", border:`1.5px solid #c9a84c`, color:"#c9a84c",
         fontFamily:"'Cinzel',serif", fontSize:11, letterSpacing:"2px", cursor:"pointer",
         transition:"all 0.2s ease", textDecoration:"none", textAlign:"center", display:"block"
       }}
-      onMouseEnter={e=>e.currentTarget.style.backgroundColor="rgba(139,105,20,0.18)"}
-      onMouseLeave={e=>e.currentTarget.style.backgroundColor="rgba(139,105,20,0.08)"}
+      onMouseEnter={e=>e.currentTarget.style.backgroundColor="rgba(201,168,76,0.18)"}
+      onMouseLeave={e=>e.currentTarget.style.backgroundColor="rgba(201,168,76,0.08)"}
       >
         REGISTER →
       </a>
@@ -79,13 +79,13 @@ export default function EventsPage() {
 
       <section style={{ width:"100%", padding:"0 24px", marginBottom:52 }}>
         {/* Filter bar */}
-        <div style={{ backgroundColor:"#0f172a", border:`1px solid #8b6914`, padding:"12px 24px", display:"flex", gap:12, flexWrap:"wrap", justifyContent:"center", marginBottom:32 }}>
+        <div style={{ backgroundColor:"#0f172a", border:`1px solid #c9a84c`, padding:"12px 24px", display:"flex", gap:12, flexWrap:"wrap", justifyContent:"center", marginBottom:32 }}>
           {filters.map(f => (
             <button key={f} onClick={() => setFilter(f)} style={{
               fontFamily:"'Cinzel',serif", fontSize:11, letterSpacing:"2px", padding:"8px 16px",
               backgroundColor: filter === f ? "#c9a84c" : "transparent",
               color: filter === f ? "#06090f" : "#c9a84c",
-              border: filter === f ? `1px solid #c9a84c` : `1px solid #8b6914`, cursor:"pointer", transition:"all 0.2s ease"
+              border:`1px solid #c9a84c`, cursor:"pointer", transition:"all 0.2s ease"
             }}>
               {f}
             </button>
