@@ -100,24 +100,57 @@ export default function FAQPage() {
       </section>
 
       {/* Contact CTA */}
-      <section className="px-6 py-10 md:px-8 md:py-12" style={{
+      <section style={{
         width:"100%", backgroundColor:"#060b14",
-        borderTop:`1px solid rgba(14,165,233,0.2)`, textAlign:"center"
+        borderTop:`1px solid #8b6914`,
+        textAlign:"center", position:"relative", overflow:"hidden",
+        padding:"64px 24px",
       }}>
-        <p style={{ fontFamily:"'Cinzel',serif", fontSize:11, letterSpacing:"3px", color:"#0ea5e9", marginBottom:10, textTransform:"uppercase" }}>
-          Still have questions?
-        </p>
-        <p style={{ fontFamily:"'EB Garamond',serif", fontSize:16, color:"#94a3b8", maxWidth:400, margin:"0 auto 20px" }}>
-          Our team is happy to help. Reach out and we will get back to you within 24 hours.
-        </p>
-        <a href="/contact" style={{
-          display:"inline-block", fontFamily:"'Cinzel',serif", fontSize:11, fontWeight:700,
-          letterSpacing:"2px", textTransform:"uppercase", padding:"12px 28px",
-          border:`1.5px solid #0ea5e9`, color:"#0ea5e9", backgroundColor:"rgba(14,165,233,0.08)",
-          textDecoration:"none",
+        {/* Inset frame with legend */}
+        <div style={{
+          position:"absolute", inset:8,
+          border:"1px solid rgba(201,168,76,0.3)",
+          pointerEvents:"none",
+          display:"flex", justifyContent:"center",
         }}>
-          CONTACT US →
-        </a>
+          {/* Legend text overlapping top border */}
+          <div style={{
+            position:"absolute", top:-9,
+            backgroundColor:"#060b14",
+            padding:"0 16px",
+            fontFamily:"'Cinzel',serif", fontSize:"clamp(9px, 2.5vw, 12px)",
+            letterSpacing:"clamp(2px, 1vw, 4px)", color:"#c9a84c", textTransform:"uppercase",
+            whiteSpace:"nowrap",
+          }}>
+            STILL HAVE QUESTIONS?
+          </div>
+          {/* 4 corner L-brackets */}
+          <div style={{ position:"absolute", top:6, left:6, width:20, height:20, borderTop:"1.5px solid #c9a84c", borderLeft:"1.5px solid #c9a84c" }}/>
+          <div style={{ position:"absolute", top:6, right:6, width:20, height:20, borderTop:"1.5px solid #c9a84c", borderRight:"1.5px solid #c9a84c" }}/>
+          <div style={{ position:"absolute", bottom:6, left:6, width:20, height:20, borderBottom:"1.5px solid #c9a84c", borderLeft:"1.5px solid #c9a84c" }}/>
+          <div style={{ position:"absolute", bottom:6, right:6, width:20, height:20, borderBottom:"1.5px solid #c9a84c", borderRight:"1.5px solid #c9a84c" }}/>
+          {/* 4 corner dot ornaments */}
+          {[{top:-4,left:-4},{top:-4,right:-4},{bottom:-4,left:-4},{bottom:-4,right:-4}].map((p,i) => (
+            <div key={i} style={{ position:"absolute", width:8, height:8, borderRadius:"50%", border:"1px solid #8b6914", backgroundColor:"#060b14", ...p as React.CSSProperties }}/>
+          ))}
+        </div>
+        {/* Content */}
+        <div style={{ position:"relative", zIndex:1 }}>
+          <p style={{ fontFamily:"'EB Garamond',serif", fontStyle:"italic", fontSize:16, color:"#94a3b8", maxWidth:400, margin:"0 auto 24px" }}>
+            Our team is happy to help. Reach out and we will get back to you within 24 hours.
+          </p>
+          <a href="/contact" style={{
+            display:"inline-block", fontFamily:"'Cinzel',serif", fontSize:11, fontWeight:700,
+            letterSpacing:"2px", textTransform:"uppercase", padding:"12px 28px",
+            border:`1.5px solid #8b6914`, color:"#c9a84c", backgroundColor:"rgba(139,105,20,0.08)",
+            textDecoration:"none", transition:"all 0.2s ease",
+          }}
+          onMouseEnter={e=>{e.currentTarget.style.backgroundColor="rgba(139,105,20,0.18)";e.currentTarget.style.boxShadow="0 0 20px rgba(139,105,20,0.3)"}}
+          onMouseLeave={e=>{e.currentTarget.style.backgroundColor="rgba(139,105,20,0.08)";e.currentTarget.style.boxShadow="none"}}
+          >
+            CONTACT US →
+          </a>
+        </div>
       </section>
     </>
   );
