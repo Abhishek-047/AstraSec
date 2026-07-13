@@ -93,7 +93,7 @@ export default function AboutPage() {
       </section>
 
       {/* Mission & Vision */}
-      <section style={{ width:"100%", marginBottom:52 }}>
+      <section className="px-6 py-10 md:px-8 md:py-12" style={{ width:"100%", marginBottom:52 }}>
         <SectionHeading text="Mission & Vision" />
         <div style={{ display:"flex", gap:24, flexWrap:"wrap" }}>
           {[
@@ -127,8 +127,8 @@ export default function AboutPage() {
       </section>
 
       {/* Stats */}
-      <section style={{ width:"100%", backgroundColor:C.footerBg, backgroundImage:LEATHER_TEX, borderTop:`1px solid ${C.gold}`, borderBottom:`1px solid ${C.gold}`, padding:"32px 0", marginBottom:52 }}>
-        <div style={{ display:"flex", maxWidth:900, margin:"0 auto" }}>
+      <section className="px-6 py-10 md:px-8 md:py-12" style={{ width:"100%", backgroundColor:C.footerBg, backgroundImage:LEATHER_TEX, borderTop:`1px solid ${C.gold}`, borderBottom:`1px solid ${C.gold}`, marginBottom:52 }}>
+        <div style={{ display:"flex", flexWrap:"wrap", gap:16, maxWidth:900, margin:"0 auto", justifyContent:"center" }}>
           {[["500+","MEMBERS"],["25+","EVENTS"],["10+","WORKSHOPS"],["3","YEARS"]].map(([n,l],i)=>(
             <StatBox key={l} num={n} label={l}/>
           ))}
@@ -136,9 +136,9 @@ export default function AboutPage() {
       </section>
 
       {/* Team */}
-      <section style={{ width:"100%", marginBottom:52 }}>
+      <section className="px-6 py-10 md:px-8 md:py-12" style={{ width:"100%", marginBottom:52 }}>
         <SectionHeading text="Our Team" />
-        <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(180px,1fr))", gap:20 }}>
+        <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(140px,1fr))", gap:20 }}>
           {[
             { name:"Arjun Sharma",   role:"Club President" },
             { name:"Priya Gupta",    role:"Vice President" },
@@ -151,7 +151,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section style={{ width:"100%", backgroundColor:C.footerBg, backgroundImage:LEATHER_TEX, border:`1.5px solid ${C.goldDk}`, padding:"40px", textAlign:"center", position:"relative" }}>
+      <section className="px-6 py-10 md:px-8 md:py-12" style={{ width:"100%", backgroundColor:C.footerBg, backgroundImage:LEATHER_TEX, border:`1.5px solid ${C.goldDk}`, textAlign:"center", position:"relative" }}>
         <div style={{ position:"absolute", inset:7, border:`1px solid rgba(139,105,20,0.4)`, pointerEvents:"none" }}/>
         <div style={{ position:"relative", zIndex:1 }}>
           <h2 style={{ fontFamily:"'Cinzel',serif", fontWeight:900, fontSize:28, color:C.gold, letterSpacing:"2px", textTransform:"uppercase", marginBottom:20 }}>

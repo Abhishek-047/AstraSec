@@ -90,7 +90,7 @@ export default function FAQPage() {
     <>
       <PageHero title="FAQ" subtitle="Questions Answered. Mysteries Solved." />
 
-      <section style={{ width:"100%", backgroundColor:C.parchmentLt, backgroundImage:PARCH_TEX, padding:"44px 32px", borderTop:`1px solid ${C.goldDk}` }}>
+      <section className="px-6 py-10 md:px-8 md:py-12" style={{ width:"100%", backgroundColor:C.parchmentLt, backgroundImage:PARCH_TEX, borderTop:`1px solid ${C.goldDk}` }}>
         <SectionHeading text="Frequently Asked Questions" />
         <div style={{ maxWidth:780, margin:"0 auto" }}>
           {faqs.map((f, i) => (
@@ -100,9 +100,9 @@ export default function FAQPage() {
       </section>
 
       {/* Contact CTA */}
-      <section style={{
+      <section className="px-6 py-10 md:px-8 md:py-12" style={{
         width:"100%", backgroundColor:"#2a1a06", backgroundImage:LEATHER_TEX,
-        borderTop:`1px solid ${C.goldDk}`, padding:"40px 32px", textAlign:"center"
+        borderTop:`1px solid ${C.goldDk}`, textAlign:"center"
       }}>
         <p style={{ fontFamily:"'Cinzel',serif", fontSize:11, letterSpacing:"3px", color:C.gold, marginBottom:10, textTransform:"uppercase" }}>
           Still have questions?
