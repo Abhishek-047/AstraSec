@@ -91,11 +91,11 @@ export default function Sidebar() {
         ))}
       </div>
 
-      <div style={{ padding: "28px 16px 20px", display:"flex", flexDirection:"column", alignItems:"center", flex:1, position:"relative", zIndex:1 }}>
+      <div style={{ padding: "16px 16px 10px", display:"flex", flexDirection:"column", alignItems:"center", flex:1, position:"relative", zIndex:1 }}>
 
         {/* Logo */}
-        <Link href="/" style={{ display:"flex", flexDirection:"column", alignItems:"center", marginBottom: 16, textDecoration:"none" }}>
-          <div style={{ position:"relative", width:100, height:100, display:"flex", alignItems:"center", justifyContent:"center" }}>
+        <Link href="/" style={{ display:"flex", flexDirection:"column", alignItems:"center", marginBottom: 12, textDecoration:"none" }}>
+          <div style={{ position:"relative", width:80, height:80, display:"flex", alignItems:"center", justifyContent:"center", transform:"scale(0.85)" }}>
             <div style={{ position:"absolute" }}><WreathSVG /></div>
             <ShieldLockSVG />
           </div>
@@ -114,14 +114,14 @@ export default function Sidebar() {
         </Link>
 
         {/* Divider */}
-        <div style={{ width:"100%", height:1, background:`linear-gradient(to right, transparent, ${GOLD_DIM}, transparent)`, margin:"4px 0 8px" }}/>
+        <div style={{ width:"100%", height:1, background:`linear-gradient(to right, transparent, ${GOLD_DIM}, transparent)`, margin:"4px 0 6px" }}/>
 
         {/* Navigation */}
         <nav style={{ width:"100%", flex:1 }}>
           {navItems.map((item) => (
             <Link key={item.label} href={item.href} style={{
               display:"flex", alignItems:"center", gap:14,
-              padding:"8px 16px", textDecoration:"none",
+              padding:"6px 16px", textDecoration:"none",
               transition:"all 0.2s ease",
             }}
             className="sidebar-link"
@@ -138,12 +138,12 @@ export default function Sidebar() {
         </nav>
 
         {/* Divider */}
-        <div style={{ width:"100%", height:1, background:`linear-gradient(to right, transparent, ${GOLD_DIM}, transparent)`, margin:"12px 0" }}/>
+        <div style={{ width:"100%", height:1, background:`linear-gradient(to right, transparent, ${GOLD_DIM}, transparent)`, margin:"6px 0" }}/>
 
         {/* Event Details box */}
         <div style={{
           width:"100%", border:`1px solid ${GOLD_DIM}`,
-          padding:"20px 16px 16px", position:"relative", marginBottom:18,
+          padding:"16px 16px 12px", position:"relative", marginBottom:12,
         }}>
           <div style={{ position:"absolute", top:4, left:4, width:8, height:8, borderTop:`1px solid ${GOLD_DIM}`, borderLeft:`1px solid ${GOLD_DIM}` }}/>
           <div style={{ position:"absolute", top:4, right:4, width:8, height:8, borderTop:`1px solid ${GOLD_DIM}`, borderRight:`1px solid ${GOLD_DIM}` }}/>
@@ -171,8 +171,8 @@ export default function Sidebar() {
         </div>
 
         {/* Follow Us — GitHub, LinkedIn, Instagram */}
-        <div style={{ width:"100%", textAlign:"center", marginBottom:12 }}>
-          <div style={{ fontFamily:"'Cinzel',serif", fontSize:11, letterSpacing:"3px", color: GOLD, marginBottom:8, opacity:0.8 }}>FOLLOW US</div>
+        <div style={{ width:"100%", textAlign:"center", marginBottom:10 }}>
+          <div style={{ fontFamily:"'Cinzel',serif", fontSize:11, letterSpacing:"3px", color: GOLD, marginBottom:6, opacity:0.8 }}>FOLLOW US</div>
           <div style={{ display:"flex", justifyContent:"center", gap:14 }}>
             {socialLinks.map((s) => (
               <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
@@ -194,7 +194,7 @@ export default function Sidebar() {
         </div>
 
         {/* Quote Scroll */}
-        <div style={{ width:"100%", position:"relative", marginBottom:12 }}>
+        <div style={{ width:"100%", position:"relative", marginBottom:6 }}>
           {/* Scroll rod top */}
           <div style={{ height:12, background:"linear-gradient(to bottom, #d5bc94, #a88a5d)", borderRadius:6, border:"1.5px solid #a88a5d", marginBottom:-2, boxShadow:"0 3px 5px rgba(0,0,0,0.6)", position:"relative", zIndex:2 }}/>
           {/* Parchment */}
@@ -228,18 +228,6 @@ export default function Sidebar() {
           <div style={{ height:12, background:"linear-gradient(to bottom, #a88a5d, #d5bc94)", borderRadius:6, border:"1.5px solid #a88a5d", marginTop:-2, boxShadow:"0 -2px 5px rgba(0,0,0,0.5)", position:"relative", zIndex:2 }}/>
         </div>
 
-        {/* Building illustration */}
-        <div style={{ width:"100%", position:"relative", overflow:"hidden", height:50, marginTop:"auto", opacity:0.32 }}>
-          <img
-            src="https://images.unsplash.com/photo-1599661046289-e31897846e41?w=400&auto=format&fit=crop&q=60"
-            alt="Historic Architecture"
-            style={{ width:"100%", height:"100%", objectFit:"cover", objectPosition:"center top",
-              filter:"sepia(1) contrast(1.3) brightness(0.6)",
-              maskImage:"linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%)",
-              WebkitMaskImage:"linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%)",
-            }}
-          />
-        </div>
         {/* Decorative corner pieces */}
         <div style={{ position:"absolute", top:-2, left:-2, width:24, height:24, borderTop:"3px solid rgba(139,101,51,0.5)", borderLeft:"3px solid rgba(139,101,51,0.5)", pointerEvents:"none" }}/>
         <div style={{ position:"absolute", top:-2, right:-2, width:24, height:24, borderTop:"3px solid rgba(139,101,51,0.5)", borderRight:"3px solid rgba(139,101,51,0.5)", pointerEvents:"none" }}/>
