@@ -15,7 +15,7 @@ export default function Footer() {
       position:"relative",
       zIndex:1,
     }}>
-      <div style={{ maxWidth:1060, margin:"0 auto", display:"grid", gridTemplateColumns:"1.8fr 1fr 1fr 1.4fr", gap:32, marginBottom:32 }}>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.8fr_1fr_1fr_1.4fr] gap-8 mb-8" style={{ maxWidth:1060, margin:"0 auto" }}>
 
         {/* Logo column */}
         <div>

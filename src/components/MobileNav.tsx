@@ -14,6 +14,7 @@ const navLinks = [
   { name: "Gallery",          href: "/gallery" },
   { name: "Sponsors",         href: "/sponsors" },
   { name: "Code of Conduct",  href: "/conduct" },
+  { name: "FAQ",              href: "/faq" },
   { name: "Contact",          href: "/contact" },
 ];
 

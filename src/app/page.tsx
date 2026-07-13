@@ -159,7 +159,7 @@ export default function Home() {
             <p style={{ fontFamily:"'EB Garamond',serif", fontSize:16, color:C.bodyText, lineHeight:1.8, marginBottom:32 }}>
               AstraSec presents its annual tech fest focused on cybersecurity and emerging technologies. A platform to learn, collaborate, and compete in an ever-evolving digital world.
             </p>
-            <div style={{ borderTop:`1px solid ${C.gold}`, paddingTop:28, display:"grid", gridTemplateColumns:"repeat(4,1fr)", gap:8 }}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4" style={{ borderTop:`1px solid ${C.gold}`, paddingTop:28 }}>
               {[
                 { d:"M12 3L20 6V11C20 16,16 19,12 21C8 19,4 16,4 11V6Z M8 13l2 2 5-5", label:"LEARN",    cap:"Gain knowledge from experts" },
                 { d:"M17 20C17 17,14.5 15,12 15C9.5 15,7 17,7 20 M4 20C4 18,6 16,7 15.5 M20 20C20 18,18 16,17 15.5 M12 12A4 4 0 1 1 12 4A4 4 0 0 1 12 12", label:"NETWORK",  cap:"Connect with like-minded people" },
@@ -205,8 +205,8 @@ export default function Home() {
         <div style={{ border:`1px solid ${C.gold}`, padding:"32px 24px", position:"relative" }}>
           <div style={{ position:"relative" }}>
             {/* Connecting line */}
-            <div style={{ position:"absolute", top:52, left:"12.5%", right:"12.5%", height:2, backgroundColor:C.gold, zIndex:0 }}/>
-            <div style={{ display:"flex", gap:8 }}>
+            <div className="hidden md:block" style={{ position:"absolute", top:52, left:"12.5%", right:"12.5%", height:2, backgroundColor:C.gold, zIndex:0 }}/>
+            <div className="flex flex-col md:flex-row gap-8">
               {[
                 { day:"DAY 1", date:"25 JULY", desc:"Inauguration & Keynote Session",   iconD:"M12 2L20 5.5V12C20 17,16 20,12 22C8 20,4 17,4 12V5.5Z" },
                 { day:"DAY 2", date:"26 JULY", desc:"Workshops & CTF Qualifiers",        iconD:"M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3" },

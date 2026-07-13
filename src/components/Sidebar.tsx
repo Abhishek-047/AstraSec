@@ -44,6 +44,7 @@ const navItems = [
   { icon: "M12 2 C8 2,5 5,5 9 A7 7 0 0 0 12 16 A7 7 0 0 0 19 9 C19 5,16 2,12 2 M7 20 C7 17,12 15,12 15 C12 15,17 17,17 20", label: "VENUE", href: "/contact" },
   { icon: "M17 20 C17 17,14.5 15,12 15 C9.5 15,7 17,7 20 M12 12 A4 4 0 1 1 12 4 A4 4 0 0 1 12 12 M4 20 C4 18,6 16,7 15.5 M20 20 C20 18,18 16,17 15.5", label: "SPONSORS", href: "/sponsors" },
   { icon: "M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2M9 12l2 2 4-4", label: "CODE OF CONDUCT", href: "/conduct" },
+  { icon: "M12 16 v1 M12 8 v5 M12 4 A8 8 0 1 1 12 20 A8 8 0 0 1 12 4",                 label: "FAQ",              href: "/faq" },
   { icon: "M2 6 h20 v14 H2 Z M2 6 L12 13 L22 6",                                     label: "CONTACT",          href: "/contact" },
 ];
 
