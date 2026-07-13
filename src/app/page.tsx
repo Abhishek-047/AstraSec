@@ -49,8 +49,8 @@ export default function Home() {
         display:"flex",
         marginBottom:52,
       }}>
-        {/* Outer ornate frame */}
-        <div style={{ position:"absolute", inset:7, border:`1px solid rgba(139,105,20,0.5)`, pointerEvents:"none" }}>
+        {/* Decorative thin gold border inset */}
+        <div style={{ position:"absolute", inset: 12, border:`1px solid rgba(201,168,76,0.3)`, pointerEvents:"none", zIndex:10 }}>
           {([{top:-4,left:-4},{top:-4,right:-4},{bottom:-4,left:-4},{bottom:-4,right:-4}] as any[]).map((pos,i)=>(
             <div key={i} style={{ position:"absolute", width:8, height:8, borderRadius:"50%", border:`1.5px solid ${C.goldDk}`, backgroundColor:"#1c1209", ...pos }}/>
           ))}
@@ -94,7 +94,7 @@ export default function Home() {
         </div>
 
         {/* Left content */}
-        <div className="px-6 py-12 md:px-12 md:py-14" style={{ position:"relative", zIndex:2, maxWidth:520, display:"flex", flexDirection:"column", justifyContent:"center" }}>
+        <div style={{ padding: "48px clamp(36px, 8vw, 80px)", position:"relative", zIndex:2, maxWidth:600, display:"flex", flexDirection:"column", justifyContent:"center" }}>
           <h1 style={{
             fontFamily:"'Cinzel',serif", fontWeight:900,
             fontSize:"clamp(32px, 12vw, 72px)", lineHeight:1.0,
