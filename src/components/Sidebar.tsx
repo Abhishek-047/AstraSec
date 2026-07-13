@@ -71,11 +71,10 @@ const socialLinks = [
     path: "M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z M17.5 6.5 A.5.5 0 1 1 17 6 A.5.5 0 0 1 17.5 6.5z M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2z",
   },
 ];
-
 export default function Sidebar() {
   return (
     <aside
-      id="desktop-sidebar"
+      id="sidebar-desktop"
       style={{
         width: 260, height: "100vh",
         backgroundColor: SIDEBAR_BG,
@@ -84,7 +83,6 @@ export default function Sidebar() {
         borderRight: `1.5px solid ${GOLD_DIM}`,
         overflowY: "auto", overflowX: "hidden",
       }}
-      className="hidden lg:flex flex-col"
     >
       {/* Outer ornate border inset */}
       <div style={{ position: "absolute", inset: 5, border: "1px solid rgba(201,168,76,0.3)", pointerEvents: "none", zIndex: 10 }}>
@@ -244,12 +242,24 @@ export default function Sidebar() {
             }}
           />
         </div>
+        {/* Decorative corner pieces */}
+        <div style={{ position:"absolute", top:-2, left:-2, width:24, height:24, borderTop:"3px solid rgba(139,101,51,0.5)", borderLeft:"3px solid rgba(139,101,51,0.5)", pointerEvents:"none" }}/>
+        <div style={{ position:"absolute", top:-2, right:-2, width:24, height:24, borderTop:"3px solid rgba(139,101,51,0.5)", borderRight:"3px solid rgba(139,101,51,0.5)", pointerEvents:"none" }}/>
+        
+        <style>{`
+          .sidebar-link:hover span { opacity: 1 !important; color: #e8c96a !important; }
+          .sidebar-link:hover { background: rgba(201,168,76,0.07); }
+          #sidebar-desktop {
+            display: none !important;
+          }
+          @media (min-width: 1024px) {
+            #sidebar-desktop {
+              display: flex !important;
+              flex-direction: column !important;
+            }
+          }
+        `}</style>
       </div>
-
-      <style>{`
-        .sidebar-link:hover span { opacity: 1 !important; color: #e8c96a !important; }
-        .sidebar-link:hover { background: rgba(201,168,76,0.07); }
-      `}</style>
     </aside>
   );
 }

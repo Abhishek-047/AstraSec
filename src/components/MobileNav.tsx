@@ -37,7 +37,7 @@ export default function MobileNav() {
           backgroundColor: SIDEBAR_BG,
           backgroundImage:`url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='t'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23t)' opacity='0.07'/%3E%3C/svg%3E")`,
           borderBottom:`1.5px solid ${GOLD_DIM}`,
-          position:"sticky", top:0, zIndex:100,
+          position:"fixed", top:0, left:0, right:0, zIndex:200,
         }}
         className="mobile-bar"
       >
@@ -74,7 +74,7 @@ export default function MobileNav() {
 
       {/* Full-screen overlay + drawer */}
       {open && (
-        <div style={{ position:"fixed", inset:0, zIndex:99, display:"flex" }}>
+        <div style={{ position:"fixed", inset:0, zIndex:199, display:"flex" }}>
           {/* Backdrop */}
           <div
             style={{ position:"absolute", inset:0, backgroundColor:"rgba(0,0,0,0.75)" }}
@@ -82,7 +82,7 @@ export default function MobileNav() {
           />
           {/* Drawer */}
           <div style={{
-            position:"relative", zIndex:100,
+            position:"relative", zIndex:200,
             width:"78%", maxWidth:300, height:"100%",
             backgroundColor: SIDEBAR_BG,
             borderRight:`1.5px solid ${GOLD_DIM}`,

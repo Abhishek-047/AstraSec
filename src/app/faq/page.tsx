@@ -50,7 +50,9 @@ function FAQItem({ q, a, index }: { q: string; a: string; index: number }) {
   return (
     <div style={{
       border:`1px solid ${open ? C.gold : C.goldDk}`,
-      marginBottom:12, transition:"border-color 0.2s ease",
+      marginBottom:12,
+      backgroundColor: open ? "rgba(28,20,9,0.04)" : "transparent",
+      transition:"border-color 0.2s ease, background-color 0.2s ease",
     }}>
       <button
         onClick={() => setOpen(!open)}
@@ -64,17 +66,17 @@ function FAQItem({ q, a, index }: { q: string; a: string; index: number }) {
           <span style={{ fontFamily:"'Cinzel',serif", fontSize:10, color:C.goldDk, letterSpacing:"1px", flexShrink:0 }}>
             {String(index + 1).padStart(2, "0")}
           </span>
-          <span style={{ fontFamily:"'Cinzel',serif", fontWeight:700, fontSize:12, color: open ? C.gold : C.lightText, letterSpacing:"1px", transition:"color 0.2s" }}>
+          <span style={{ fontFamily:"'Cinzel',serif", fontWeight:700, fontSize:12, color: open ? C.gold : C.bodyText, letterSpacing:"1px", transition:"color 0.2s" }}>
             {q}
           </span>
         </div>
-        <span style={{ color: C.gold, fontSize:18, flexShrink:0, marginLeft:12, fontWeight:300, lineHeight:1, transition:"transform 0.2s ease", transform: open ? "rotate(45deg)" : "rotate(0)" }}>
+        <span style={{ color: C.gold, fontSize:20, flexShrink:0, marginLeft:12, fontWeight:300, lineHeight:1, transition:"transform 0.2s ease", transform: open ? "rotate(45deg)" : "rotate(0deg)", display: "inline-block" }}>
           +
         </span>
       </button>
       {open && (
         <div style={{ padding:"0 20px 18px 44px", borderTop:`1px solid rgba(139,105,20,0.3)` }}>
-          <p style={{ fontFamily:"'EB Garamond',serif", fontSize:15, color:C.lightText, lineHeight:1.75, opacity:0.85, marginTop:14 }}>
+          <p style={{ fontFamily:"'EB Garamond',serif", fontSize:15, color:C.bodyText, lineHeight:1.75, opacity:0.9, marginTop:14 }}>
             {a}
           </p>
         </div>
