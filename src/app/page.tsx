@@ -260,7 +260,7 @@ export default function Home() {
             fontFamily: "'Cinzel',serif", fontSize: "clamp(9px, 2.5vw, 12px)", letterSpacing: "clamp(2px, 1vw, 4px)", color: "#c9a84c", textTransform: "uppercase",
             whiteSpace: "nowrap",
           }}>
-            THREE DAYS. ENDLESS KNOWLEDGE. ONE LEGACY.
+            SOCIETY OF CYBERSECURITY CLUB
           </div>
           
           {/* 4 corner L-brackets */}
