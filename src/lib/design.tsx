@@ -64,15 +64,16 @@ export function PageHero({ title, subtitle }: { title: string; subtitle: string 
         <div style={{ position:"absolute", bottom:6, right:6, width:18, height:18, borderBottom:`1.5px solid ${C.gold}`, borderRight:`1.5px solid ${C.gold}` }}/>
       </div>
       <h1 style={{
-        fontFamily:"'Cinzel',serif", fontWeight:900, fontSize:52,
-        color:C.gold, letterSpacing:"5px", textTransform:"uppercase",
-        textShadow:`0 0 30px rgba(201,168,76,0.3)`,
-        position:"relative", zIndex:1,
+        fontFamily:"'Cinzel',serif", fontWeight:900, fontSize:"clamp(32px, 8vw, 52px)",
+        color:C.gold, letterSpacing:"3px", textTransform:"uppercase", textAlign:"center",
+        textShadow:`0 0 30px rgba(201,168,76,0.3)`, padding:"0 16px",
+        position:"relative", zIndex:1, lineHeight:1.1,
       }}>{title}</h1>
       <div style={{ width:120, height:1, background:C.goldDk, margin:"12px 0 10px", position:"relative", zIndex:1 }}/>
       <p style={{
-        fontFamily:"'EB Garamond',serif", fontStyle:"italic", fontSize:18,
-        color:C.lightText, position:"relative", zIndex:1, opacity:0.85,
+        fontFamily:"'EB Garamond',serif", fontStyle:"italic", fontSize:"clamp(14px, 4vw, 18px)",
+        color:C.lightText, position:"relative", zIndex:1, opacity:0.85, textAlign:"center",
+        padding:"0 20px"
       }}>{subtitle}</p>
     </div>
   );

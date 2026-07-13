@@ -61,16 +61,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             margin-left: 0;
             width: 100%;
             overflow-x: hidden;
-          }
-          @media (max-width: 1023px) {
-            #main-col {
-              padding-top: 60px;
-            }
+            padding-top: 60px; /* Space for MobileNav */
           }
           @media (min-width: 1024px) {
             #main-col {
               margin-left: 260px;
               width: calc(100% - 260px);
+              padding-top: 0; /* Sidebar instead of top nav */
             }
           }
         `}</style>

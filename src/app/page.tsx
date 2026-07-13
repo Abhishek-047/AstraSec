@@ -97,17 +97,17 @@ export default function Home() {
         <div className="px-6 py-12 md:px-12 md:py-14" style={{ position:"relative", zIndex:2, maxWidth:520, display:"flex", flexDirection:"column", justifyContent:"center" }}>
           <h1 style={{
             fontFamily:"'Cinzel',serif", fontWeight:900,
-            fontSize:"clamp(40px, 10vw, 72px)", lineHeight:1.0,
+            fontSize:"clamp(32px, 12vw, 72px)", lineHeight:1.0,
             color:"#c9a84c", letterSpacing:"3px", textTransform:"uppercase",
             textShadow:"0 0 40px rgba(201,168,76,0.5), 0 0 80px rgba(201,168,76,0.2), 0 2px 4px rgba(0,0,0,0.9)",
             margin:0, marginBottom:18,
           }}>
             LEGACY<br/>SECURED
           </h1>
-          <p style={{ fontFamily:"'Cinzel',serif", fontSize:12, letterSpacing:"3px", color:C.gold, marginBottom:6, textTransform:"uppercase" }}>
+          <p style={{ fontFamily:"'Cinzel',serif", fontSize:"clamp(10px, 3vw, 12px)", letterSpacing:"2px", color:C.gold, marginBottom:6, textTransform:"uppercase" }}>
             HONORING THE PAST. SECURING THE FUTURE.
           </p>
-          <p style={{ fontFamily:"'Cinzel',serif", fontSize:10, letterSpacing:"3px", color:C.goldMuted, marginBottom:18, textTransform:"uppercase" }}>
+          <p style={{ fontFamily:"'Cinzel',serif", fontSize:"clamp(9px, 2.5vw, 10px)", letterSpacing:"2px", color:C.goldMuted, marginBottom:18, textTransform:"uppercase" }}>
             A TECH FEST BY ASTRASEC — SOCS
           </p>
           <p style={{ fontFamily:"'EB Garamond',serif", fontStyle:"italic", fontSize:16, color:C.parchmentLt, lineHeight:1.8, maxWidth:380, marginBottom:28 }}>
