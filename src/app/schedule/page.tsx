@@ -51,9 +51,24 @@ export default function SchedulePage() {
         </div>
 
         {/* Timeline */}
-        <div style={{ position:"relative", paddingLeft:20 }}>
+        <div style={{ position:"relative", padding:"32px 20px", backgroundColor:"#060b14", border:"1px solid rgba(14,165,233,0.3)" }}>
+          {/* Corner brackets */}
+          {["tl","tr","bl","br"].map(c => (
+            <div key={c} style={{
+              position:"absolute",
+              top:   c.startsWith("t") ? 6 : "auto",
+              bottom:c.startsWith("b") ? 6 : "auto",
+              left:  c.endsWith("l")   ? 6 : "auto",
+              right: c.endsWith("r")   ? 6 : "auto",
+              width:10, height:10,
+              borderTop:    c.startsWith("t") ? `1px solid rgba(14,165,233,0.6)` : "none",
+              borderBottom: c.startsWith("b") ? `1px solid rgba(14,165,233,0.6)` : "none",
+              borderLeft:   c.endsWith("l")   ? `1px solid rgba(14,165,233,0.6)` : "none",
+              borderRight:  c.endsWith("r")   ? `1px solid rgba(14,165,233,0.6)` : "none",
+            }}/>
+          ))}
           {/* Vertical line */}
-          <div style={{ position:"absolute", top:0, bottom:0, left:104, width:2, backgroundColor:"#0ea5e9", opacity:0.4 }}/>
+          <div style={{ position:"absolute", top:32, bottom:32, left:104, width:2, backgroundColor:"#0ea5e9", opacity:0.4 }}/>
           
           {SCHEDULE[activeTab as keyof typeof SCHEDULE].map((ev, i) => (
             <div key={i} style={{
