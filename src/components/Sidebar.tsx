@@ -77,7 +77,7 @@ export default function Sidebar() {
     <aside
       id="desktop-sidebar"
       style={{
-        width: 260, minHeight: "100vh",
+        width: 260, height: "100vh",
         backgroundColor: SIDEBAR_BG,
         backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='t'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23t)' opacity='0.04'/%3E%3C/svg%3E")`,
         position: "fixed", left: 0, top: 0, zIndex: 50,
@@ -229,6 +229,8 @@ export default function Sidebar() {
           {/* Scroll rod bottom */}
           <div style={{ height:12, background:"linear-gradient(to bottom, #a88a5d, #d5bc94)", borderRadius:6, border:"1.5px solid #a88a5d", marginTop:-2, boxShadow:"0 -2px 5px rgba(0,0,0,0.5)", position:"relative", zIndex:2 }}/>
         </div>
+        
+        <div style={{ height: 40 }} /> {/* Extra padding at bottom so scroll doesn't cut off */}
 
         {/* Building illustration */}
         <div style={{ width:"100%", position:"relative", overflow:"hidden", height:100, marginTop:"auto", opacity:0.32 }}>

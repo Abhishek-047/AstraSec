@@ -36,8 +36,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             }} />
 
             <MobileNav />
-            <Header />
-
             <main style={{
               flex: 1,
               display: "flex",
