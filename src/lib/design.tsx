@@ -79,7 +79,7 @@ export function PageHero({ title, subtitle }: { title: string; subtitle: string 
       backgroundColor:"#060b14",
       backgroundImage:`
         url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cpath d='M10 60h20M30 60V40M30 40h30M60 40v40M60 80h20M40 60H30M40 60v20M40 80H30' stroke='%230ea5e9' stroke-width='0.4' fill='none' opacity='0.1'/%3E%3Ccircle cx='30' cy='60' r='2' fill='%230ea5e9' opacity='0.12'/%3E%3Ccircle cx='60' cy='40' r='2' fill='%230ea5e9' opacity='0.12'/%3E%3C/svg%3E")`,
-      border:`2px solid #8b6914`,
+      border:`2px solid #c9a84c`,
       display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center",
       marginBottom:48,
     }}>
