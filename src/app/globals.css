@@ -1,26 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ─── Design Tokens ─────────────────────────────────────────── */
+@theme {
+  --font-cinzel: 'Cinzel', serif;
+  --font-garamond: 'EB Garamond', serif;
+
+  --color-sidebar:        #1a1008;
+  --color-parchment:      #e8d9b0;
+  --color-parchment-lt:   #f0e6c8;
+  --color-gold:           #c9a84c;
+  --color-gold-dark:      #8b6914;
+  --color-card-bg:        #1c1409;
+  --color-footer-bg:      #2a1a06;
+  --color-body-text:      #3d2b0e;
+  --color-white-warm:     #f5e6c8;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* ─── Base ──────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+html { scroll-behavior: smooth; }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-garamond);
+  background-color: var(--color-parchment);
+  color: var(--color-body-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,h2,h3,h4,h5,h6 { font-family: var(--font-cinzel); }
+
+/* ─── Parchment surface ─────────────────────────────────────── */
+.parchment {
+  background-color: var(--color-parchment);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.07'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+
+/* ─── Dark leather surface ──────────────────────────────────── */
+.leather {
+  background-color: var(--color-sidebar);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='t'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23t)' opacity='0.08'/%3E%3C/svg%3E");
+}
+
+/* ─── Section heading ornament ──────────────────────────────── */
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  font-family: var(--font-cinzel);
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: var(--color-gold-dark);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.section-heading::before,
+.section-heading::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--color-gold-dark);
+  max-width: 60px;
+}
+
+.section-diamond {
+  width: 7px; height: 7px;
+  background: var(--color-gold-dark);
+  transform: rotate(45deg);
+  margin: 0 auto 32px;
+}
+
+/* ─── Gold ornate card border ───────────────────────────────── */
+.card-leather {
+  background-color: var(--color-card-bg);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='t'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23t)' opacity='0.06'/%3E%3C/svg%3E");
+  border: 1.5px solid var(--color-gold-dark);
+  position: relative;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.card-leather:hover {
+  box-shadow: 0 0 18px rgba(201, 168, 76, 0.25);
+  transform: translateY(-2px) scale(1.01);
+}
+
+/* inner ornate corners on cards */
+.card-leather::before {
+  content: '';
+  position: absolute;
+  inset: 5px;
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  pointer-events: none;
+}
+
+/* ─── Gold button ───────────────────────────────────────────── */
+.btn-gold {
+  font-family: var(--font-cinzel);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  border: 1.5px solid var(--color-gold);
+  color: var(--color-gold);
+  background-color: #2a1a06;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease, background 0.2s ease;
+  border-radius: 2px;
+}
+.btn-gold:hover {
+  background-color: #3a2408;
+  box-shadow: 0 0 12px rgba(201, 168, 76, 0.35);
+}
+.btn-outline {
+  background-color: transparent;
+}
+.btn-outline:hover {
+  background-color: rgba(201, 168, 76, 0.08);
+}
+
+/* ─── Hero ornate frame corners ─────────────────────────────── */
+.hero-corner { position: absolute; width: 22px; height: 22px; }
+.hero-corner-tl { top:  8px; left:  8px; border-top:  2px solid var(--color-gold-dark); border-left:  2px solid var(--color-gold-dark); }
+.hero-corner-tr { top:  8px; right: 8px; border-top:  2px solid var(--color-gold-dark); border-right: 2px solid var(--color-gold-dark); }
+.hero-corner-bl { bottom: 8px; left:  8px; border-bottom: 2px solid var(--color-gold-dark); border-left:  2px solid var(--color-gold-dark); }
+.hero-corner-br { bottom: 8px; right: 8px; border-bottom: 2px solid var(--color-gold-dark); border-right: 2px solid var(--color-gold-dark); }
+
+/* ─── Timeline ──────────────────────────────────────────────── */
+.timeline-line {
+  position: absolute;
+  top: 50%;
+  left: 0; right: 0;
+  height: 1px;
+  background: var(--color-gold-dark);
+  transform: translateY(-50%);
+}
+
+/* ─── Scrollbar ─────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--color-sidebar); }
+::-webkit-scrollbar-thumb { background: var(--color-gold-dark); }
+
+/* ─── Reduced motion ────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; }
 }
