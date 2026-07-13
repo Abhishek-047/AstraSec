@@ -14,39 +14,8 @@ function TeamCard({ name, role }: { name: string; role: string }) {
   const initials = name.split(" ").map(n => n[0]).join("");
   return (
     <div style={{ padding:"12px 8px", textAlign:"center", display:"flex", flexDirection:"column", alignItems:"center" }}>
-      {/* Animated SVG Avatar */}
-      <div style={{ position:"relative", width:100, height:100, margin:"0 auto 14px" }}>
-        <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-          {/* Outer pulsing ring */}
-          <circle cx="50" cy="50" r="46" stroke="#c9a84c" strokeWidth="0.8" strokeDasharray="4 3" opacity="0.4">
-            <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="18s" repeatCount="indefinite"/>
-          </circle>
-          {/* Mid ring */}
-          <circle cx="50" cy="50" r="40" stroke="#8b6914" strokeWidth="0.5" opacity="0.5">
-            <animate attributeName="r" values="39;41;39" dur="3s" repeatCount="indefinite"/>
-            <animate attributeName="opacity" values="0.3;0.7;0.3" dur="3s" repeatCount="indefinite"/>
-          </circle>
-          {/* Inner circle background */}
-          <circle cx="50" cy="50" r="34" fill="#1a1008"/>
-          <circle cx="50" cy="50" r="34" stroke="#c9a84c" strokeWidth="1.2"/>
-          {/* Corner circuit marks */}
-          <path d="M20 20 h8 M20 20 v8" stroke="#c9a84c" strokeWidth="0.8" opacity="0.6"/>
-          <path d="M80 20 h-8 M80 20 v8" stroke="#c9a84c" strokeWidth="0.8" opacity="0.6"/>
-          <path d="M20 80 h8 M20 80 v-8" stroke="#c9a84c" strokeWidth="0.8" opacity="0.6"/>
-          <path d="M80 80 h-8 M80 80 v-8" stroke="#c9a84c" strokeWidth="0.8" opacity="0.6"/>
-          {/* Scan line */}
-          <line x1="17" y1="50" x2="83" y2="50" stroke="#c9a84c" strokeWidth="0.6" opacity="0.25">
-            <animate attributeName="y1" values="22;78;22" dur="2.5s" repeatCount="indefinite"/>
-            <animate attributeName="y2" values="22;78;22" dur="2.5s" repeatCount="indefinite"/>
-            <animate attributeName="opacity" values="0;0.35;0" dur="2.5s" repeatCount="indefinite"/>
-          </line>
-          {/* Initials */}
-          <text x="50" y="56" textAnchor="middle" fontFamily="Cinzel, serif" fontSize="18" fontWeight="700" fill="#c9a84c" letterSpacing="2">{initials}</text>
-          {/* Bottom status dot */}
-          <circle cx="50" cy="86" r="3" fill="#4caf50">
-            <animate attributeName="opacity" values="1;0.3;1" dur="1.8s" repeatCount="indefinite"/>
-          </circle>
-        </svg>
+      {/* Avatar Placeholder */}
+      <div style={{ width:100, height:100, borderRadius:"50%", margin:"0 auto 16px", display:"flex", alignItems:"center", justifyContent:"center", backgroundColor:"#3a2a08" }}>
       </div>
       <div style={{ fontFamily:"'Cinzel',serif", fontWeight:700, fontSize:13, color:"#3a2a08", letterSpacing:"1px", marginBottom:4 }}>{name}</div>
       <div style={{ fontFamily:"'EB Garamond',serif", fontStyle:"italic", fontSize:13, color:"#5c4018", marginBottom:10 }}>{role}</div>
@@ -164,7 +133,16 @@ export default function AboutPage() {
       </section>
 
       {/* Team */}
-      <section className="px-6 md:px-8" style={{ width:"100%", marginBottom:80 }}>
+      <section className="px-6 md:px-8 team-section-animate" style={{ width:"100%", marginBottom:80 }}>
+        <style>{`
+          @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+          .team-section-animate {
+            animation: fadeInUp 1s ease-out forwards;
+          }
+        `}</style>
         <SectionHeading text="Our Team" />
         <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(140px, 1fr))", gap:20, maxWidth:1100, margin:"0 auto" }}>
           {[
