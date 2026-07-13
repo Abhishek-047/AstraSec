@@ -40,7 +40,10 @@ export default function MobileNav() {
           </svg>
           <div>
             <div style={{ fontFamily:"'Cinzel',serif", fontSize:13, fontWeight:700, letterSpacing:"3px", color:GOLD, lineHeight:1.2 }}>
-              CODEX<br/>SECURITAS
+              AstraSec
+            </div>
+            <div style={{ fontFamily:"'Cinzel',serif", fontSize:7, letterSpacing:"1.5px", color:"#7a5e2a", lineHeight:1.4 }}>
+              SOCS
             </div>
           </div>
         </Link>

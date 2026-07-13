@@ -79,7 +79,7 @@ export default function AboutPage() {
             Founded in the Spirit of Cyber Excellence
           </h2>
           <p style={{ fontFamily:"'EB Garamond',serif", fontSize:16, color:C.bodyText, lineHeight:1.85, marginBottom:16 }}>
-            Codex Securitas was born from a shared conviction — that the history of codes, ciphers, and secret knowledge is as ancient as civilization itself. We carry that legacy forward into the digital age.
+            AstraSec (SOCS) was born from a shared conviction — that the history of codes, ciphers, and secret knowledge is as ancient as civilization itself. We carry that legacy forward into the digital age.
           </p>
           <div style={{ borderLeft:`3px solid ${C.gold}`, paddingLeft:16, marginBottom:16 }}>
             <p style={{ fontFamily:"'EB Garamond',serif", fontStyle:"italic", fontSize:16, color:C.bodyText, lineHeight:1.85 }}>

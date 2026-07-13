@@ -91,9 +91,12 @@ export default function Sidebar() {
             fontSize: 14, letterSpacing: "3px", color: GOLD,
             textAlign:"center", marginTop: 6, lineHeight: 1.4,
             textShadow: "0 1px 3px rgba(0,0,0,0.8)",
-          }}>CODEX<br/>SECURITAS</div>
-          <div style={{ fontFamily:"'Cinzel',serif", fontSize:9, letterSpacing:"4px", color: "#7a5e2a", marginTop:4 }}>
-            CYBERSECURITY CLUB
+          }}>AstraSec</div>
+          <div style={{ fontFamily:"'Cinzel',serif", fontSize:8, letterSpacing:"2px", color: "#7a5e2a", marginTop:4, textAlign:"center", lineHeight:1.4 }}>
+            SOCS
+          </div>
+          <div style={{ fontFamily:"'EB Garamond',serif", fontStyle:"italic", fontSize:8, letterSpacing:"1px", color: "#7a5e2a", opacity:0.8, textAlign:"center", lineHeight:1.4 }}>
+            (Society Of CyberSecurity Club)
           </div>
         </Link>
 

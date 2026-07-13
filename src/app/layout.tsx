@@ -6,8 +6,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Legacy Secured | Codex Securitas Cybersecurity Tech Fest",
-  description: "Legacy Secured — a Heritage × Cybersecurity Tech Fest by Codex Securitas. 25–27 July 2025, Technology Block Auditorium, Jaipur.",
+  title: "Legacy Secured | AstraSec — SOCS Cybersecurity Tech Fest",
+  description: "Legacy Secured — a Heritage × Cybersecurity Tech Fest by AstraSec (SOCS). 25–27 July 2025, Technology Block Auditorium, Jaipur.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

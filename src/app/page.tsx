@@ -108,7 +108,7 @@ export default function Home() {
             HONORING THE PAST. SECURING THE FUTURE.
           </p>
           <p style={{ fontFamily:"'Cinzel',serif", fontSize:10, letterSpacing:"3px", color:C.goldMuted, marginBottom:18, textTransform:"uppercase" }}>
-            A TECH FEST BY CODEX SECURITAS
+            A TECH FEST BY ASTRASEC — SOCS
           </p>
           <p style={{ fontFamily:"'EB Garamond',serif", fontStyle:"italic", fontSize:16, color:C.parchmentLt, lineHeight:1.8, maxWidth:380, marginBottom:28 }}>
             Explore. Learn. Compete.<br/>Join us for an unforgettable journey into cybersecurity and technology.
@@ -157,7 +157,7 @@ export default function Home() {
 
           <div style={{ flex:1, minWidth:240 }}>
             <p style={{ fontFamily:"'EB Garamond',serif", fontSize:16, color:C.bodyText, lineHeight:1.8, marginBottom:32 }}>
-              Codex Securitas presents its annual tech fest focused on cybersecurity and emerging technologies. A platform to learn, collaborate, and compete in an ever-evolving digital world.
+              AstraSec presents its annual tech fest focused on cybersecurity and emerging technologies. A platform to learn, collaborate, and compete in an ever-evolving digital world.
             </p>
             <div style={{ borderTop:`1px solid ${C.gold}`, paddingTop:28, display:"grid", gridTemplateColumns:"repeat(4,1fr)", gap:8 }}>
               {[

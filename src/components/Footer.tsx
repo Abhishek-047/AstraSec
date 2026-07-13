@@ -24,7 +24,7 @@ export default function Footer() {
               <path d="M12 2L20 5.5V12C20 17,16 20,12 22C8 20,4 17,4 12V5.5Z"/>
             </svg>
             <div style={{ fontFamily:"'Cinzel',serif", fontWeight:700, fontSize:14, letterSpacing:"3px", color: GOLD, lineHeight:1.3 }}>
-              CODEX<br/>SECURITAS
+              AstraSec
             </div>
           </div>
           <p style={{ fontFamily:"'EB Garamond',serif", fontSize:13, color: GOLD, opacity:0.7, lineHeight:1.8 }}>
@@ -81,7 +81,7 @@ export default function Footer() {
       {/* Gold rule + copyright */}
       <div style={{ height:1, background:`linear-gradient(to right, transparent, ${GOLD_DK} 20%, ${GOLD_DK} 80%, transparent)`, marginBottom:16 }}/>
       <div style={{ textAlign:"center", fontFamily:"'Cinzel',serif", fontSize:9, letterSpacing:"2px", color: GOLD, opacity:0.45, textTransform:"uppercase" }}>
-        © 2025 Codex Securitas. All Rights Reserved.
+        © 2025 AstraSec — SOCS (Society Of CyberSecurity Club). All Rights Reserved.
       </div>
     </footer>
   );
