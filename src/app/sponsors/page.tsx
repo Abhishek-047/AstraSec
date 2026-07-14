@@ -44,22 +44,22 @@ export default function SponsorsPage() {
       <section style={{ width:"100%", padding:"0 24px", marginBottom:64 }}>
         {/* Title Sponsor */}
         <div style={{ width:"60%", margin:"0 auto 48px", minWidth:280 }}>
-          <SponsorCard isLarge tier="TITLE SPONSOR" name="CYBER DEFENSE INC." desc="Leading the global fight against emerging cyber threats through innovative solutions and continuous research." />
+          <SponsorCard isLarge tier="TITLE SPONSOR" name="To Be Declared" desc="Soon" />
         </div>
 
         {/* Gold Sponsors */}
         <div style={{ display:"flex", gap:24, flexWrap:"wrap", marginBottom:48 }}>
-          <div style={{ flex:1, minWidth:220 }}><SponsorCard tier="GOLD SPONSOR" name="SECURE NETWORKS" /></div>
-          <div style={{ flex:1, minWidth:220 }}><SponsorCard tier="GOLD SPONSOR" name="DATA FORTRESS" /></div>
-          <div style={{ flex:1, minWidth:220 }}><SponsorCard tier="GOLD SPONSOR" name="QUANTUM CRYPTO" /></div>
+          <div style={{ flex:1, minWidth:220 }}><SponsorCard tier="GOLD SPONSOR" name="To Be Declared" /></div>
+          <div style={{ flex:1, minWidth:220 }}><SponsorCard tier="GOLD SPONSOR" name="To Be Declared" /></div>
+          <div style={{ flex:1, minWidth:220 }}><SponsorCard tier="GOLD SPONSOR" name="To Be Declared" /></div>
         </div>
 
         {/* Silver Sponsors */}
         <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill, minmax(180px, 1fr))", gap:20 }}>
-          <SponsorCard tier="SILVER SPONSOR" name="NULLSEC" />
-          <SponsorCard tier="SILVER SPONSOR" name="HACKTHEBOX" />
-          <SponsorCard tier="SILVER SPONSOR" name="PENTESTER ACADEMY" />
-          <SponsorCard tier="SILVER SPONSOR" name="INFOSEC INST" />
+          <SponsorCard tier="SILVER SPONSOR" name="To Be Declared" />
+          <SponsorCard tier="SILVER SPONSOR" name="To Be Declared" />
+          <SponsorCard tier="SILVER SPONSOR" name="To Be Declared" />
+          <SponsorCard tier="SILVER SPONSOR" name="To Be Declared" />
         </div>
       </section>
 

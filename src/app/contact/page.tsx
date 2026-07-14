@@ -67,12 +67,12 @@ export default function ContactPage() {
           
           <div style={{ display:"flex", gap:12, alignItems:"flex-start", marginBottom:20, borderBottom:`1px solid #8b6914`, paddingBottom:20 }}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" strokeWidth="1.5" style={{ flexShrink:0, marginTop:2 }}><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            <div style={{ fontFamily:"'EB Garamond',serif", fontSize:15, color:"#94a3b8" }}>Socs.club@rishihood.edu.in</div>
+            <div style={{ fontFamily:"'EB Garamond',serif", fontSize:15, color:"#94a3b8" }}>socs.club@rishihood.edu.in</div>
           </div>
           
           <div style={{ display:"flex", gap:12, alignItems:"flex-start", marginBottom:20, borderBottom:`1px solid #8b6914`, paddingBottom:20 }}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" strokeWidth="1.5" style={{ flexShrink:0, marginTop:2 }}><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <div style={{ fontFamily:"'EB Garamond',serif", fontSize:15, color:"#94a3b8" }}>Technology Block Auditorium,<br/>Sonipat, Haryana, Delhi NCR, India</div>
+            <div style={{ fontFamily:"'EB Garamond',serif", fontSize:15, color:"#94a3b8" }}>B Block Main Auditorium,<br/>Sonipat, Haryana, Delhi NCR, India</div>
           </div>
           
           <div style={{ display:"flex", gap:12, alignItems:"flex-start", marginBottom:32, borderBottom:`1px solid #8b6914`, paddingBottom:20 }}>

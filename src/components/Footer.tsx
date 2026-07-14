@@ -49,7 +49,7 @@ export default function Footer() {
         <div>
           <h4 style={{ fontFamily:"'Cinzel',serif", fontSize:11, fontWeight:700, letterSpacing:"2px", color: GOLD, marginBottom:16, textTransform:"uppercase" }}>Support</h4>
           <ul style={{ listStyle:"none" }}>
-            {[["FAQ","/faq"],["Contact Us","/contact"],["Venue Map","/contact"],["Code of Conduct","/conduct"]].map(([name,href])=>(
+            {[["FAQ","/faq"],["Contact Us","/contact"],["Code of Conduct","/conduct"]].map(([name,href])=>(
               <li key={name} style={{ marginBottom:10 }}>
                 <Link href={href} style={{ fontFamily:"'EB Garamond',serif", fontSize:14, color: "#94a3b8", textDecoration:"none" }}>{name}</Link>
               </li>

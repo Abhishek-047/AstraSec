@@ -95,8 +95,8 @@ export default function AboutPage() {
         <SectionHeading text="Mission & Vision" variant="cyber" />
         <div style={{ display:"flex", gap:24, flexWrap:"wrap" }}>
           {[
-            { icon:"M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5", title:"OUR MISSION", body:"To cultivate a community of cyber-aware individuals who blend ancient wisdom of cryptography with modern security practices — preserving knowledge, protecting systems." },
-            { icon:"M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z M12 9a3 3 0 0 0 0 6 3 3 0 0 0 0-6z", title:"OUR VISION",  body:"A future where cybersecurity is not just a profession but a heritage — passed down, refined, and honored by every generation of digital guardians that follows us." },
+            { icon:"M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5", title:"OUR VISION", body:"To establish ASTRAsec as a premier cybersecurity platform bridging the gap between education, industry, and policy in India's digital security ecosystem." },
+            { icon:"M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z M12 9a3 3 0 0 0 0 6 3 3 0 0 0 0-6z", title:"OUR MISSION",  body:"A future where cybersecurity is not just a profession but a heritage — passed down, refined, and honored by every generation of digital guardians that follows us." },
           ].map(card=>(
             <div key={card.title} style={{
               flex:1, minWidth:260,
@@ -127,7 +127,7 @@ export default function AboutPage() {
       {/* Stats */}
       <section className="px-6 py-10 md:px-8 md:py-12" style={{ width:"100%", marginBottom:52, backgroundColor:"#060b14" }}>
         <div style={{ display:"flex", flexWrap:"wrap", gap:16, maxWidth:900, margin:"0 auto", justifyContent:"space-between" }}>
-          {[["500+","MEMBERS"],["25+","EVENTS"],["10+","WORKSHOPS"],["3","YEARS"]].map(([n,l],i)=>(
+          {[["50+","MEMBERS"],["10+","EVENTS"],["10+","WORKSHOPS"],["2","YEARS"]].map(([n,l],i)=>(
             <StatBox key={l} num={n} label={l}/>
           ))}
         </div>
@@ -147,12 +147,12 @@ export default function AboutPage() {
         <SectionHeading text="Our Team" variant="gold" />
         <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(140px, 1fr))", gap:20, maxWidth:1100, margin:"0 auto" }}>
           {[
-            { name:"Arjun Sharma",   role:"Club President" },
-            { name:"Priya Gupta",    role:"Vice President" },
-            { name:"Ravi Joshi",     role:"Technical Lead" },
-            { name:"Neha Singh",     role:"Events Director" },
-            { name:"Kabir Mehta",    role:"CTF Lead" },
-            { name:"Aisha Khan",     role:"Design Head" },
+            { name:"Rudra Pratap Singh Choudhary",   role:"Club President" },
+            { name:"Antik Mondal",    role:"Vice President" },
+            { name:"Mohammad affan anas",     role:"Technical Lead" },
+            { name:"Prabhas",     role:"Events Director" },
+            { name:"Utkarsh Singh",    role:"CTF Lead" },
+            { name:"Abhishek Panigrahi",     role:"Design Head" },
           ].map(m=><TeamCard key={m.name} {...m}/>)}
         </div>
       </section>

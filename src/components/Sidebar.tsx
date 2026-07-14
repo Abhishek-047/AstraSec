@@ -164,7 +164,7 @@ export default function Sidebar() {
           <div style={{ display:"flex", alignItems:"flex-start", gap:10 }}>
             <svg width="14" height="16" viewBox="0 0 24 24" fill="none" stroke={GOLD_DIM} strokeWidth="1.5" style={{ flexShrink:0, marginTop:2 }}><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             <span style={{ fontFamily:"'Cinzel',serif", fontSize:10, color: GOLD, letterSpacing:"1px", lineHeight:1.6, opacity:0.9 }}>
-              TECHNOLOGY BLOCK<br/>AUDITORIUM<br/>Sonipat, Haryana, Delhi NCR 
+              B BLOCK<br/>Main AUDITORIUM<br/>Sonipat, Haryana, Delhi NCR 
             </span>
           </div>
         </div>

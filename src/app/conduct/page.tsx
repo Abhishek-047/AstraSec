@@ -54,9 +54,7 @@ export default function ConductPage() {
         <SectionHeading text="The Pledge" variant="gold" />
         <div style={{ maxWidth:720, margin:"0 auto", textAlign:"center" }}>
           <p style={{ fontFamily:"'EB Garamond',serif", fontStyle:"italic", fontSize:18, color:"#94a3b8", lineHeight:1.9, marginBottom:16 }}>
-            AstraSec is a community built on trust, curiosity, and the responsible pursuit of knowledge.
-            Every participant, speaker, and organizer is expected to uphold the following standards
-            throughout the duration of the event.
+            We, the members of the Society of Cyber Security, in recognition of the growing importance of cybersecurity in safeguarding digital, national, institutional, and individual interests, hereby establish this Constitution to govern the structure, functioning, conduct, and objectives of the Society.
           </p>
           <div style={{ height:1, background:`linear-gradient(to right, transparent, #c9a84c, transparent)`, margin:"24px 0" }}/>
           <p style={{ fontFamily:"'Cinzel',serif", fontSize:11, letterSpacing:"2px", color:"#94a3b8" }}>

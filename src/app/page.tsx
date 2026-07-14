@@ -160,7 +160,15 @@ export default function Home() {
 
           <div style={{ flex:1, minWidth:240 }}>
             <p style={{ fontFamily:"'EB Garamond',serif", fontSize:16, color:"#94a3b8", lineHeight:1.8, marginBottom:32 }}>
-              AstraSec presents its annual tech fest focused on cybersecurity and emerging technologies. A platform to learn, collaborate, and compete in an ever-evolving digital world.
+              ASTRAsec 2026 is a two-day cybersecurity conference—cum—festival scheduled for 31
+October–1 November (tentative) at the Rishihood University campus. Designed as a
+hybrid of a technical conference and a cultural-tech fest, the event aims to foster
+cybersecurity awareness, skill development, and community building in India.
+<br /><br />
+The event will bring together students, cybersecurity enthusiasts, industry professionals, and
+policymakers, creating a platform for knowledge exchange, competition, and collaboration.
+With an expected participation of 300+ attendees, AstraSec will serve as a flagship initiative of
+SOCS to position Rishihood University as a hub for cybersecurity innovation and engagement.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4" style={{ borderTop:`1px solid ${C.gold}`, paddingTop:28 }}>
               {[
@@ -181,11 +189,11 @@ export default function Home() {
           </div>
         </div>
       </section>
-
+              <br />
       {/* ══════════════════════════════════
           EVENT HIGHLIGHTS
       ══════════════════════════════════ */}
-      <section id="highlights" className="px-6 py-12 md:px-8 md:py-16" style={{ width:"100%", backgroundColor:"#111827", borderTop:`1px solid rgba(201,168,76,0.15)` }}>
+      <section id="highlights" className="px-6 py-12 md:px-8 md:py-16" style={{ width:"100%", backgroundColor:"#111827", borderTop:`1px solid rgba(201,168,76,0.15)`,padding:"30px 24px"}}>
         <SectionHeading text="Event Highlights" variant="cyber" />
         <div style={{ display:"flex", gap:24, flexWrap:"nowrap", overflowX:"auto", paddingBottom:24, paddingTop:12, scrollbarWidth:"thin" }}>
           {[
@@ -203,7 +211,7 @@ export default function Home() {
       {/* ══════════════════════════════════
           EVENT SCHEDULE
       ══════════════════════════════════ */}
-      <section id="schedule" style={{ width:"100%", padding:"64px 24px", backgroundColor:"#0d1424", borderTop:`1px solid rgba(14,165,233,0.15)` }}>
+      <section id="schedule" style={{ width:"100%", padding:"px 24px", backgroundColor:"#0d1424", borderTop:`1px solid rgba(14,165,233,0.15)` }}>
         <SectionHeading text="Event Schedule" variant="cyber" />
         <div style={{ border:`1px solid rgba(14,165,233,0.3)`, padding:"40px 24px", position:"relative", backgroundColor:"#060b14", maxWidth:1080, margin:"0 auto" }}>
           {/* Corner brackets */}
@@ -226,16 +234,16 @@ export default function Home() {
             <div className="hidden md:block" style={{ position:"absolute", top:52, left:"12.5%", right:"12.5%", height:2, backgroundColor:"#0ea5e9", opacity:0.3, zIndex:0 }}/>
             <div className="flex flex-col md:flex-row gap-8">
               {[
-                { day:"DAY 1", date:"25 JULY", desc:"Inauguration & Keynote Session",   iconD:"M12 2L20 5.5V12C20 17,16 20,12 22C8 20,4 17,4 12V5.5Z" },
-                { day:"DAY 2", date:"26 JULY", desc:"Workshops & CTF Qualifiers",        iconD:"M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3" },
-                { day:"DAY 3", date:"27 JULY", desc:"Finals, Talks & Closing Ceremony",  iconD:"M12 2L15 9L22 9L16.5 14L18.5 21L12 17L5.5 21L7.5 14L2 9L9 9Z" },
+                { day:"DAY 1", date:"25 October", desc:"Inauguration & Keynote Session",   iconD:"M12 2L20 5.5V12C20 17,16 20,12 22C8 20,4 17,4 12V5.5Z" },
+                { day:"DAY 2", date:"26 October", desc:"Workshops & CTF Qualifiers",        iconD:"M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3" },
+                { day:"DAY 3", date:"27 October", desc:"Finals, Talks & Closing Ceremony",  iconD:"M12 2L15 9L22 9L16.5 14L18.5 21L12 17L5.5 21L7.5 14L2 9L9 9Z" },
                 { day:"ALL DAYS", date:"",     desc:"Exhibitions & Cyber Arena",          iconD:"M17 20C17 17,14.5 15,12 15C9.5 15,7 17,7 20 M4 20C4 18,6 16,7 15.5 M12 12A4 4 0 1 1 12 4" },
               ].map(n=><TNode key={n.day} {...n}/>)}
             </div>
           </div>
         </div>
       </section>
-
+              <br />
       {/* ══════════════════════════════════
           CTA BANNER
       ══════════════════════════════════ */}

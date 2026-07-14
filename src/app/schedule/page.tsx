@@ -3,21 +3,21 @@ import { useState } from "react";
 import { PageHero } from "@/lib/design";
 
 const SCHEDULE = {
-  "DAY 1 — 25 JULY": [
+  "DAY 1 — 25 October": [
     { time: "09:00 AM", title: "Inauguration Ceremony", loc: "Main Auditorium", spk: "Club President" },
     { time: "10:30 AM", title: "Keynote Address", loc: "Main Auditorium", spk: "Dr. Alistair Vance" },
     { time: "01:00 PM", title: "Lunch Break", loc: "Courtyard", spk: "" },
     { time: "02:00 PM", title: "Workshop: Cloud Security Basics", loc: "Workshop Hall B", spk: "Sarah Jenkins" },
     { time: "05:00 PM", title: "Networking & Mixer", loc: "Atrium", spk: "" },
   ],
-  "DAY 2 — 26 JULY": [
+  "DAY 2 — 26 October": [
     { time: "09:00 AM", title: "CTF Qualifiers Begin", loc: "Cyber Lab 1 & 2", spk: "CTF Core Team" },
     { time: "11:00 AM", title: "Workshop: Malware Analysis", loc: "Workshop Hall A", spk: "David Chen" },
     { time: "01:00 PM", title: "Lunch Break", loc: "Courtyard", spk: "" },
     { time: "02:30 PM", title: "Bug Bounty Live Hunting", loc: "Lab 3", spk: "" },
     { time: "06:00 PM", title: "CTF Qualifiers End", loc: "Cyber Lab 1 & 2", spk: "" },
   ],
-  "DAY 3 — 27 JULY": [
+  "DAY 3 — 27 October": [
     { time: "09:30 AM", title: "CTF Finals", loc: "Cyber Lab 1", spk: "CTF Core Team" },
     { time: "10:00 AM", title: "Tech Talk: Future of Cryptography", loc: "Main Auditorium", spk: "Elena Rostova" },
     { time: "01:00 PM", title: "Lunch Break", loc: "Courtyard", spk: "" },
