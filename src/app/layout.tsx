@@ -14,6 +14,25 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body>
+        {/* Global ambient cyber layer */}
+        <div className="hex-overlay" aria-hidden="true" />
+        <div className="page-scanline" aria-hidden="true" />
+        {/* Binary columns — 6 of them at different positions/speeds */}
+        <div className="cyber-ambient" aria-hidden="true">
+          {[
+            { left:"5%",  delay:"0s",   dur:"18s", txt:"01001\n11010\n00101\n10110\n01011\n11001\n00110" },
+            { left:"15%", delay:"4s",   dur:"22s", txt:"10110\n01001\n11010\n00101\n10110\n01011" },
+            { left:"75%", delay:"2s",   dur:"20s", txt:"00101\n10110\n01011\n11001\n00110\n01001" },
+            { left:"85%", delay:"7s",   dur:"16s", txt:"11010\n00101\n10110\n01011\n11001\n00110" },
+            { left:"92%", delay:"1s",   dur:"24s", txt:"01011\n11001\n00110\n01001\n11010\n00101" },
+            { left:"55%", delay:"11s",  dur:"19s", txt:"11001\n00110\n01001\n11010\n00101\n10110" },
+          ].map((c, i) => (
+            <div key={i} className="binary-col" style={{ left:c.left, animationDelay:c.delay, animationDuration:c.dur }}>
+              {c.txt}
+            </div>
+          ))}
+        </div>
+
         {/* Desktop sidebar — hidden on mobile via CSS (see sidebar component) */}
         <Sidebar />
         

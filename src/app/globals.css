@@ -328,3 +328,134 @@ h1, h2, h3, h4, h5, h6 {
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
 }
+
+/* ─── Global page ambient cyber elements ─────────────── */
+
+/* Floating binary strings — very subtle background layer */
+.cyber-ambient {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* Individual binary column */
+.binary-col {
+  position: absolute;
+  top: -20px;
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  color: rgba(14, 165, 233, 0.06);
+  line-height: 1.6;
+  white-space: pre;
+  animation: binaryFall linear infinite;
+  user-select: none;
+}
+
+@keyframes binaryFall {
+  from { transform: translateY(-100%); }
+  to   { transform: translateY(110vh); }
+}
+
+/* Hex grid global overlay — extremely subtle */
+.hex-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='70'%3E%3Cpolygon points='30,2 58,17 58,47 30,62 2,47 2,17' fill='none' stroke='%230ea5e9' stroke-width='0.3' opacity='0.04'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+
+/* Scan line — page-level, very slow */
+.page-scanline {
+  position: fixed;
+  left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(to right, transparent, rgba(14,165,233,0.08), transparent);
+  pointer-events: none;
+  z-index: 0;
+  animation: pageScan 8s linear infinite;
+}
+
+@keyframes pageScan {
+  0%   { top: -2px; }
+  100% { top: 100vh; }
+}
+
+/* Glitch effect on hover — for section headings */
+.glitch-hover:hover {
+  animation: glitchText 0.3s ease;
+}
+
+@keyframes glitchText {
+  0%   { text-shadow: 0 0 0 transparent; }
+  20%  { text-shadow: -2px 0 rgba(14,165,233,0.5), 2px 0 rgba(201,168,76,0.3); }
+  40%  { text-shadow: 2px 0 rgba(14,165,233,0.5), -2px 0 rgba(201,168,76,0.3); }
+  60%  { text-shadow: -1px 0 rgba(14,165,233,0.5); }
+  80%  { text-shadow: 1px 0 rgba(14,165,233,0.3); }
+  100% { text-shadow: 0 0 20px rgba(14,165,233,0.2); }
+}
+
+/* Typewriter text */
+.typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid #0ea5e9;
+  animation: typing 3.5s steps(40) 0.5s forwards, blinkCaret 0.75s step-end infinite;
+  width: 0;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+
+@keyframes blinkCaret {
+  50% { border-color: transparent; }
+}
+
+/* Section entry animation — for all sections */
+.section-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.section-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Cyber badge tag */
+.cyber-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(14,165,233,0.08);
+  border: 1px solid rgba(14,165,233,0.3);
+  color: #0ea5e9;
+  font-family: 'Cinzel', serif;
+  font-size: 9px;
+  letter-spacing: 2px;
+  padding: 3px 10px;
+  text-transform: uppercase;
+}
+
+/* Status indicator dot */
+.status-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #0ea5e9;
+  box-shadow: 0 0 6px #0ea5e9;
+  display: inline-block;
+  animation: blinkCursor 1.5s step-end infinite;
+}
+
+div:hover > .row-indicator { opacity: 1 !important; }
+
+/* Scrollbar hover style */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #06090f; }
+::-webkit-scrollbar-thumb { background: linear-gradient(to bottom, #0369a1, #c9a84c); border-radius: 4px; }

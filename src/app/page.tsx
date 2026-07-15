@@ -82,6 +82,20 @@ export default function Home() {
 
         {/* Left content */}
         <div style={{ padding: "48px clamp(36px, 8vw, 80px)", position: "relative", zIndex: 2, maxWidth: 600, display: "flex", flexDirection: "column", justifyContent: "center" }}>
+          {/* Status badge */}
+          <div style={{
+            display: "inline-flex", alignItems: "center", gap: 8, marginBottom: 16,
+            backgroundColor: "rgba(14,165,233,0.08)",
+            border: "1px solid rgba(14,165,233,0.3)",
+            padding: "5px 14px",
+            alignSelf: "flex-start",
+          }}>
+            <span className="status-dot" />
+            <span style={{
+              fontFamily: "'Cinzel',serif", fontSize: 9, letterSpacing: "3px",
+              color: "#0ea5e9", textTransform: "uppercase",
+            }}>AstraSec 2026 — Registration Open</span>
+          </div>
           <h1 style={{
             fontFamily: "'Cinzel',serif", fontWeight: 900,
             fontSize: "clamp(32px, 12vw, 72px)", lineHeight: 1.0,
@@ -95,6 +109,13 @@ export default function Home() {
           }}>
             LEGACY<br />SECURED
           </h1>
+          {/* Terminal-style sub-label */}
+          <div style={{
+            fontFamily: "monospace", fontSize: 12, color: "rgba(14,165,233,0.6)",
+            marginBottom: 8, letterSpacing: "1px",
+          }}>
+            <span style={{ color: "#c9a84c" }}>&gt;</span> Initializing ASTRAsec_2026.exe<span className="blink" />
+          </div>
           <p style={{ fontFamily: "'Cinzel',serif", fontSize: "clamp(10px, 3vw, 12px)", letterSpacing: "2px", color: C.gold, marginBottom: 6, textTransform: "uppercase" }}>
             HONORING THE PAST. SECURING THE FUTURE.
           </p>

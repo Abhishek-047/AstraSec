@@ -72,15 +72,25 @@ export default function SchedulePage() {
           
           {SCHEDULE[activeTab as keyof typeof SCHEDULE].map((ev, i) => (
             <div key={i} style={{
-              display:"flex", alignItems:"flex-start", marginBottom:0,
-              backgroundColor: i % 2 === 0 ? "#0d1424" : "#111827",
-              borderBottom:`1px solid rgba(14,165,233,0.1)`, padding:"24px 0",
-              position:"relative"
-            }}>
-              <div style={{ width:84, textAlign:"right", fontFamily:"'Cinzel',serif", fontSize:12, color:"#0ea5e9", paddingTop:2 }}>
+              display: "flex", gap: 20, alignItems: "flex-start",
+              padding: "16px 20px",
+              borderBottom: "1px solid rgba(14,165,233,0.08)",
+              position: "relative",
+              transition: "background-color 0.15s ease",
+              backgroundColor: i % 2 === 0 ? "transparent" : "rgba(14,165,233,0.02)",
+            }}
+            onMouseEnter={e => { (e.currentTarget as HTMLElement).style.backgroundColor = "rgba(14,165,233,0.05)"; }}
+            onMouseLeave={e => { (e.currentTarget as HTMLElement).style.backgroundColor = i % 2 === 0 ? "transparent" : "rgba(14,165,233,0.02)"; }}
+            >
+              <div style={{
+                position: "absolute", left: 0, top: 0, bottom: 0, width: 2,
+                background: "linear-gradient(to bottom, transparent, #0ea5e9, transparent)",
+                opacity: 0, transition: "opacity 0.2s ease",
+              }} className="row-indicator" />
+              <div style={{ width:84, textAlign:"right", fontFamily:"monospace", color:"#0ea5e9", fontSize:12, letterSpacing:"1px", paddingTop:2 }}>
                 {ev.time}
               </div>
-              <div style={{ width:12, height:12, borderRadius:"50%", backgroundColor:"#0ea5e9", margin:"6px 20px 0 20px", position:"relative", zIndex:1, boxShadow:"0 0 8px rgba(14,165,233,0.6)" }}/>
+              <div style={{ width:12, height:12, borderRadius:"50%", backgroundColor:"#0ea5e9", margin:"6px 0 0 0", position:"relative", zIndex:1, boxShadow:"0 0 8px rgba(14,165,233,0.6)", flexShrink:0 }}/>
               <div style={{ flex:1 }}>
                 <div style={{ fontFamily:"'Cinzel',serif", fontWeight:700, fontSize:15, color:"#f0f6ff", marginBottom:8 }}>{ev.title}</div>
                 <div style={{ display:"flex", gap:8, flexWrap:"wrap" }}>

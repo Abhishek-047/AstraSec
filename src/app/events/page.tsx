@@ -6,12 +6,12 @@ function EventCard({ tag, icon, title, desc, meta }: { tag:string; icon:string; 
   return (
     <div style={{
       backgroundColor:"#0f172a",
-      border:`1px solid #8b6914`, padding:"24px 20px", position:"relative",
+      border:`1px solid rgba(14,165,233,0.25)`, padding:"24px 20px", position:"relative",
       display:"flex", flexDirection:"column",
       transition:"all 0.2s ease", cursor:"default"
     }}
-    onMouseEnter={e=>{(e.currentTarget as HTMLElement).style.cssText+="box-shadow:0 0 24px rgba(139,105,20,0.2);transform:translateY(-3px);border-color:#c9a84c"}}
-    onMouseLeave={e=>{(e.currentTarget as HTMLElement).style.boxShadow="none";(e.currentTarget as HTMLElement).style.transform="none";(e.currentTarget as HTMLElement).style.borderColor="#8b6914"}}
+    onMouseEnter={e=>{(e.currentTarget as HTMLElement).style.cssText+="box-shadow:0 0 24px rgba(14,165,233,0.2);transform:translateY(-3px);border-color:rgba(14,165,233,0.6)"}}
+    onMouseLeave={e=>{(e.currentTarget as HTMLElement).style.boxShadow="none";(e.currentTarget as HTMLElement).style.transform="none";(e.currentTarget as HTMLElement).style.borderColor="rgba(14,165,233,0.25)"}}
     >
       {/* Gold inner frame ornament */}
       <div style={{ position:"absolute", inset:5, border:"1px solid rgba(201,168,76,0.15)", pointerEvents:"none" }}/>
@@ -26,11 +26,11 @@ function EventCard({ tag, icon, title, desc, meta }: { tag:string; icon:string; 
           borderRight:c.endsWith("r")?"1.5px solid #c9a84c":"none",
         }}/>
       ))}
-      <div style={{ alignSelf:"flex-start", backgroundColor:"#c9a84c", color:"#06090f", fontFamily:"'Cinzel',serif", fontSize:9, fontWeight:700, padding:"3px 10px", letterSpacing:"2px", marginBottom:20 }}>
+      <div style={{ alignSelf:"flex-start", backgroundColor:"rgba(14,165,233,0.15)", color:"#0ea5e9", border:"1px solid rgba(14,165,233,0.4)", fontFamily:"'Cinzel',serif", fontSize:9, fontWeight:700, padding:"3px 10px", letterSpacing:"2px", marginBottom:20 }}>
         {tag}
       </div>
       <div style={{ alignSelf:"center", marginBottom:16 }}>
-        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" strokeWidth="1" strokeLinecap="round">
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" strokeWidth="1" strokeLinecap="round">
           <path d={icon}/>
         </svg>
       </div>
@@ -45,12 +45,12 @@ function EventCard({ tag, icon, title, desc, meta }: { tag:string; icon:string; 
       
       <a href="/contact" style={{
         marginTop:20, width:"100%", padding:"10px",
-        backgroundColor:"rgba(139,105,20,0.08)", border:`1.5px solid #8b6914`, color:"#c9a84c",
+        backgroundColor:"rgba(14,165,233,0.06)", border:`1.5px solid rgba(14,165,233,0.35)`, color:"#0ea5e9",
         fontFamily:"'Cinzel',serif", fontSize:11, letterSpacing:"2px", cursor:"pointer",
         transition:"all 0.2s ease", textDecoration:"none", textAlign:"center", display:"block"
       }}
-      onMouseEnter={e=>e.currentTarget.style.backgroundColor="rgba(139,105,20,0.18)"}
-      onMouseLeave={e=>e.currentTarget.style.backgroundColor="rgba(139,105,20,0.08)"}
+      onMouseEnter={e=>e.currentTarget.style.backgroundColor="rgba(14,165,233,0.18)"}
+      onMouseLeave={e=>e.currentTarget.style.backgroundColor="rgba(14,165,233,0.06)"}
       >
         REGISTER →
       </a>

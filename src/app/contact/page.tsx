@@ -4,22 +4,36 @@ import { PageHero, GoldBtn } from "@/lib/design";
 function InputField({ label, type="text", textarea=false }: { label:string; type?:string; textarea?:boolean }) {
   const inputStyle: React.CSSProperties = {
     width:"100%", backgroundColor:"rgba(139,105,20,0.04)",
-    border:`1px solid #8b6914`, color:"#f0f6ff",
+    border:`1px solid rgba(14,165,233,0.2)`, color:"#f0f6ff",
     padding:"10px 14px", fontFamily:"'EB Garamond',serif", fontSize:15,
     outline:"none", resize:"vertical" as const, borderRadius:0,
   };
   return (
     <div style={{ marginBottom:20 }}>
-      <label style={{ display:"block", fontFamily:"'Cinzel',serif", fontSize:11, color:"#c9a84c", letterSpacing:"2px", marginBottom:6 }}>{label}</label>
+      <label style={{ display:"block", fontFamily:"'Cinzel',serif", fontSize:11, color:"#c9a84c", letterSpacing:"2px", marginBottom:6 }}>
+        <span style={{ color:"rgba(14,165,233,0.5)", fontFamily:"monospace", marginRight:6 }}>&gt;_</span>{label}
+      </label>
       {textarea ? (
         <textarea rows={4} style={inputStyle}
-          onFocus={e=>{e.target.style.borderColor="#c9a84c"; e.target.style.boxShadow="0 0 8px rgba(139,105,20,0.25)"}}
-          onBlur={e=>{e.target.style.borderColor="#8b6914"; e.target.style.boxShadow="none"}}
+          onFocus={e => {
+            e.currentTarget.style.borderColor = "#0ea5e9";
+            e.currentTarget.style.boxShadow = "0 0 0 1px rgba(14,165,233,0.3), inset 0 0 12px rgba(14,165,233,0.04)";
+          }}
+          onBlur={e => {
+            e.currentTarget.style.borderColor = "rgba(14,165,233,0.2)";
+            e.currentTarget.style.boxShadow = "none";
+          }}
         />
       ) : (
         <input type={type} style={inputStyle}
-          onFocus={e=>{e.target.style.borderColor="#c9a84c"; e.target.style.boxShadow="0 0 8px rgba(139,105,20,0.25)"}}
-          onBlur={e=>{e.target.style.borderColor="#8b6914"; e.target.style.boxShadow="none"}}
+          onFocus={e => {
+            e.currentTarget.style.borderColor = "#0ea5e9";
+            e.currentTarget.style.boxShadow = "0 0 0 1px rgba(14,165,233,0.3), inset 0 0 12px rgba(14,165,233,0.04)";
+          }}
+          onBlur={e => {
+            e.currentTarget.style.borderColor = "rgba(14,165,233,0.2)";
+            e.currentTarget.style.boxShadow = "none";
+          }}
         />
       )}
     </div>

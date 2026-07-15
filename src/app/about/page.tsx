@@ -1,4 +1,5 @@
 "use client";
+import { useEffect, useRef } from "react";
 import { C, LEATHER_TEX, SectionHeading, PageHero, GoldBtn } from "@/lib/design";
 
 function StatBox({ num, label }: { num: string; label: string }) {
@@ -10,123 +11,146 @@ function StatBox({ num, label }: { num: string; label: string }) {
   );
 }
 
-function TeamCard({ name, role, delay="0s" }: { name:string; role:string; delay?:string }) {
+function TeamCard({ name, role, index }: { name:string; role:string; index:number }) {
+  const ref = useRef<HTMLDivElement>(null);
   const initials = name.split(" ").map((n:string) => n[0]).join("").slice(0,2).toUpperCase();
-  
-  // Role → specialty tag
-  const specialtyMap: Record<string,string> = {
-    "Club President":    "RED TEAM",
-    "Vice President":    "BLUE TEAM",
-    "Technical Lead":    "EXPLOIT DEV",
-    "Events Director":   "OPS LEAD",
-    "CTF Lead":          "CTF MASTER",
-    "Design Head":       "OSINT",
+
+  const specialtyMap: Record<string,{tag:string; color:string}> = {
+    "Club President":  { tag:"RED TEAM LEAD",  color:"#ef4444" },
+    "Vice President":  { tag:"BLUE TEAM LEAD",  color:"#0ea5e9" },
+    "Technical Lead":  { tag:"EXPLOIT DEV",     color:"#a855f7" },
+    "Events Director": { tag:"OPS DIRECTOR",    color:"#f59e0b" },
+    "CTF Lead":        { tag:"CTF MASTER",      color:"#22c55e" },
+    "Design Head":     { tag:"OSINT ANALYST",   color:"#0ea5e9" },
   };
-  const specialty = specialtyMap[role] || "ANALYST";
+  const spec = specialtyMap[role] || { tag:"ANALYST", color:"#0ea5e9" };
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        el.style.opacity = "1";
+        el.style.transform = "translateY(0)";
+        obs.disconnect();
+      }
+    }, { threshold: 0.1 });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
 
   return (
     <div
-      className="fade-in-up"
+      ref={ref}
       style={{
-        backgroundColor:"#0f172a",
-        border:"1px solid rgba(14,165,233,0.2)",
-        padding:"24px 18px",
-        textAlign:"center",
-        position:"relative",
-        animationDelay: delay,
-        transition:"all 0.2s ease",
-        cursor:"default",
+        backgroundColor: "#0f172a",
+        border: "1px solid rgba(14,165,233,0.2)",
+        padding: "28px 18px 22px",
+        textAlign: "center", position: "relative",
+        opacity: 0,
+        transform: `translateY(${20 + index * 5}px)`,
+        transition: `opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s, box-shadow 0.2s ease, border-color 0.2s ease`,
+        cursor: "default",
       }}
-      onMouseEnter={e=>{
-        (e.currentTarget as HTMLElement).style.borderColor="rgba(14,165,233,0.5)";
-        (e.currentTarget as HTMLElement).style.boxShadow="0 0 20px rgba(14,165,233,0.12)";
-        (e.currentTarget as HTMLElement).style.transform="translateY(-4px)";
+      onMouseEnter={e => {
+        const el = e.currentTarget as HTMLElement;
+        el.style.boxShadow = "0 0 28px rgba(14,165,233,0.15)";
+        el.style.borderColor = "rgba(14,165,233,0.5)";
+        el.style.transform = "translateY(-5px)";
       }}
-      onMouseLeave={e=>{
-        (e.currentTarget as HTMLElement).style.borderColor="rgba(14,165,233,0.2)";
-        (e.currentTarget as HTMLElement).style.boxShadow="none";
-        (e.currentTarget as HTMLElement).style.transform="translateY(0)";
+      onMouseLeave={e => {
+        const el = e.currentTarget as HTMLElement;
+        el.style.boxShadow = "none";
+        el.style.borderColor = "rgba(14,165,233,0.2)";
+        el.style.transform = "translateY(0)";
       }}
     >
-      {/* Corner brackets */}
-      {["tl","tr","bl","br"].map(c=>(
+      {/* Corner L-brackets */}
+      {["tl","tr","bl","br"].map(c => (
         <div key={c} style={{
           position:"absolute",
-          top:c.startsWith("t")?4:"auto", bottom:c.startsWith("b")?4:"auto",
-          left:c.endsWith("l")?4:"auto", right:c.endsWith("r")?4:"auto",
-          width:10, height:10,
-          borderTop:c.startsWith("t")?"1px solid rgba(14,165,233,0.35)":"none",
-          borderBottom:c.startsWith("b")?"1px solid rgba(14,165,233,0.35)":"none",
-          borderLeft:c.endsWith("l")?"1px solid rgba(14,165,233,0.35)":"none",
-          borderRight:c.endsWith("r")?"1px solid rgba(14,165,233,0.35)":"none",
-        }}/>
+          top:    c.startsWith("t") ? 5 : "auto",
+          bottom: c.startsWith("b") ? 5 : "auto",
+          left:   c.endsWith("l")   ? 5 : "auto",
+          right:  c.endsWith("r")   ? 5 : "auto",
+          width: 10, height: 10,
+          borderTop:    c.startsWith("t") ? "1px solid rgba(14,165,233,0.4)" : "none",
+          borderBottom: c.startsWith("b") ? "1px solid rgba(14,165,233,0.4)" : "none",
+          borderLeft:   c.endsWith("l")   ? "1px solid rgba(14,165,233,0.4)" : "none",
+          borderRight:  c.endsWith("r")   ? "1px solid rgba(14,165,233,0.4)" : "none",
+        }} />
       ))}
 
-      {/* Avatar hexagon-ish */}
+      {/* Avatar ring */}
       <div style={{
-        width:80, height:80, borderRadius:"50%", margin:"0 auto 16px",
-        backgroundColor:"#060b14",
-        border:"2px solid rgba(14,165,233,0.4)",
-        boxShadow:"0 0 0 4px #0f172a, 0 0 0 5px rgba(14,165,233,0.2)",
-        display:"flex", alignItems:"center", justifyContent:"center",
-        position:"relative",
+        width: 80, height: 80, borderRadius: "50%",
+        margin: "0 auto 16px",
+        backgroundColor: "#060b14",
+        border: `2px solid ${spec.color}`,
+        boxShadow: `0 0 0 4px #0f172a, 0 0 0 5px ${spec.color}33`,
+        display: "flex", alignItems: "center", justifyContent: "center",
+        position: "relative",
       }}>
-        {/* Rotating ring */}
+        {/* Dashed spinning orbit */}
         <div style={{
-          position:"absolute", inset:-6, borderRadius:"50%",
-          border:"1px dashed rgba(14,165,233,0.2)",
-          animation:"spin 12s linear infinite",
-        }}/>
-        <span style={{ fontFamily:"'Cinzel',serif", fontSize:22, fontWeight:700, color:"#0ea5e9" }}>
-          {initials}
-        </span>
+          position: "absolute", inset: -7, borderRadius: "50%",
+          border: "1px dashed rgba(14,165,233,0.2)",
+          animation: "spin 14s linear infinite",
+        }} />
+        <span style={{
+          fontFamily: "'Cinzel',serif", fontSize: 22, fontWeight: 700,
+          color: spec.color,
+        }}>{initials}</span>
       </div>
 
       {/* Specialty tag */}
       <div style={{
-        display:"inline-block",
-        backgroundColor:"rgba(14,165,233,0.1)",
-        border:"1px solid rgba(14,165,233,0.3)",
-        borderRadius:2,
-        fontFamily:"'Cinzel',serif", fontSize:8, letterSpacing:"2px",
-        color:"#0ea5e9", padding:"3px 10px", marginBottom:10,
-        textTransform:"uppercase",
-      }}>{specialty}</div>
+        display: "inline-block",
+        backgroundColor: `${spec.color}15`,
+        border: `1px solid ${spec.color}50`,
+        fontFamily: "'Cinzel',serif", fontSize: 8, letterSpacing: "2px",
+        color: spec.color, padding: "3px 10px", marginBottom: 12,
+        textTransform: "uppercase",
+      }}>{spec.tag}</div>
 
       {/* Name */}
       <div style={{
-        fontFamily:"'Cinzel',serif", fontWeight:700, fontSize:12,
-        color:"#f0f6ff", letterSpacing:"0.5px", marginBottom:4,
-        lineHeight:1.4,
+        fontFamily: "'Cinzel',serif", fontWeight: 700, fontSize: 12,
+        color: "#f0f6ff", letterSpacing: "0.5px", lineHeight: 1.4, marginBottom: 4,
       }}>{name}</div>
 
       {/* Role */}
       <div style={{
-        fontFamily:"'EB Garamond',serif", fontStyle:"italic", fontSize:13,
-        color:"#94a3b8", marginBottom:14,
+        fontFamily: "'EB Garamond',serif", fontStyle: "italic",
+        fontSize: 13, color: "#94a3b8", marginBottom: 14,
       }}>{role}</div>
 
       {/* Divider */}
-      <div style={{ height:1, background:"linear-gradient(to right, transparent, rgba(14,165,233,0.2), transparent)", marginBottom:12 }}/>
+      <div style={{
+        height: 1,
+        background: `linear-gradient(to right, transparent, ${spec.color}40, transparent)`,
+        marginBottom: 14,
+      }} />
 
       {/* Social links */}
-      <div style={{ display:"flex", justifyContent:"center", gap:10 }}>
+      <div style={{ display: "flex", justifyContent: "center", gap: 10 }}>
         {[
-          { l:"LI", href:"https://www.linkedin.com/company/society-of-cyber-security/", d:"M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z M2 9h4v12H2z M4 6a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" },
-          { l:"GH", href:"https://github.com/Society-of-Cyber-Security", d:"M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" },
-          { l:"IG", href:"https://www.instagram.com/socs_ru/", d:"M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z M17.5 6.5h.01 M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2z" },
-        ].map(s=>(
-          <a key={s.l} href={s.href} target="_blank" rel="noopener noreferrer" style={{
-            width:28, height:28, borderRadius:"50%",
-            border:"1px solid rgba(14,165,233,0.2)",
-            display:"flex", alignItems:"center", justifyContent:"center",
-            textDecoration:"none", transition:"all 0.2s ease",
-          }}
-          onMouseEnter={e=>{e.currentTarget.style.borderColor="#0ea5e9"; e.currentTarget.style.backgroundColor="rgba(14,165,233,0.1)"}}
-          onMouseLeave={e=>{e.currentTarget.style.borderColor="rgba(14,165,233,0.2)"; e.currentTarget.style.backgroundColor="transparent"}}
+          { l:"LI", href:"https://www.linkedin.com/company/society-of-cyber-security/",  d:"M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z M2 9h4v12H2z M4 6a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" },
+          { l:"GH", href:"https://github.com/Society-of-Cyber-Security",                  d:"M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" },
+          { l:"IG", href:"https://www.instagram.com/socs_ru/",                            d:"M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z M17.5 6.5h.01 M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2z" },
+        ].map(s => (
+          <a key={s.l} href={s.href} target="_blank" rel="noopener noreferrer"
+            style={{
+              width: 28, height: 28, borderRadius: "50%",
+              border: "1px solid rgba(14,165,233,0.25)",
+              display: "flex", alignItems: "center", justifyContent: "center",
+              textDecoration: "none", transition: "all 0.2s ease",
+            }}
+            onMouseEnter={e => { e.currentTarget.style.borderColor="#0ea5e9"; e.currentTarget.style.backgroundColor="rgba(14,165,233,0.12)"; }}
+            onMouseLeave={e => { e.currentTarget.style.borderColor="rgba(14,165,233,0.25)"; e.currentTarget.style.backgroundColor="transparent"; }}
           >
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" strokeWidth="1.8" strokeLinecap="round">
-              <path d={s.d}/>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+              <path d={s.d} />
             </svg>
           </a>
         ))}
@@ -332,12 +356,18 @@ export default function AboutPage() {
       </section>
 
       {/* Team */}
-      <section style={{ width:"100%", padding:"48px 24px", marginBottom:80, backgroundColor:"#0d1424" }}>
+      <section style={{ width:"100%", padding:"52px 24px 80px", backgroundColor:"#0d1424" }}>
         <SectionHeading text="Our Team" variant="cyber" />
+        {/* Cyber sub-label */}
+        <div style={{ textAlign:"center", marginBottom:36, marginTop:-20 }}>
+          <span style={{ fontFamily:"monospace", fontSize:11, color:"rgba(14,165,233,0.45)" }}>
+            // Society of Cyber Security — Core Members
+          </span>
+        </div>
         <div style={{
-          display:"grid",
-          gridTemplateColumns:"repeat(auto-fit, minmax(160px, 1fr))",
-          gap:20, maxWidth:1080, margin:"0 auto",
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(170px, 1fr))",
+          gap: 20, maxWidth: 1080, margin: "0 auto",
         }}>
           {[
             { name:"Rudra Pratap Singh Choudhary", role:"Club President" },
@@ -346,7 +376,7 @@ export default function AboutPage() {
             { name:"Prabhas",                      role:"Events Director" },
             { name:"Utkarsh Singh",                role:"CTF Lead" },
             { name:"Abhishek Panigrahi",           role:"Design Head" },
-          ].map((m, i) => <TeamCard key={m.name} {...m} delay={`${i*0.1}s`}/>)}
+          ].map((m, i) => <TeamCard key={m.name} {...m} index={i} />)}
         </div>
       </section>
 

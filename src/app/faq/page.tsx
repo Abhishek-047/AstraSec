@@ -50,6 +50,8 @@ function FAQItem({ q, a, index }: { q: string; a: string; index: number }) {
   return (
     <div style={{
       border:`1px solid ${open ? "#0ea5e9" : "rgba(14,165,233,0.2)"}`,
+      borderLeft: open ? "2px solid #0ea5e9" : "1px solid rgba(14,165,233,0.2)",
+      boxShadow: open ? "inset 3px 0 12px rgba(14,165,233,0.05)" : "none",
       marginBottom:12,
       backgroundColor: open ? "rgba(14,165,233,0.04)" : "transparent",
       transition:"border-color 0.2s ease, background-color 0.2s ease",
@@ -63,8 +65,8 @@ function FAQItem({ q, a, index }: { q: string; a: string; index: number }) {
         }}
       >
         <div style={{ display:"flex", gap:14, alignItems:"center" }}>
-          <span style={{ fontFamily:"'Cinzel',serif", fontSize:10, color: open ? "#0ea5e9" : "rgba(14,165,233,0.4)", letterSpacing:"1px", flexShrink:0 }}>
-            {String(index + 1).padStart(2, "0")}
+          <span style={{ fontFamily:"monospace", color:"rgba(14,165,233,0.4)", marginRight:8, fontSize:"0.9em" }}>
+            {String(index + 1).padStart(2, "0")} &gt;_
           </span>
           <span style={{ fontFamily:"'Cinzel',serif", fontWeight:700, fontSize:12, color: open ? "#0ea5e9" : "#94a3b8", letterSpacing:"1px", transition:"color 0.2s" }}>
             {q}
