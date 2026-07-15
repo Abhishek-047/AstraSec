@@ -75,12 +75,30 @@ export default function SchedulePage() {
               alignItems: "flex-start",
               borderBottom: "1px solid rgba(14,165,233,0.08)",
               position: "relative",
-              transition: "background-color 0.15s ease",
+              transition: "background-color 0.2s ease",
               backgroundColor: i % 2 === 0 ? "transparent" : "rgba(14,165,233,0.02)",
+              cursor: "default",
             }}
-            onMouseEnter={e => { (e.currentTarget as HTMLElement).style.backgroundColor = "rgba(14,165,233,0.05)"; }}
-            onMouseLeave={e => { (e.currentTarget as HTMLElement).style.backgroundColor = i % 2 === 0 ? "transparent" : "rgba(14,165,233,0.02)"; }}
+            onMouseEnter={e => {
+              const el = e.currentTarget as HTMLElement;
+              el.style.backgroundColor = "rgba(14,165,233,0.06)";
+              const ind = el.querySelector(".row-indicator") as HTMLElement | null;
+              if (ind) ind.style.opacity = "1";
+            }}
+            onMouseLeave={e => {
+              const el = e.currentTarget as HTMLElement;
+              el.style.backgroundColor = i % 2 === 0 ? "transparent" : "rgba(14,165,233,0.02)";
+              const ind = el.querySelector(".row-indicator") as HTMLElement | null;
+              if (ind) ind.style.opacity = "0";
+            }}
             >
+              {/* Glowing left bar — appears on hover */}
+              <div className="row-indicator" style={{
+                position: "absolute", left: 0, top: 0, bottom: 0, width: 3,
+                background: "linear-gradient(to bottom, transparent, #0ea5e9, transparent)",
+                opacity: 0, transition: "opacity 0.25s ease",
+                boxShadow: "2px 0 12px rgba(14,165,233,0.4)",
+              }} />
               {/* Time column */}
               <div style={{ textAlign:"right", fontFamily:"monospace", color:"#0ea5e9", fontSize:12, letterSpacing:"1px", padding:"18px 12px 18px 20px", lineHeight:1 }}>
                 {ev.time}
