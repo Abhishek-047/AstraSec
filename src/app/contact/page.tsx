@@ -66,8 +66,18 @@ export default function ContactPage() {
               border:`1.5px solid #8b6914`, color:"#c9a84c", backgroundColor:"rgba(139,105,20,0.08)",
               cursor:"pointer", transition:"all 0.2s ease", marginTop:10
             }}
-            onMouseEnter={e=>{e.currentTarget.style.backgroundColor="rgba(139,105,20,0.18)";e.currentTarget.style.boxShadow="0 0 20px rgba(139,105,20,0.35)"}}
-            onMouseLeave={e=>{e.currentTarget.style.backgroundColor="rgba(139,105,20,0.08)";e.currentTarget.style.boxShadow="none"}}
+            onMouseEnter={e => {
+              e.currentTarget.style.backgroundColor = "rgba(14,165,233,0.08)";
+              e.currentTarget.style.boxShadow = "0 0 20px rgba(14,165,233,0.3)";
+              e.currentTarget.style.borderColor = "#0ea5e9";
+              e.currentTarget.style.color = "#0ea5e9";
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.backgroundColor = "rgba(139,105,20,0.08)";
+              e.currentTarget.style.boxShadow = "none";
+              e.currentTarget.style.borderColor = "#8b6914";
+              e.currentTarget.style.color = "#c9a84c";
+            }}
             >
               DISPATCH MESSAGE →
             </button>
@@ -106,8 +116,18 @@ export default function ContactPage() {
                 fontFamily:"'Cinzel',serif", fontSize:10, color:"#c9a84c", cursor:"pointer",
                 transition:"all 0.2s ease", textDecoration:"none", textAlign:"center", display:"block", letterSpacing:"1px"
               }}
-              onMouseEnter={e=>{e.currentTarget.style.backgroundColor="rgba(139,105,20,0.14)";e.currentTarget.style.boxShadow="0 0 12px rgba(139,105,20,0.2)"}}
-              onMouseLeave={e=>{e.currentTarget.style.backgroundColor="rgba(139,105,20,0.06)";e.currentTarget.style.boxShadow="none"}}
+              onMouseEnter={e => {
+                e.currentTarget.style.backgroundColor = "rgba(14,165,233,0.1)";
+                e.currentTarget.style.boxShadow = "0 0 12px rgba(14,165,233,0.25)";
+                e.currentTarget.style.borderColor = "#0ea5e9";
+                e.currentTarget.style.color = "#0ea5e9";
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.backgroundColor = "rgba(139,105,20,0.06)";
+                e.currentTarget.style.boxShadow = "none";
+                e.currentTarget.style.borderColor = "#8b6914";
+                e.currentTarget.style.color = "#c9a84c";
+              }}
               >
                 {s.label}
               </a>

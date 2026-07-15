@@ -178,6 +178,7 @@ export function GoldBtn({
   const bgColor = isCyber ? "rgba(14,165,233,0.08)" : "rgba(42,26,6,0.9)";
   const hoverBg = isCyber ? "rgba(14,165,233,0.18)" : "rgba(201,168,76,0.12)";
   const hoverGlow = isCyber ? "0 0 20px rgba(14,165,233,0.4)" : "0 0 16px rgba(201,168,76,0.3)";
+  const hoverBorderColor = isCyber ? "#c9a84c" : "#0ea5e9"; // swap on hover
 
   const style: React.CSSProperties = {
     fontFamily:"'Cinzel',serif", fontSize:11, fontWeight:700,
@@ -187,8 +188,16 @@ export function GoldBtn({
     cursor:"pointer", transition:"all 0.2s ease", borderRadius:0,
     textDecoration:"none", display:"inline-block",
   };
-  const hoverIn  = (e: React.MouseEvent<HTMLElement>) => { e.currentTarget.style.backgroundColor=hoverBg; e.currentTarget.style.boxShadow=hoverGlow; };
-  const hoverOut = (e: React.MouseEvent<HTMLElement>) => { e.currentTarget.style.backgroundColor=outline?"transparent":bgColor; e.currentTarget.style.boxShadow="none"; };
+  const hoverIn  = (e: React.MouseEvent<HTMLElement>) => {
+    e.currentTarget.style.backgroundColor = hoverBg;
+    e.currentTarget.style.boxShadow = hoverGlow;
+    e.currentTarget.style.borderColor = hoverBorderColor;
+  };
+  const hoverOut = (e: React.MouseEvent<HTMLElement>) => {
+    e.currentTarget.style.backgroundColor = outline ? "transparent" : bgColor;
+    e.currentTarget.style.boxShadow = "none";
+    e.currentTarget.style.borderColor = borderColor;
+  };
   if (href) {
     return (
       <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer"
