@@ -1,11 +1,12 @@
 import Link from "next/link";
 import { C, LEATHER_TEX, SectionHeading, HighlightCard, GoldBtn } from "@/lib/design";
+import CountdownTimer from "@/components/CountdownTimer";
 
 /* ── Inline SVG Icons ──────────────────────────────────────── */
 function Icon({ d, size = 46 }: { d: string; size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none"
-      stroke={C.gold} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
+      stroke="#0ea5e9" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
       <path d={d} />
     </svg>
   );
@@ -18,7 +19,7 @@ function TNode({ day, date, desc, iconD }: { day: string; date: string; desc: st
       <div style={{ fontFamily: "'Cinzel',serif", fontSize: 11, fontWeight: 700, letterSpacing: "2px", color: "#0ea5e9" }}>{day}</div>
       {date && <div style={{ fontFamily: "'Cinzel',serif", fontSize: 10, color: "#94a3b8", marginBottom: 10 }}>{date}</div>}
       {!date && <div style={{ marginBottom: 10 }} />}
-      <div style={{
+      <div className="pulse-node" style={{
         width: 44, height: 44, borderRadius: "50%",
         backgroundColor: "#0f172a",
         border: "2px solid #0ea5e9",
@@ -108,7 +109,10 @@ export default function Home() {
             <GoldBtn href="/events" variant="gold" outline>EXPLORE EVENTS</GoldBtn>
           </div>
         </div>
+        <div className="scan-overlay" />
       </section>
+
+      <CountdownTimer />
 
       {/* ══════════════════════════════════
           ABOUT SECTION
@@ -187,8 +191,8 @@ export default function Home() {
             { d: "M12 2A4 4 0 0 1 16 6V12A4 4 0 0 1 8 12V6A4 4 0 0 1 12 2Z M8 12C8 14.21 9.79 16 12 16C14.21 16 16 14.21 16 12 M12 16V22 M8 22H16", title: "TECH TALKS", desc: "Insightful talks by industry experts on latest trends." },
             { d: "M12 9A4 4 0 1 1 12 17A4 4 0 1 1 12 9Z M12 5V9 M5 12H9 M15 12H19 M7 7L9 9 M15 9L17 7 M7 17L9 15 M15 15L17 17", title: "BUG BOUNTY", desc: "Find vulnerabilities and earn exciting rewards." },
             { d: "M14.5 9.5L19 5 M5 19l4.5-4.5 M5 5l14 14 M9.5 9.5L5 5 M19 19l-4.5-4.5", title: "CYBER ARENA", desc: "Compete, collaborate & conquer in the ultimate cyber arena." },
-          ].map(c => (
-            <HighlightCard key={c.title} icon={<Icon d={c.d} size={52} />} title={c.title} desc={c.desc} />
+          ].map((c, i) => (
+            <HighlightCard key={c.title} icon={<Icon d={c.d} size={52} />} title={c.title} desc={c.desc} delay={`${i * 0.1}s`} />
           ))}
         </div>
       </section>
@@ -196,7 +200,7 @@ export default function Home() {
       {/* ══════════════════════════════════
           EVENT SCHEDULE
       ══════════════════════════════════ */}
-      <section id="schedule" style={{ width: "100%", padding: "px 24px", backgroundColor: "#0d1424", borderTop: `1px solid rgba(14,165,233,0.15)` }}>
+      <section id="schedule" style={{ width: "100%", padding: "48px 24px", backgroundColor: "#0d1424", borderTop: `1px solid rgba(14,165,233,0.15)` }}>
         <SectionHeading text="Event Schedule" variant="cyber" />
         <div style={{ border: `1px solid rgba(14,165,233,0.3)`, padding: "40px 24px", position: "relative", backgroundColor: "#060b14", maxWidth: 1080, margin: "0 auto" }}>
           {/* Corner brackets */}

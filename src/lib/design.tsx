@@ -59,7 +59,7 @@ export function SectionHeading({ text, variant = "gold" }: { text: string; varia
           fontFamily:"'Cinzel',serif", fontSize:"clamp(13px, 4vw, 16px)", fontWeight:700,
           letterSpacing:"3px", color, textTransform:"uppercase", textAlign:"center",
           textShadow: variant === "cyber" ? `0 0 20px ${glowColor}` : "none",
-        }}>— {text} —</span>
+        }}><span style={{ color: variant==="cyber" ? "rgba(14,165,233,0.5)" : "rgba(201,168,76,0.4)", marginRight:8, fontFamily:"monospace", fontSize:"0.85em" }}>{'>_ '}</span>— {text} —</span>
         <div style={{ flex:1, height:1, background:`linear-gradient(to left, transparent, ${dimColor})` }}/>
       </div>
       <div style={{
@@ -118,15 +118,17 @@ export function PageHero({ title, subtitle }: { title: string; subtitle: string 
 }
 
 /** Cyber highlight card */
-export function HighlightCard({ icon, title, desc }: { icon: React.ReactNode; title: string; desc: string }) {
+export function HighlightCard({ icon, title, desc, delay="0s" }: { icon: React.ReactNode; title: string; desc: string; delay?: string }) {
   return (
-    <div style={{
+    <div className="fade-in-up" style={{
       flex:"1 1 0", minWidth:150,
       backgroundColor:"#0f172a",
       border:`1px solid rgba(14,165,233,0.2)`,
       padding:"26px 14px 38px",
       textAlign:"center", position:"relative",
       transition:"all 0.2s ease", cursor:"default",
+      animation: `floatUp 0.5s ease-out ${delay} forwards`,
+      opacity: 0,
     }}
     onMouseEnter={e=>{(e.currentTarget as HTMLElement).style.cssText+="box-shadow:0 0 24px rgba(14,165,233,0.2);transform:translateY(-2px);border-color:rgba(14,165,233,0.5)"}}
     onMouseLeave={e=>{(e.currentTarget as HTMLElement).style.boxShadow="none";(e.currentTarget as HTMLElement).style.transform="none";(e.currentTarget as HTMLElement).style.borderColor="rgba(14,165,233,0.2)"}}

@@ -10,31 +10,124 @@ function StatBox({ num, label }: { num: string; label: string }) {
   );
 }
 
-function TeamCard({ name, role }: { name: string; role: string }) {
-  const initials = name.split(" ").map(n => n[0]).join("");
+function TeamCard({ name, role, delay="0s" }: { name:string; role:string; delay?:string }) {
+  const initials = name.split(" ").map((n:string) => n[0]).join("").slice(0,2).toUpperCase();
+  
+  // Role → specialty tag
+  const specialtyMap: Record<string,string> = {
+    "Club President":    "RED TEAM",
+    "Vice President":    "BLUE TEAM",
+    "Technical Lead":    "EXPLOIT DEV",
+    "Events Director":   "OPS LEAD",
+    "CTF Lead":          "CTF MASTER",
+    "Design Head":       "OSINT",
+  };
+  const specialty = specialtyMap[role] || "ANALYST";
+
   return (
-    <div style={{ padding:"12px 8px", textAlign:"center", display:"flex", flexDirection:"column", alignItems:"center" }}>
-      {/* Avatar Placeholder */}
-      <div style={{ width:100, height:100, borderRadius:"50%", margin:"0 auto 16px", display:"flex", alignItems:"center", justifyContent:"center", backgroundColor:"#0f172a", border:"1px solid #0ea5e9" }}>
-        <span style={{ fontFamily:"'Cinzel',serif", fontSize:28, color:"#0ea5e9" }}>{initials}</span>
+    <div
+      className="fade-in-up"
+      style={{
+        backgroundColor:"#0f172a",
+        border:"1px solid rgba(14,165,233,0.2)",
+        padding:"24px 18px",
+        textAlign:"center",
+        position:"relative",
+        animationDelay: delay,
+        transition:"all 0.2s ease",
+        cursor:"default",
+      }}
+      onMouseEnter={e=>{
+        (e.currentTarget as HTMLElement).style.borderColor="rgba(14,165,233,0.5)";
+        (e.currentTarget as HTMLElement).style.boxShadow="0 0 20px rgba(14,165,233,0.12)";
+        (e.currentTarget as HTMLElement).style.transform="translateY(-4px)";
+      }}
+      onMouseLeave={e=>{
+        (e.currentTarget as HTMLElement).style.borderColor="rgba(14,165,233,0.2)";
+        (e.currentTarget as HTMLElement).style.boxShadow="none";
+        (e.currentTarget as HTMLElement).style.transform="translateY(0)";
+      }}
+    >
+      {/* Corner brackets */}
+      {["tl","tr","bl","br"].map(c=>(
+        <div key={c} style={{
+          position:"absolute",
+          top:c.startsWith("t")?4:"auto", bottom:c.startsWith("b")?4:"auto",
+          left:c.endsWith("l")?4:"auto", right:c.endsWith("r")?4:"auto",
+          width:10, height:10,
+          borderTop:c.startsWith("t")?"1px solid rgba(14,165,233,0.35)":"none",
+          borderBottom:c.startsWith("b")?"1px solid rgba(14,165,233,0.35)":"none",
+          borderLeft:c.endsWith("l")?"1px solid rgba(14,165,233,0.35)":"none",
+          borderRight:c.endsWith("r")?"1px solid rgba(14,165,233,0.35)":"none",
+        }}/>
+      ))}
+
+      {/* Avatar hexagon-ish */}
+      <div style={{
+        width:80, height:80, borderRadius:"50%", margin:"0 auto 16px",
+        backgroundColor:"#060b14",
+        border:"2px solid rgba(14,165,233,0.4)",
+        boxShadow:"0 0 0 4px #0f172a, 0 0 0 5px rgba(14,165,233,0.2)",
+        display:"flex", alignItems:"center", justifyContent:"center",
+        position:"relative",
+      }}>
+        {/* Rotating ring */}
+        <div style={{
+          position:"absolute", inset:-6, borderRadius:"50%",
+          border:"1px dashed rgba(14,165,233,0.2)",
+          animation:"spin 12s linear infinite",
+        }}/>
+        <span style={{ fontFamily:"'Cinzel',serif", fontSize:22, fontWeight:700, color:"#0ea5e9" }}>
+          {initials}
+        </span>
       </div>
-      <div style={{ fontFamily:"'Cinzel',serif", fontWeight:700, fontSize:13, color:"#f0f6ff", letterSpacing:"1px", marginBottom:4 }}>{name}</div>
-      <div style={{ fontFamily:"'EB Garamond',serif", fontStyle:"italic", fontSize:13, color:"#94a3b8", marginBottom:10 }}>{role}</div>
+
+      {/* Specialty tag */}
+      <div style={{
+        display:"inline-block",
+        backgroundColor:"rgba(14,165,233,0.1)",
+        border:"1px solid rgba(14,165,233,0.3)",
+        borderRadius:2,
+        fontFamily:"'Cinzel',serif", fontSize:8, letterSpacing:"2px",
+        color:"#0ea5e9", padding:"3px 10px", marginBottom:10,
+        textTransform:"uppercase",
+      }}>{specialty}</div>
+
+      {/* Name */}
+      <div style={{
+        fontFamily:"'Cinzel',serif", fontWeight:700, fontSize:12,
+        color:"#f0f6ff", letterSpacing:"0.5px", marginBottom:4,
+        lineHeight:1.4,
+      }}>{name}</div>
+
+      {/* Role */}
+      <div style={{
+        fontFamily:"'EB Garamond',serif", fontStyle:"italic", fontSize:13,
+        color:"#94a3b8", marginBottom:14,
+      }}>{role}</div>
+
+      {/* Divider */}
+      <div style={{ height:1, background:"linear-gradient(to right, transparent, rgba(14,165,233,0.2), transparent)", marginBottom:12 }}/>
+
+      {/* Social links */}
       <div style={{ display:"flex", justifyContent:"center", gap:10 }}>
         {[
-          { l:"LI", href:"https://www.linkedin.com/company/society-of-cyber-security/" },
-          { l:"GH", href:"https://github.com/Society-of-Cyber-Security" },
-          { l:"IG", href:"https://www.instagram.com/socs_ru/" },
+          { l:"LI", href:"https://www.linkedin.com/company/society-of-cyber-security/", d:"M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z M2 9h4v12H2z M4 6a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" },
+          { l:"GH", href:"https://github.com/Society-of-Cyber-Security", d:"M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" },
+          { l:"IG", href:"https://www.instagram.com/socs_ru/", d:"M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z M17.5 6.5h.01 M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2z" },
         ].map(s=>(
           <a key={s.l} href={s.href} target="_blank" rel="noopener noreferrer" style={{
-            width:22, height:22, borderRadius:"50%", border:"1px solid #8b6914",
-            display:"flex", alignItems:"center", justifyContent:"center", textDecoration:"none",
-            transition:"all 0.2s ease",
+            width:28, height:28, borderRadius:"50%",
+            border:"1px solid rgba(14,165,233,0.2)",
+            display:"flex", alignItems:"center", justifyContent:"center",
+            textDecoration:"none", transition:"all 0.2s ease",
           }}
-          onMouseEnter={e=>{e.currentTarget.style.borderColor="#c9a84c"; e.currentTarget.style.backgroundColor="rgba(201,168,76,0.1)";}}
-          onMouseLeave={e=>{e.currentTarget.style.borderColor="#8b6914"; e.currentTarget.style.backgroundColor="transparent";}}
+          onMouseEnter={e=>{e.currentTarget.style.borderColor="#0ea5e9"; e.currentTarget.style.backgroundColor="rgba(14,165,233,0.1)"}}
+          onMouseLeave={e=>{e.currentTarget.style.borderColor="rgba(14,165,233,0.2)"; e.currentTarget.style.backgroundColor="transparent"}}
           >
-            <span style={{ fontFamily:"'Cinzel',serif", fontSize:7, color:"#5c4018", letterSpacing:"0.5px" }}>{s.l}</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" strokeWidth="1.8" strokeLinecap="round">
+              <path d={s.d}/>
+            </svg>
           </a>
         ))}
       </div>
@@ -90,37 +183,142 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Mission & Vision */}
-      <section className="px-6 py-10 md:px-8 md:py-12" style={{ width:"100%", marginBottom:52, backgroundColor:"#111827" }}>
-        <SectionHeading text="Mission & Vision" variant="cyber" />
-        <div style={{ display:"flex", gap:24, flexWrap:"wrap" }}>
-          {[
-            { icon:"M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5", title:"OUR VISION", body:"To establish ASTRAsec as a premier cybersecurity platform bridging the gap between education, industry, and policy in India's digital security ecosystem." },
-            { icon:"M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z M12 9a3 3 0 0 0 0 6 3 3 0 0 0 0-6z", title:"OUR MISSION",  body:"A future where cybersecurity is not just a profession but a heritage — passed down, refined, and honored by every generation of digital guardians that follows us." },
-          ].map(card=>(
-            <div key={card.title} style={{
-              flex:1, minWidth:260,
-              backgroundColor:"#0f172a",
-              border:`1px solid rgba(14,165,233,0.2)`, padding:"32px 28px", position:"relative",
+      {/* ── VISION & AGENDA (like reference image) ── */}
+      <section className="px-6 py-10 md:px-8 md:py-16" style={{
+        width:"100%", backgroundColor:"#0d1424",
+        borderTop:"1px solid rgba(14,165,233,0.15)", marginBottom:0,
+      }}>
+        <div style={{ maxWidth:1080, margin:"0 auto" }}>
+          
+          {/* Section title */}
+          <div style={{ marginBottom:48 }}>
+            <h2 style={{
+              fontFamily:"'Cinzel',serif", fontWeight:900,
+              fontSize:"clamp(24px, 5vw, 42px)", color:"#f0f6ff",
+              letterSpacing:"2px", marginBottom:4,
             }}>
+              VISION <span style={{ color:"#0ea5e9" }}>AND AGENDA</span>
+            </h2>
+            <div style={{ height:2, width:60, background:"linear-gradient(to right, #0ea5e9, transparent)", marginTop:12 }}/>
+          </div>
+
+          {/* 2-column layout */}
+          <div style={{ display:"flex", gap:"clamp(24px, 5vw, 64px)", flexWrap:"wrap", alignItems:"flex-start" }}>
+
+            {/* LEFT — Vision card */}
+            <div style={{
+              flex:"0 0 clamp(240px, 35%, 340px)",
+              backgroundColor:"#0a0f1e",
+              border:"1px solid rgba(14,165,233,0.2)",
+              padding:"32px 28px", position:"relative",
+            }}>
+              {/* Corner brackets */}
               {["tl","tr","bl","br"].map(c=>(
-                <div key={c} style={{ position:"absolute",
-                  top:c.startsWith("t")?5:"auto", bottom:c.startsWith("b")?5:"auto",
-                  left:c.endsWith("l")?5:"auto", right:c.endsWith("r")?5:"auto",
-                  width:10, height:10,
-                  borderTop:c.startsWith("t")?`1px solid rgba(14,165,233,0.4)`:"none",
-                  borderBottom:c.startsWith("b")?`1px solid rgba(14,165,233,0.4)`:"none",
-                  borderLeft:c.endsWith("l")?`1px solid rgba(14,165,233,0.4)`:"none",
-                  borderRight:c.endsWith("r")?`1px solid rgba(14,165,233,0.4)`:"none",
+                <div key={c} style={{
+                  position:"absolute",
+                  top:c.startsWith("t")?4:"auto", bottom:c.startsWith("b")?4:"auto",
+                  left:c.endsWith("l")?4:"auto", right:c.endsWith("r")?4:"auto",
+                  width:12, height:12,
+                  borderTop:c.startsWith("t")?"1.5px solid rgba(14,165,233,0.5)":"none",
+                  borderBottom:c.startsWith("b")?"1.5px solid rgba(14,165,233,0.5)":"none",
+                  borderLeft:c.endsWith("l")?"1.5px solid rgba(14,165,233,0.5)":"none",
+                  borderRight:c.endsWith("r")?"1.5px solid rgba(14,165,233,0.5)":"none",
                 }}/>
               ))}
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" strokeWidth="1.2" strokeLinecap="round" style={{ marginBottom:16 }}>
-                <path d={card.icon}/>
-              </svg>
-              <div style={{ fontFamily:"'Cinzel',serif", fontWeight:700, fontSize:15, color:"#f0f6ff", letterSpacing:"2px", marginBottom:14 }}>{card.title}</div>
-              <p style={{ fontFamily:"'EB Garamond',serif", fontSize:15, color:"#94a3b8", opacity:0.8, lineHeight:1.75 }}>{card.body}</p>
+              
+              <div style={{
+                fontFamily:"'Cinzel',serif", fontSize:"clamp(18px, 4vw, 26px)",
+                fontWeight:900, color:"#0ea5e9", letterSpacing:"3px", marginBottom:12,
+              }}>VISION</div>
+              <div style={{ height:2, width:40, backgroundColor:"#0ea5e9", marginBottom:20, opacity:0.7 }}/>
+              
+              <p style={{ fontFamily:"'EB Garamond',serif", fontSize:16, color:"#94a3b8", lineHeight:1.85 }}>
+                To establish ASTRAsec as a premier cybersecurity platform that bridges the gap between{" "}
+                <span style={{ color:"#0ea5e9", fontWeight:600 }}>education, industry, and policy</span>{" "}
+                in India's digital security ecosystem.
+              </p>
+
+              {/* Shield icon */}
+              <div style={{ marginTop:28, display:"flex", justifyContent:"center" }}>
+                <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" strokeWidth="1">
+                  <path d="M12 2L20 5.5V12C20 17,16 20,12 22C8 20,4 17,4 12V5.5Z"/>
+                  <rect x="9" y="12" width="6" height="5" rx="0.5"/>
+                  <path d="M10 12V10A2 2 0 0 1 14 10V12"/>
+                </svg>
+              </div>
             </div>
-          ))}
+
+            {/* RIGHT — Core Agenda (numbered list) */}
+            <div style={{ flex:1, minWidth:260 }}>
+              <div style={{
+                fontFamily:"'Cinzel',serif", fontSize:"clamp(14px, 3vw, 20px)",
+                fontWeight:700, color:"#0ea5e9", letterSpacing:"3px", marginBottom:28,
+                textTransform:"uppercase",
+              }}>CORE AGENDA</div>
+
+              {[
+                {
+                  title:"Promote Cybersecurity Awareness in India",
+                  desc:"Encourage students and the broader community to understand the importance of cybersecurity in a digital-first nation.",
+                  highlight: null,
+                },
+                {
+                  title:"Enable Skill Development",
+                  desc:"Provide hands-on exposure through competitions, workshops, and practical challenges.",
+                  highlight: null,
+                },
+                {
+                  title:"Build a Cybersecurity Community",
+                  desc:"Facilitate networking between students, professionals, startups, and organizations.",
+                  highlight: null,
+                },
+                {
+                  title:"Encourage Early Talent",
+                  desc:"Create opportunities for ",
+                  highlight:"1st and 2nd year students",
+                  descEnd:" to explore cybersecurity through beginner-friendly competitions.",
+                },
+                {
+                  title:"Bridge Policy and Technology",
+                  desc:"Introduce discussions around ",
+                  highlight:"national security, cyber policy, and governance",
+                  descEnd:", potentially through speakers from policy institutions.",
+                },
+              ].map((item, i) => (
+                <div key={i} style={{
+                  display:"flex", gap:20, alignItems:"flex-start",
+                  paddingBottom:20, marginBottom:20,
+                  borderBottom:"1px solid rgba(14,165,233,0.1)",
+                }}>
+                  {/* Number circle */}
+                  <div style={{
+                    flexShrink:0,
+                    width:40, height:40, borderRadius:"50%",
+                    backgroundColor:"#0a0f1e",
+                    border:"1.5px solid rgba(14,165,233,0.4)",
+                    display:"flex", alignItems:"center", justifyContent:"center",
+                  }}>
+                    <span style={{
+                      fontFamily:"'Cinzel',serif", fontSize:12, fontWeight:700,
+                      color:"#0ea5e9", letterSpacing:"1px",
+                    }}>{String(i+1).padStart(2,"0")}</span>
+                  </div>
+                  {/* Text */}
+                  <div>
+                    <div style={{
+                      fontFamily:"'Cinzel',serif", fontSize:13, fontWeight:700,
+                      color:"#f0f6ff", letterSpacing:"0.5px", marginBottom:6,
+                    }}>{item.title}</div>
+                    <p style={{ fontFamily:"'EB Garamond',serif", fontSize:14, color:"#94a3b8", lineHeight:1.7, margin:0 }}>
+                      {item.desc}
+                      {item.highlight && <span style={{ color:"#0ea5e9", fontWeight:600 }}>{item.highlight}</span>}
+                      {item.descEnd}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -134,26 +332,21 @@ export default function AboutPage() {
       </section>
 
       {/* Team */}
-      <section className="px-6 py-10 md:px-8 md:py-12 team-section-animate" style={{ width:"100%", marginBottom:80, backgroundColor:"#0d1424" }}>
-        <style>{`
-          @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-          }
-          .team-section-animate {
-            animation: fadeInUp 1s ease-out forwards;
-          }
-        `}</style>
-        <SectionHeading text="Our Team" variant="gold" />
-        <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(140px, 1fr))", gap:20, maxWidth:1100, margin:"0 auto" }}>
+      <section style={{ width:"100%", padding:"48px 24px", marginBottom:80, backgroundColor:"#0d1424" }}>
+        <SectionHeading text="Our Team" variant="cyber" />
+        <div style={{
+          display:"grid",
+          gridTemplateColumns:"repeat(auto-fit, minmax(160px, 1fr))",
+          gap:20, maxWidth:1080, margin:"0 auto",
+        }}>
           {[
-            { name:"Rudra Pratap Singh Choudhary",   role:"Club President" },
-            { name:"Antik Mondal",    role:"Vice President" },
-            { name:"Mohammad affan anas",     role:"Technical Lead" },
-            { name:"Prabhas",     role:"Events Director" },
-            { name:"Utkarsh Singh",    role:"CTF Lead" },
-            { name:"Abhishek Panigrahi",     role:"Design Head" },
-          ].map(m=><TeamCard key={m.name} {...m}/>)}
+            { name:"Rudra Pratap Singh Choudhary", role:"Club President" },
+            { name:"Antik Mondal",                 role:"Vice President" },
+            { name:"Mohammad Affan Anas",          role:"Technical Lead" },
+            { name:"Prabhas",                      role:"Events Director" },
+            { name:"Utkarsh Singh",                role:"CTF Lead" },
+            { name:"Abhishek Panigrahi",           role:"Design Head" },
+          ].map((m, i) => <TeamCard key={m.name} {...m} delay={`${i*0.1}s`}/>)}
         </div>
       </section>
 

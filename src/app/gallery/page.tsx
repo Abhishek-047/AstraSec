@@ -31,7 +31,7 @@ export default function GalleryPage() {
             <button key={f} onClick={() => setFilter(f)} style={{
               fontFamily:"'Cinzel',serif", fontSize:11, letterSpacing:"2px", padding:"8px 16px",
               backgroundColor: filter === f ? C.gold : "transparent",
-              color: filter === f ? "#1a1008" : C.gold,
+              color: filter === f ? "#06090f" : C.gold,
               border:`1px solid ${C.gold}`, cursor:"pointer", transition:"all 0.2s ease"
             }}>
               {f}

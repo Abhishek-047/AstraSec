@@ -42,7 +42,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             flexDirection: "column",
             alignItems: "center",
             width: "100%",
-            padding: "16px 0 80px",
+            padding: "0 0 80px",
             position: "relative",
             zIndex: 1,
           }}>

@@ -34,7 +34,7 @@ export default function SchedulePage() {
     <>
       <PageHero title="SCHEDULE" subtitle="Three Days. Endless Knowledge." />
 
-      <section style={{ width:"100%", padding:"0 24px", marginBottom:52 }}>
+      <section style={{ width:"100%", padding:"48px 24px", marginBottom:52 }}>
         {/* Day Tab Switcher */}
         <div style={{ display:"flex", border:`1px solid rgba(14,165,233,0.3)`, backgroundColor:"#0f172a", marginBottom:32, overflowX:"auto" }}>
           {tabs.map(tab => (

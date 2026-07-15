@@ -23,7 +23,7 @@ function SponsorCard({ tier, name, desc, isLarge=false }: { tier:string; name:st
       {/* Logo placeholder */}
       <div style={{
         width: isLarge ? 160 : 120, height: isLarge ? 80 : 60,
-        border:`1px solid ${C.goldDk}`, backgroundColor:"#2a1a06",
+        border:`1px solid rgba(14,165,233,0.2)`, backgroundColor:"#0f172a",
         display:"flex", alignItems:"center", justifyContent:"center",
         marginBottom:20, marginTop:10
       }}>
