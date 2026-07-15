@@ -51,7 +51,7 @@ export default function SchedulePage() {
         </div>
 
         {/* Timeline */}
-        <div style={{ position:"relative", padding:"32px 20px", backgroundColor:"#060b14", border:"1px solid #8b6914" }}>
+        <div style={{ position:"relative", padding:"32px 0", backgroundColor:"#060b14", border:"1px solid #8b6914", overflow:"hidden" }}>
           {/* Corner brackets */}
           {["tl","tr","bl","br"].map(c => (
             <div key={c} style={{
@@ -67,13 +67,12 @@ export default function SchedulePage() {
               borderRight:  c.endsWith("r")   ? `1.5px solid #c9a84c` : "none",
             }}/>
           ))}
-          {/* Vertical line */}
-          <div style={{ position:"absolute", top:32, bottom:32, left:104, width:2, backgroundColor:"#0ea5e9", opacity:0.4 }}/>
-          
+
           {SCHEDULE[activeTab as keyof typeof SCHEDULE].map((ev, i) => (
             <div key={i} style={{
-              display: "flex", gap: 20, alignItems: "flex-start",
-              padding: "16px 20px",
+              display: "grid",
+              gridTemplateColumns: "110px 28px 1fr",
+              alignItems: "flex-start",
               borderBottom: "1px solid rgba(14,165,233,0.08)",
               position: "relative",
               transition: "background-color 0.15s ease",
@@ -82,17 +81,20 @@ export default function SchedulePage() {
             onMouseEnter={e => { (e.currentTarget as HTMLElement).style.backgroundColor = "rgba(14,165,233,0.05)"; }}
             onMouseLeave={e => { (e.currentTarget as HTMLElement).style.backgroundColor = i % 2 === 0 ? "transparent" : "rgba(14,165,233,0.02)"; }}
             >
-              <div style={{
-                position: "absolute", left: 0, top: 0, bottom: 0, width: 2,
-                background: "linear-gradient(to bottom, transparent, #0ea5e9, transparent)",
-                opacity: 0, transition: "opacity 0.2s ease",
-              }} className="row-indicator" />
-              <div style={{ width:84, textAlign:"right", fontFamily:"monospace", color:"#0ea5e9", fontSize:12, letterSpacing:"1px", paddingTop:2 }}>
+              {/* Time column */}
+              <div style={{ textAlign:"right", fontFamily:"monospace", color:"#0ea5e9", fontSize:12, letterSpacing:"1px", padding:"18px 12px 18px 20px", lineHeight:1 }}>
                 {ev.time}
               </div>
-              <div style={{ width:12, height:12, borderRadius:"50%", backgroundColor:"#0ea5e9", margin:"6px 0 0 0", position:"relative", zIndex:1, boxShadow:"0 0 8px rgba(14,165,233,0.6)", flexShrink:0 }}/>
-              <div style={{ flex:1 }}>
-                <div style={{ fontFamily:"'Cinzel',serif", fontWeight:700, fontSize:15, color:"#f0f6ff", marginBottom:8 }}>{ev.title}</div>
+              {/* Dot + vertical line column */}
+              <div style={{ display:"flex", flexDirection:"column", alignItems:"center", position:"relative" }}>
+                {/* Vertical line segment */}
+                <div style={{ position:"absolute", top:0, bottom:0, left:"50%", transform:"translateX(-50%)", width:2, backgroundColor:"rgba(14,165,233,0.25)" }}/>
+                {/* Dot */}
+                <div style={{ width:12, height:12, borderRadius:"50%", backgroundColor:"#0ea5e9", marginTop:18, position:"relative", zIndex:1, boxShadow:"0 0 8px rgba(14,165,233,0.7)", flexShrink:0 }}/>
+              </div>
+              {/* Content column */}
+              <div style={{ padding:"14px 24px 14px 12px" }}>
+                <div style={{ fontFamily:"'Cinzel',serif", fontWeight:700, fontSize:14, color:"#f0f6ff", marginBottom:8, lineHeight:1.3 }}>{ev.title}</div>
                 <div style={{ display:"flex", gap:8, flexWrap:"wrap" }}>
                   <span style={{ backgroundColor:"#0f172a", border:`1px solid rgba(14,165,233,0.3)`, color:"#94a3b8", fontFamily:"'Cinzel',serif", fontSize:9, padding:"3px 8px", letterSpacing:"1px" }}>📍 {ev.loc}</span>
                   {ev.spk && <span style={{ backgroundColor:"#0f172a", border:`1px solid rgba(201,168,76,0.2)`, color:"#c9a84c", fontFamily:"'Cinzel',serif", fontSize:9, padding:"3px 8px", letterSpacing:"1px" }}>🎤 {ev.spk}</span>}

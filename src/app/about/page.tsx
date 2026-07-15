@@ -47,9 +47,10 @@ function TeamCard({ name, role, index }: { name:string; role:string; index:numbe
         border: "1px solid rgba(14,165,233,0.2)",
         padding: "28px 18px 22px",
         textAlign: "center", position: "relative",
-        opacity: 0,
-        transform: `translateY(${20 + index * 5}px)`,
-        transition: `opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s, box-shadow 0.2s ease, border-color 0.2s ease`,
+        width: 200,
+        flexShrink: 0,
+        opacity: 1,
+        transition: `box-shadow 0.2s ease, border-color 0.2s ease, transform 0.2s ease`,
         cursor: "default",
       }}
       onMouseEnter={e => {
@@ -356,7 +357,7 @@ export default function AboutPage() {
       </section>
 
       {/* Team */}
-      <section style={{ width:"100%", padding:"52px 24px 80px", backgroundColor:"#0d1424" }}>
+      <section style={{ width:"100%", padding:"52px 0 80px", backgroundColor:"#0d1424", overflow:"hidden" }}>
         <SectionHeading text="Our Team" variant="cyber" />
         {/* Cyber sub-label */}
         <div style={{ textAlign:"center", marginBottom:36, marginTop:-20 }}>
@@ -364,19 +365,32 @@ export default function AboutPage() {
             // Society of Cyber Security — Core Members
           </span>
         </div>
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(170px, 1fr))",
-          gap: 20, maxWidth: 1080, margin: "0 auto",
-        }}>
-          {[
-            { name:"Rudra Pratap Singh Choudhary", role:"Club President" },
-            { name:"Antik Mondal",                 role:"Vice President" },
-            { name:"Mohammad Affan Anas",          role:"Technical Lead" },
-            { name:"Prabhas",                      role:"Events Director" },
-            { name:"Utkarsh Singh",                role:"CTF Lead" },
-            { name:"Abhishek Panigrahi",           role:"Design Head" },
-          ].map((m, i) => <TeamCard key={m.name} {...m} index={i} />)}
+
+        {/* Orbital horizontal marquee track */}
+        <div style={{ position:"relative", overflow:"hidden" }}>
+          {/* Left fade */}
+          <div style={{ position:"absolute", left:0, top:0, bottom:0, width:80, background:"linear-gradient(to right, #0d1424, transparent)", zIndex:2, pointerEvents:"none" }}/>
+          {/* Right fade */}
+          <div style={{ position:"absolute", right:0, top:0, bottom:0, width:80, background:"linear-gradient(to left, #0d1424, transparent)", zIndex:2, pointerEvents:"none" }}/>
+
+          {/* Scrolling track — duplicated for seamless loop */}
+          <div className="team-orbit-track" style={{ display:"flex", gap:20, width:"max-content" }}>
+            {[
+              { name:"Rudra Pratap Singh Choudhary", role:"Club President" },
+              { name:"Antik Mondal",                 role:"Vice President" },
+              { name:"Mohammad Affan Anas",          role:"Technical Lead" },
+              { name:"Prabhas",                      role:"Events Director" },
+              { name:"Utkarsh Singh",                role:"CTF Lead" },
+              { name:"Abhishek Panigrahi",           role:"Design Head" },
+              /* duplicate set for seamless loop */
+              { name:"Rudra Pratap Singh Choudhary", role:"Club President" },
+              { name:"Antik Mondal",                 role:"Vice President" },
+              { name:"Mohammad Affan Anas",          role:"Technical Lead" },
+              { name:"Prabhas",                      role:"Events Director" },
+              { name:"Utkarsh Singh",                role:"CTF Lead" },
+              { name:"Abhishek Panigrahi",           role:"Design Head" },
+            ].map((m, i) => <TeamCard key={`${m.name}-${i}`} {...m} index={i % 6} />)}
+          </div>
         </div>
       </section>
 
