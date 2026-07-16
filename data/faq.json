@@ -1,0 +1,55 @@
+{
+  "_comment": "AstraSec FAQ — add/edit/remove Q&A pairs freely. 'id' must be unique. Order in this array = display order on page.",
+  "faqs": [
+    {
+      "id": "faq-01",
+      "question": "Who can participate in Legacy Secured?",
+      "answer": "Legacy Secured is open to all students — undergraduate and postgraduate — from any college or university. Individual participants and teams of up to 4 members are welcome."
+    },
+    {
+      "id": "faq-02",
+      "question": "Is there a registration fee?",
+      "answer": "Basic event access is free. Some specialized workshops and competitions may have a nominal entry fee, which will be announced at the time of registration."
+    },
+    {
+      "id": "faq-03",
+      "question": "Do I need to have prior cybersecurity experience?",
+      "answer": "No prior experience is required for most events. We have beginner-friendly workshops and talks. The CTF and advanced competitions are suited for experienced participants."
+    },
+    {
+      "id": "faq-04",
+      "question": "What should I bring to the event?",
+      "answer": "Bring your laptop with your preferred security tools pre-installed, a valid student ID, and your curiosity. Specific tool requirements will be shared in event-wise briefings."
+    },
+    {
+      "id": "faq-05",
+      "question": "How do I register for specific events or workshops?",
+      "answer": "After completing general registration, you can sign up for individual events, workshops, and competitions through the event portal. Slots are limited and filled on a first-come basis."
+    },
+    {
+      "id": "faq-06",
+      "question": "Will certificates be provided?",
+      "answer": "Yes. All participants will receive digital certificates of participation. Competition winners will additionally receive merit certificates and prizes."
+    },
+    {
+      "id": "faq-07",
+      "question": "Is accommodation available for outstation participants?",
+      "answer": "Limited on-campus accommodation may be available. Please contact us at contact@astrasec.in well in advance to check availability and make arrangements."
+    },
+    {
+      "id": "faq-08",
+      "question": "Can I participate in the CTF remotely?",
+      "answer": "The CTF qualifiers may be held online, but the finals will be conducted on-site only. More details will be shared closer to the event date."
+    },
+    {
+      "id": "faq-09",
+      "question": "How will winners be determined?",
+      "answer": "Each event has its own scoring rubric. For CTF — points per flag. Workshops — participation-based. Tech Talks — judged by expert panel. Details are published per event."
+    },
+    {
+      "id": "faq-10",
+      "question": "How can I contact the organizing team?",
+      "answer": "Reach us at contact@astrasec.in or through our social media channels on GitHub, LinkedIn, and Instagram. We aim to respond within 24–48 hours."
+    }
+  ]
+}

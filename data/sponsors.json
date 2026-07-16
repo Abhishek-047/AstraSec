@@ -1,0 +1,81 @@
+{
+  "_comment": "AstraSec Sponsors — tiers: TITLE, GOLD, SILVER. Set 'confirmed: false' and leave name as empty string for TBD slots. 'logoUrl' can be a URL to the sponsor logo image — leave empty string if not yet available.",
+  "tiers": {
+    "title": [
+      {
+        "id": "title-1",
+        "name": "",
+        "description": "To be announced soon.",
+        "logoUrl": "",
+        "websiteUrl": "",
+        "confirmed": false
+      }
+    ],
+    "gold": [
+      {
+        "id": "gold-1",
+        "name": "",
+        "description": "",
+        "logoUrl": "",
+        "websiteUrl": "",
+        "confirmed": false
+      },
+      {
+        "id": "gold-2",
+        "name": "",
+        "description": "",
+        "logoUrl": "",
+        "websiteUrl": "",
+        "confirmed": false
+      },
+      {
+        "id": "gold-3",
+        "name": "",
+        "description": "",
+        "logoUrl": "",
+        "websiteUrl": "",
+        "confirmed": false
+      }
+    ],
+    "silver": [
+      {
+        "id": "silver-1",
+        "name": "",
+        "description": "",
+        "logoUrl": "",
+        "websiteUrl": "",
+        "confirmed": false
+      },
+      {
+        "id": "silver-2",
+        "name": "",
+        "description": "",
+        "logoUrl": "",
+        "websiteUrl": "",
+        "confirmed": false
+      },
+      {
+        "id": "silver-3",
+        "name": "",
+        "description": "",
+        "logoUrl": "",
+        "websiteUrl": "",
+        "confirmed": false
+      },
+      {
+        "id": "silver-4",
+        "name": "",
+        "description": "",
+        "logoUrl": "",
+        "websiteUrl": "",
+        "confirmed": false
+      }
+    ]
+  },
+  "becomeASponsorCta": {
+    "heading": "PARTNER WITH THE LEGACY",
+    "body": "Align your brand with the next generation of cybersecurity leaders. Explore our sponsorship packages to find the perfect fit for your organization.",
+    "buttonLabel": "BECOME A SPONSOR",
+    "contactLink": "/contact"
+  }
+}

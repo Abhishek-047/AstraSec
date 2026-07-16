@@ -1,0 +1,83 @@
+{
+  "_comment": "AstraSec Core Team — update this file to add/edit/remove members. specialtyTag and color are used for the cyber badge on the card.",
+  "members": [
+    {
+      "id": "rudra",
+      "name": "Rudra Pratap Singh Choudhary",
+      "role": "Club President",
+      "specialtyTag": "RED TEAM LEAD",
+      "specialtyColor": "#ef4444",
+      "bio": "Leading AstraSec with a vision to make cybersecurity accessible to all.",
+      "socials": {
+        "linkedin": "https://www.linkedin.com/company/society-of-cyber-security/",
+        "github": "https://github.com/Society-of-Cyber-Security",
+        "instagram": "https://www.instagram.com/socs_ru/"
+      }
+    },
+    {
+      "id": "antik",
+      "name": "Antik Mondal",
+      "role": "Vice President",
+      "specialtyTag": "BLUE TEAM LEAD",
+      "specialtyColor": "#0ea5e9",
+      "bio": "Focused on defensive security and community building.",
+      "socials": {
+        "linkedin": "https://www.linkedin.com/company/society-of-cyber-security/",
+        "github": "https://github.com/Society-of-Cyber-Security",
+        "instagram": "https://www.instagram.com/socs_ru/"
+      }
+    },
+    {
+      "id": "affan",
+      "name": "Mohammad Affan Anas",
+      "role": "Technical Lead",
+      "specialtyTag": "EXPLOIT DEV",
+      "specialtyColor": "#a855f7",
+      "bio": "Penetration testing, vulnerability research, and exploit development.",
+      "socials": {
+        "linkedin": "https://www.linkedin.com/company/society-of-cyber-security/",
+        "github": "https://github.com/Society-of-Cyber-Security",
+        "instagram": "https://www.instagram.com/socs_ru/"
+      }
+    },
+    {
+      "id": "prabhas",
+      "name": "Prabhas",
+      "role": "Events Director",
+      "specialtyTag": "OPS DIRECTOR",
+      "specialtyColor": "#f59e0b",
+      "bio": "Orchestrating every event experience from ideation to execution.",
+      "socials": {
+        "linkedin": "https://www.linkedin.com/company/society-of-cyber-security/",
+        "github": "https://github.com/Society-of-Cyber-Security",
+        "instagram": "https://www.instagram.com/socs_ru/"
+      }
+    },
+    {
+      "id": "utkarsh",
+      "name": "Utkarsh Singh",
+      "role": "CTF Lead",
+      "specialtyTag": "CTF MASTER",
+      "specialtyColor": "#22c55e",
+      "bio": "CTF champion and problem setter — if there's a flag, he'll find it.",
+      "socials": {
+        "linkedin": "https://www.linkedin.com/company/society-of-cyber-security/",
+        "github": "https://github.com/Society-of-Cyber-Security",
+        "instagram": "https://www.instagram.com/socs_ru/"
+      }
+    },
+    {
+      "id": "abhishek",
+      "name": "Abhishek Panigrahi",
+      "role": "Design Head",
+      "specialtyTag": "OSINT ANALYST",
+      "specialtyColor": "#0ea5e9",
+      "bio": "Designing the visual identity of AstraSec — where aesthetics meets ops.",
+      "socials": {
+        "linkedin": "https://www.linkedin.com/company/society-of-cyber-security/",
+        "github": "https://github.com/Society-of-Cyber-Security",
+        "instagram": "https://www.instagram.com/socs_ru/"
+      }
+    }
+  ]
+}

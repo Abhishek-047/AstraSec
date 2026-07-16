@@ -1,0 +1,78 @@
+{
+  "_comment": "AstraSec Gallery — 'imageUrl' is a URL to the actual photo. Leave empty string if not yet available — placeholder will render. 'year' is used for filter buttons. 'highlight: true' marks it as a featured photo.",
+  "filterOptions": ["ALL", "2024", "2023", "2022", "HIGHLIGHTS"],
+  "photos": [
+    {
+      "id": "photo-01",
+      "name": "Inauguration Ceremony",
+      "year": "2024",
+      "imageUrl": "",
+      "highlight": false,
+      "placeholderHeight": 260
+    },
+    {
+      "id": "photo-02",
+      "name": "CTF Winners",
+      "year": "2023",
+      "imageUrl": "",
+      "highlight": true,
+      "placeholderHeight": 320
+    },
+    {
+      "id": "photo-03",
+      "name": "Workshop: Malware Analysis",
+      "year": "2024",
+      "imageUrl": "",
+      "highlight": false,
+      "placeholderHeight": 200
+    },
+    {
+      "id": "photo-04",
+      "name": "Cyber Arena",
+      "year": "2022",
+      "imageUrl": "",
+      "highlight": false,
+      "placeholderHeight": 300
+    },
+    {
+      "id": "photo-05",
+      "name": "Closing Ceremony",
+      "year": "2024",
+      "imageUrl": "",
+      "highlight": false,
+      "placeholderHeight": 240
+    },
+    {
+      "id": "photo-06",
+      "name": "Keynote Address",
+      "year": "2024",
+      "imageUrl": "",
+      "highlight": true,
+      "placeholderHeight": 280
+    },
+    {
+      "id": "photo-07",
+      "name": "Networking Session",
+      "year": "2023",
+      "imageUrl": "",
+      "highlight": false,
+      "placeholderHeight": 220
+    },
+    {
+      "id": "photo-08",
+      "name": "Tech Talk",
+      "year": "2022",
+      "imageUrl": "",
+      "highlight": false,
+      "placeholderHeight": 260
+    },
+    {
+      "id": "photo-09",
+      "name": "Hackathon Night",
+      "year": "2023",
+      "imageUrl": "",
+      "highlight": true,
+      "placeholderHeight": 310
+    }
+  ]
+}

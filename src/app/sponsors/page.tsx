@@ -71,166 +71,285 @@ export default function SponsorsPage() {
         </div>
       </section>
 
-      {/* ── Sponsorship Benefits Matrix ── */}
+      {/* ── Sponsorship Tier Cards ── */}
       <section style={{
         width: "100%", padding: "64px 24px 0",
         backgroundColor: "#0a0f1e",
       }}>
         <div style={{ maxWidth: 1080, margin: "0 auto" }}>
 
-          {/* Section heading */}
-          <div style={{ marginBottom: 40, textAlign: "center" }}>
+          {/* Section header */}
+          <div style={{ textAlign: "center", marginBottom: 48 }}>
             <div style={{
-              fontFamily: "monospace", fontSize: 10, color: "rgba(14,165,233,0.4)",
-              letterSpacing: "1px", marginBottom: 10,
+              fontFamily: "monospace", fontSize: 10,
+              color: "rgba(14,165,233,0.4)", letterSpacing: "1px", marginBottom: 10,
             }}>
-              <span style={{ color: "#c9a84c" }}>&gt;</span> sponsors.benefits.matrix.render()
+              <span style={{ color: "#c9a84c" }}>&gt;</span> sponsors.packages.render()
             </div>
             <h2 style={{
               fontFamily: "'Cinzel',serif", fontWeight: 900,
               fontSize: "clamp(20px, 4vw, 32px)", color: "#f0f6ff",
               letterSpacing: "2px", textTransform: "uppercase", marginBottom: 6,
             }}>
-              SPONSORSHIP <span style={{ color: "#0ea5e9" }}>BENEFITS</span> MATRIX
+              SPONSORSHIP <span style={{ color: "#0ea5e9" }}>PACKAGES</span>
             </h2>
             <p style={{
-              fontFamily: "'EB Garamond',serif", fontSize: 15, color: "#475569",
-              fontStyle: "italic",
+              fontFamily: "'EB Garamond',serif", fontSize: 15,
+              color: "#475569", fontStyle: "italic",
             }}>
-              ASTRAsec⁺ 2026
+              ASTRAsec 2026 — Choose your tier
             </p>
           </div>
 
-          {/* Matrix card */}
+          {/* Tier cards grid */}
           <div style={{
-            backgroundColor: "#060b14",
-            border: "1px solid rgba(14,165,233,0.25)",
-            position: "relative", overflow: "hidden",
-            marginBottom: 48,
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+            gap: 20, marginBottom: 48,
           }}>
-            {/* Top gradient bar */}
-            <div style={{
-              position: "absolute", top: 0, left: 0, right: 0, height: 2,
-              background: "linear-gradient(to right, transparent, #c9a84c 20%, #0ea5e9 50%, #a855f7 80%, transparent)",
-              opacity: 0.6,
-            }} />
+            {[
+              {
+                tier: "PLATINUM",
+                price: "₹1,00,000",
+                color: "#e2e8f0",
+                dimColor: "rgba(226,232,240,0.15)",
+                glowColor: "rgba(226,232,240,0.08)",
+                icon: "M12 2L20 5.5V12C20 17,16 20,12 22C8 20,4 17,4 12V5.5Z M9 12l2 2 4-4",
+                tag: "PREMIER",
+                benefits: [
+                  "Logo on Event Website",
+                  "Logo on Booklet",
+                  "Social Media Mentions",
+                  "Venue Branding",
+                  "Sponsor Recognition",
+                  "Exhibition Booth — Premium",
+                  "Branding on Certificates",
+                  "Branding on Posters",
+                  "Competition Rights",
+                  "Workshop Rights",
+                  "Premium Stage Branding",
+                  "Title Partner Recognition",
+                ],
+              },
+              {
+                tier: "GOLD",
+                price: "₹75,000",
+                color: "#f59e0b",
+                dimColor: "rgba(245,158,11,0.15)",
+                glowColor: "rgba(245,158,11,0.08)",
+                icon: "M12 2L15 9L22 9L16.5 14L18.5 21L12 17L5.5 21L7.5 14L2 9L9 9Z",
+                tag: "ADVANCED",
+                benefits: [
+                  "Logo on Event Website",
+                  "Logo on Booklet",
+                  "Social Media Mentions",
+                  "Venue Branding",
+                  "Sponsor Recognition",
+                  "Exhibition Booth — Standard",
+                  "Branding on Certificates",
+                  "Branding on Posters",
+                  "Competition Rights",
+                  "Workshop Rights",
+                ],
+              },
+              {
+                tier: "SILVER",
+                price: "₹50,000",
+                color: "#94a3b8",
+                dimColor: "rgba(148,163,184,0.15)",
+                glowColor: "rgba(148,163,184,0.08)",
+                icon: "M12 2A4 4 0 1 1 12 10A4 4 0 0 1 12 2M8 10V13L4 22H20L16 13V10",
+                tag: "STANDARD",
+                benefits: [
+                  "Logo on Event Website",
+                  "Logo on Booklet",
+                  "Social Media Mentions",
+                  "Venue Branding",
+                  "Sponsor Recognition",
+                  "Exhibition Booth — Basic",
+                  "Branding on Posters",
+                ],
+              },
+              {
+                tier: "BRONZE",
+                price: "₹25,000",
+                color: "#c9a84c",
+                dimColor: "rgba(201,168,76,0.15)",
+                glowColor: "rgba(201,168,76,0.08)",
+                icon: "M13 2L3 14h9l-1 8 10-12h-9l1-8z",
+                tag: "ENTRY",
+                benefits: [
+                  "Logo on Event Website",
+                  "Logo on Booklet",
+                  "Social Media Mentions",
+                  "Venue Branding",
+                ],
+              },
+            ].map((pkg, pkgIdx) => (
+              <div
+                key={pkg.tier}
+                style={{
+                  backgroundColor: "#0f172a",
+                  border: `1px solid ${pkg.color}30`,
+                  position: "relative",
+                  display: "flex", flexDirection: "column",
+                  opacity: 0,
+                  transform: "translateY(20px)",
+                  animation: `floatUp 0.5s ease-out ${pkgIdx * 0.1}s forwards`,
+                  transition: "border-color 0.2s ease, box-shadow 0.2s ease",
+                }}
+                onMouseEnter={e => {
+                  (e.currentTarget as HTMLElement).style.borderColor = `${pkg.color}70`;
+                  (e.currentTarget as HTMLElement).style.boxShadow = `0 0 28px ${pkg.glowColor}`;
+                }}
+                onMouseLeave={e => {
+                  (e.currentTarget as HTMLElement).style.borderColor = `${pkg.color}30`;
+                  (e.currentTarget as HTMLElement).style.boxShadow = "none";
+                }}
+              >
+                {/* Corner L-brackets */}
+                {(["tl","tr","bl","br"] as const).map(c => (
+                  <div key={c} style={{
+                    position: "absolute",
+                    top: c.startsWith("t") ? 5 : "auto",
+                    bottom: c.startsWith("b") ? 5 : "auto",
+                    left: c.endsWith("l") ? 5 : "auto",
+                    right: c.endsWith("r") ? 5 : "auto",
+                    width: 10, height: 10,
+                    borderTop:    c.startsWith("t") ? `1px solid ${pkg.color}60` : "none",
+                    borderBottom: c.startsWith("b") ? `1px solid ${pkg.color}60` : "none",
+                    borderLeft:   c.endsWith("l")   ? `1px solid ${pkg.color}60` : "none",
+                    borderRight:  c.endsWith("r")   ? `1px solid ${pkg.color}60` : "none",
+                  }} />
+                ))}
 
-            {/* Corner brackets — gold */}
-            {(["tl","tr","bl","br"] as const).map(c => (
-              <div key={c} style={{
-                position: "absolute",
-                top: c.startsWith("t") ? 5 : "auto", bottom: c.startsWith("b") ? 5 : "auto",
-                left: c.endsWith("l") ? 5 : "auto", right: c.endsWith("r") ? 5 : "auto",
-                width: 14, height: 14,
-                borderTop:    c.startsWith("t") ? "1px solid rgba(201,168,76,0.5)" : "none",
-                borderBottom: c.startsWith("b") ? "1px solid rgba(201,168,76,0.5)" : "none",
-                borderLeft:   c.endsWith("l")   ? "1px solid rgba(201,168,76,0.5)" : "none",
-                borderRight:  c.endsWith("r")   ? "1px solid rgba(201,168,76,0.5)" : "none",
-              }} />
-            ))}
+                {/* Top color bar */}
+                <div style={{
+                  height: 3,
+                  background: `linear-gradient(to right, transparent, ${pkg.color}, transparent)`,
+                  opacity: 0.6,
+                }} />
 
-            {/* Scrollable table wrapper for mobile */}
-            <div style={{ overflowX: "auto" }}>
-              <table style={{
-                width: "100%", borderCollapse: "collapse",
-                minWidth: 640,
-              }}>
-                {/* Header row */}
-                <thead>
-                  <tr>
-                    <th style={{
-                      padding: "18px 20px", textAlign: "left",
-                      fontFamily: "'Cinzel',serif", fontSize: 11,
-                      color: "#475569", letterSpacing: "1px",
-                      borderBottom: "1px solid rgba(14,165,233,0.2)",
-                      backgroundColor: "#0a0f1e",
-                      fontWeight: 400,
-                    }}>BENEFITS</th>
-                    {[
-                      { tier: "PLATINUM", price: "₹1,00,000", color: "#e2e8f0", bg: "rgba(226,232,240,0.06)", border: "rgba(226,232,240,0.3)" },
-                      { tier: "GOLD",     price: "₹75,000",   color: "#f59e0b", bg: "rgba(245,158,11,0.06)",  border: "rgba(245,158,11,0.3)" },
-                      { tier: "SILVER",   price: "₹50,000",   color: "#94a3b8", bg: "rgba(148,163,184,0.06)", border: "rgba(148,163,184,0.3)" },
-                      { tier: "BRONZE",   price: "₹25,000",   color: "#c9a84c", bg: "rgba(201,168,76,0.06)",  border: "rgba(201,168,76,0.3)" },
-                    ].map(t => (
-                      <th key={t.tier} style={{
-                        padding: "18px 16px", textAlign: "center",
-                        fontFamily: "'Cinzel',serif", fontSize: 11,
-                        color: t.color, letterSpacing: "1px",
-                        borderBottom: "1px solid rgba(14,165,233,0.2)",
-                        backgroundColor: t.bg,
-                        fontWeight: 700,
-                        borderLeft: `1px solid ${t.border}`,
-                        position: "relative",
+                {/* Card header */}
+                <div style={{
+                  padding: "24px 20px 16px", textAlign: "center",
+                  borderBottom: `1px solid ${pkg.color}20`,
+                }}>
+                  {/* Tier tag */}
+                  <div style={{
+                    display: "inline-block",
+                    backgroundColor: `${pkg.color}15`,
+                    border: `1px solid ${pkg.color}40`,
+                    fontFamily: "monospace", fontSize: 8,
+                    color: pkg.color, padding: "2px 10px",
+                    letterSpacing: "2px", marginBottom: 14,
+                  }}>{pkg.tag}</div>
+
+                  {/* Icon */}
+                  <div style={{
+                    width: 56, height: 56, borderRadius: "50%",
+                    backgroundColor: "#060b14",
+                    border: `2px solid ${pkg.color}50`,
+                    boxShadow: `0 0 0 4px #0f172a, 0 0 0 5px ${pkg.color}25`,
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    margin: "0 auto 16px",
+                    position: "relative",
+                  }}>
+                    {/* Spinning orbit ring */}
+                    <div style={{
+                      position: "absolute", inset: -7, borderRadius: "50%",
+                      border: `1px dashed ${pkg.color}25`,
+                      animation: "spin 14s linear infinite",
+                    }} />
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+                      stroke={pkg.color} strokeWidth="1.4" strokeLinecap="round">
+                      <path d={pkg.icon} />
+                    </svg>
+                  </div>
+
+                  {/* Tier name */}
+                  <div style={{
+                    fontFamily: "'Cinzel',serif", fontWeight: 900,
+                    fontSize: 18, color: pkg.color,
+                    letterSpacing: "2px", marginBottom: 4,
+                  }}>{pkg.tier}</div>
+
+                  {/* Price */}
+                  <div style={{
+                    fontFamily: "monospace", fontSize: 14,
+                    color: `${pkg.color}80`, letterSpacing: "1px",
+                  }}>{pkg.price}</div>
+                </div>
+
+                {/* Benefits list */}
+                <div style={{ padding: "20px", flex: 1 }}>
+                  {pkg.benefits.map((b, bi) => (
+                    <div key={bi} style={{
+                      display: "flex", alignItems: "flex-start", gap: 10,
+                      marginBottom: 10,
+                      paddingBottom: 10,
+                      borderBottom: bi < pkg.benefits.length - 1
+                        ? `1px solid ${pkg.color}10`
+                        : "none",
+                    }}>
+                      {/* Check mark */}
+                      <div style={{
+                        flexShrink: 0, marginTop: 2,
+                        width: 16, height: 16, borderRadius: "50%",
+                        backgroundColor: `${pkg.color}15`,
+                        border: `1px solid ${pkg.color}40`,
+                        display: "flex", alignItems: "center", justifyContent: "center",
                       }}>
-                        <div style={{ marginBottom: 2 }}>{t.tier}</div>
-                        <div style={{
-                          fontFamily: "monospace", fontSize: 10,
-                          color: `${t.color}90`, fontWeight: 400,
-                        }}>{t.price}</div>
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-
-                {/* Body */}
-                <tbody>
-                  {[
-                    { benefit: "Logo on Event Website",          pl: true,  go: true,  si: true,  br: true  },
-                    { benefit: "Logo on Sponsorship Booklet",    pl: true,  go: true,  si: true,  br: true  },
-                    { benefit: "Social Media Mentions",          pl: true,  go: true,  si: true,  br: true  },
-                    { benefit: "Venue Branding",                 pl: true,  go: true,  si: true,  br: true  },
-                    { benefit: "Sponsor Recognition During Event",pl: true, go: true,  si: true,  br: false },
-                    { benefit: "Exhibition / Sponsor Booth",     pl: true,  go: true,  si: true,  br: false },
-                    { benefit: "Branding on Certificates",       pl: true,  go: true,  si: false, br: false },
-                    { benefit: "Branding on Posters & Standees", pl: true,  go: true,  si: true,  br: false },
-                    { benefit: "Competition Sponsorship Rights", pl: true,  go: true,  si: false, br: false },
-                    { benefit: "Workshop Sponsorship Rights",    pl: true,  go: true,  si: false, br: false },
-                    { benefit: "Premium Stage Branding",         pl: true,  go: false, si: false, br: false },
-                    { benefit: "Title Partner Recognition",      pl: true,  go: false, si: false, br: false },
-                    { benefit: "Sponsor Stall Size",             pl: "Premium", go: "Standard", si: "Basic", br: "—" },
-                  ].map((row, i) => (
-                    <tr key={i} style={{ backgroundColor: i % 2 === 0 ? "transparent" : "rgba(14,165,233,0.02)" }}>
-                      <td style={{
-                        padding: "13px 20px",
-                        fontFamily: "'EB Garamond',serif", fontSize: 14,
+                        <svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                          stroke={pkg.color} strokeWidth="2.5" strokeLinecap="round">
+                          <path d="M20 6L9 17l-5-5" />
+                        </svg>
+                      </div>
+                      <span style={{
+                        fontFamily: "'EB Garamond',serif", fontSize: 13,
                         color: "#94a3b8", lineHeight: 1.4,
-                        borderBottom: "1px solid rgba(14,165,233,0.06)",
-                      }}>{row.benefit}</td>
-                      {(["pl","go","si","br"] as const).map((key, ci) => {
-                        const tierColors = ["rgba(226,232,240,0.06)","rgba(245,158,11,0.06)","rgba(148,163,184,0.06)","rgba(201,168,76,0.06)"];
-                        const checkColors = ["#e2e8f0","#f59e0b","#94a3b8","#c9a84c"];
-                        const val = row[key];
-                        return (
-                          <td key={ci} style={{
-                            padding: "13px 16px", textAlign: "center",
-                            borderBottom: "1px solid rgba(14,165,233,0.06)",
-                            borderLeft: `1px solid rgba(14,165,233,0.06)`,
-                            backgroundColor: tierColors[ci],
-                          }}>
-                            {val === true ? (
-                              <span style={{ color: checkColors[ci], fontSize: 16, fontWeight: 700 }}>✓</span>
-                            ) : val === false ? (
-                              <span style={{ color: "rgba(255,255,255,0.12)", fontSize: 14 }}>—</span>
-                            ) : (
-                              <span style={{
-                                fontFamily: "'Cinzel',serif", fontSize: 10,
-                                color: checkColors[ci], letterSpacing: "1px",
-                              }}>{val}</span>
-                            )}
-                          </td>
-                        );
-                      })}
-                    </tr>
+                      }}>{b}</span>
+                    </div>
                   ))}
-                </tbody>
-              </table>
-            </div>
+                </div>
 
-            {/* Bottom note */}
-            <div style={{
-              padding: "16px 20px", textAlign: "center",
-              borderTop: "1px solid rgba(14,165,233,0.1)",
-              fontFamily: "'EB Garamond',serif", fontSize: 14,
+                {/* CTA button */}
+                <div style={{ padding: "0 20px 24px" }}>
+                  <a href="/contact" style={{
+                    display: "block", width: "100%", textAlign: "center",
+                    padding: "10px 0",
+                    fontFamily: "'Cinzel',serif", fontSize: 10,
+                    letterSpacing: "2px", textTransform: "uppercase",
+                    color: pkg.color, textDecoration: "none",
+                    border: `1px solid ${pkg.color}40`,
+                    backgroundColor: `${pkg.color}08`,
+                    transition: "all 0.2s ease",
+                  }}
+                  onMouseEnter={e => {
+                    (e.currentTarget as HTMLElement).style.backgroundColor = `${pkg.color}18`;
+                    (e.currentTarget as HTMLElement).style.boxShadow = `0 0 16px ${pkg.color}20`;
+                  }}
+                  onMouseLeave={e => {
+                    (e.currentTarget as HTMLElement).style.backgroundColor = `${pkg.color}08`;
+                    (e.currentTarget as HTMLElement).style.boxShadow = "none";
+                  }}
+                  >
+                    CHOOSE {pkg.tier} →
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Customized tier note */}
+          <div style={{
+            textAlign: "center", marginBottom: 48,
+            padding: "16px 24px",
+            border: "1px solid rgba(14,165,233,0.15)",
+            backgroundColor: "rgba(14,165,233,0.03)",
+          }}>
+            <span style={{
+              fontFamily: "'EB Garamond',serif", fontSize: 15,
               color: "#475569", fontStyle: "italic",
             }}>
               Looking for a customized tier?{" "}
@@ -239,9 +358,9 @@ export default function SponsorsPage() {
                 onMouseLeave={e => { e.currentTarget.style.textDecoration = "none"; }}
               >
                 Contact us directly
-              </a>{" "}
-              to discuss tailored packages.
-            </div>
+              </a>
+              {" "}to discuss tailored packages.
+            </span>
           </div>
         </div>
       </section>

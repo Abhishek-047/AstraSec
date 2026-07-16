@@ -1,0 +1,72 @@
+{
+  "_comment": "AstraSec Events — each entry maps to one EventCard on the Events page. 'cat' is used for filter buttons. 'iconPath' is an SVG path d= value. 'day' and 'venue' are shown as metadata.",
+  "filterOptions": ["ALL", "CTF", "WORKSHOPS", "TALKS", "BOUNTY", "ARENA"],
+  "events": [
+    {
+      "id": "ctf-main",
+      "cat": "CTF",
+      "tag": "CTF CHALLENGE",
+      "title": "CAPTURE THE FLAG",
+      "description": "The ultimate test of your hacking skills. Find vulnerabilities, exploit them, and capture the flag before time runs out.",
+      "day": "DAY 2 · 26 OCT",
+      "venue": "CYBER LAB 1",
+      "iconPath": "M3 3h8v8H3z M13 3h8v8h-8z M3 13h8v8H3z M16 16l5-5m0 5l-5-5",
+      "registrationLink": "/contact"
+    },
+    {
+      "id": "workshop-malware",
+      "cat": "WORKSHOPS",
+      "tag": "WORKSHOP",
+      "title": "MALWARE ANALYSIS",
+      "description": "Hands-on session on reverse engineering and analyzing modern malware strains using industry standard tools.",
+      "day": "DAY 1 · 25 OCT",
+      "venue": "WORKSHOP HALL A",
+      "iconPath": "M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3M3 16v3a2 2 0 0 0 2 2h3m8 0h3a2 2 0 0 0 2-2v-3M9 9l2 2 4-4",
+      "registrationLink": "/contact"
+    },
+    {
+      "id": "talk-crypto",
+      "cat": "TALKS",
+      "tag": "TECH TALK",
+      "title": "FUTURE OF CRYPTOGRAPHY",
+      "description": "A deep dive into post-quantum cryptography and how it will shape the future of secure communications.",
+      "day": "DAY 3 · 27 OCT",
+      "venue": "MAIN AUDITORIUM",
+      "iconPath": "M12 2A4 4 0 1 1 12 10A4 4 0 0 1 12 2M8 10V13L4 22H20L16 13V10",
+      "registrationLink": "/contact"
+    },
+    {
+      "id": "bug-bounty",
+      "cat": "BOUNTY",
+      "tag": "BUG BOUNTY",
+      "title": "WEB EXPLOITATION",
+      "description": "Find and report vulnerabilities in provided web applications. High severity bugs win premium bounties.",
+      "day": "DAY 2 · 26 OCT",
+      "venue": "LAB 3",
+      "iconPath": "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10zM9 12l2 2 4-4",
+      "registrationLink": "/contact"
+    },
+    {
+      "id": "cyber-arena",
+      "cat": "ARENA",
+      "tag": "CYBER ARENA",
+      "title": "ATTACK & DEFEND",
+      "description": "Form teams to attack opponent infrastructure while defending your own in a simulated enterprise environment.",
+      "day": "DAY 3 · 27 OCT",
+      "venue": "ARENA 1",
+      "iconPath": "M5 10h14M5 14h14M9 6l-4 8 4 8M15 6l4 8-4 8",
+      "registrationLink": "/contact"
+    },
+    {
+      "id": "workshop-cloud",
+      "cat": "WORKSHOPS",
+      "tag": "WORKSHOP",
+      "title": "CLOUD SECURITY",
+      "description": "Learn how to secure AWS and Azure environments against common misconfigurations and attack vectors.",
+      "day": "DAY 1 · 25 OCT",
+      "venue": "WORKSHOP HALL B",
+      "iconPath": "M13 2L3 14h9l-1 8 10-12h-9l1-8z",
+      "registrationLink": "/contact"
+    }
+  ]
+}

@@ -418,7 +418,7 @@ export default function AboutPage() {
         {/* Cyber sub-label */}
         <div style={{ textAlign:"center", marginBottom:36, marginTop:-20 }}>
           <span style={{ fontFamily:"monospace", fontSize:11, color:"rgba(14,165,233,0.45)" }}>
-            // Society of Cyber Security — Core Members
+            // AstraSec — Core Team
           </span>
         </div>
 
