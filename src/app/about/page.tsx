@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef } from "react";
 import { C, LEATHER_TEX, SectionHeading, PageHero, GoldBtn } from "@/lib/design";
+import teamData from "../../../data/team.json";
 
 function StatBox({ num, label }: { num: string; label: string }) {
   return (
@@ -11,7 +12,7 @@ function StatBox({ num, label }: { num: string; label: string }) {
   );
 }
 
-function TeamCard({ name, role, index }: { name:string; role:string; index:number }) {
+function TeamCard({ name, role, index, socials }: { name:string; role:string; index:number; socials?: { linkedin?: string; github?: string; instagram?: string } }) {
   const ref = useRef<HTMLDivElement>(null);
   const initials = name.split(" ").map((n:string) => n[0]).join("").slice(0,2).toUpperCase();
 
@@ -136,9 +137,9 @@ function TeamCard({ name, role, index }: { name:string; role:string; index:numbe
       {/* Social links */}
       <div style={{ display: "flex", justifyContent: "center", gap: 10 }}>
         {[
-          { l:"LI", href:"https://www.linkedin.com/company/society-of-cyber-security/",  d:"M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z M2 9h4v12H2z M4 6a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" },
-          { l:"GH", href:"https://github.com/Society-of-Cyber-Security",                  d:"M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" },
-          { l:"IG", href:"https://www.instagram.com/socs_ru/",                            d:"M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z M17.5 6.5h.01 M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2z" },
+          { l:"LI", href: socials?.linkedin || "https://www.linkedin.com/company/society-of-cyber-security/",  d:"M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z M2 9h4v12H2z M4 6a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" },
+          { l:"GH", href: socials?.github || "https://github.com/Society-of-Cyber-Security",                  d:"M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" },
+          { l:"IG", href: socials?.instagram || "https://www.instagram.com/socs_ru/",                            d:"M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z M17.5 6.5h.01 M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2z" },
         ].map(s => (
           <a key={s.l} href={s.href} target="_blank" rel="noopener noreferrer"
             style={{
@@ -168,22 +169,77 @@ export default function AboutPage() {
       {/* Our Story */}
       <section className="px-6 py-10 md:px-8 md:py-12" style={{ width:"100%", display:"flex", gap:40, marginBottom:52, flexWrap:"wrap", backgroundColor:"#0d1424" }}>
         {/* Illustration */}
-        <div style={{ flex:"0 0 220px" }}>
-          <svg width="220" height="260" viewBox="0 0 220 260" fill="none" xmlns="http://www.w3.org/2000/svg">
-            {/* Scholar figure */}
-            <circle cx="110" cy="50" r="24" fill="none" stroke="#0ea5e9" strokeWidth="1"/>
-            <path d="M70 130 C70 100,90 85,110 85 C130 85,150 100,150 130" fill="none" stroke="#0ea5e9" strokeWidth="1"/>
-            <line x1="110" y1="109" x2="110" y2="145" stroke="#0ea5e9" strokeWidth="0.8"/>
-            <line x1="110" y1="120" x2="88" y2="138" stroke="#0ea5e9" strokeWidth="0.8"/>
-            <line x1="110" y1="120" x2="132" y2="138" stroke="#0ea5e9" strokeWidth="0.8"/>
-            {/* Books */}
-            <rect x="30" y="180" width="160" height="16" rx="1" fill="#0369a1" opacity="0.5" stroke="#0ea5e9" strokeWidth="0.7"/>
-            <rect x="40" y="165" width="140" height="16" rx="1" fill="#075985" opacity="0.55" stroke="#0ea5e9" strokeWidth="0.7"/>
-            <rect x="25" y="150" width="150" height="16" rx="1" fill="#0f172a" opacity="0.6" stroke="#0ea5e9" strokeWidth="0.7"/>
-            {/* Circuit overlay faint */}
-            <path d="M10 145 h15 M25 145 V130 M25 130 h20 M45 130 v20" stroke="#0ea5e9" strokeWidth="0.4" opacity="0.3"/>
-            <circle cx="25" cy="145" r="2" fill="#0ea5e9" opacity="0.3"/>
-            <circle cx="45" cy="130" r="2" fill="#0ea5e9" opacity="0.3"/>
+        <div style={{ flex:"0 0 220px", display:"flex", justifyContent:"center", alignItems:"center" }}>
+          <svg width="210" height="240" viewBox="0 0 210 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+            {/* ── Outer hex border ── */}
+            <polygon points="105,8 185,52 185,140 105,184 25,140 25,52"
+              fill="none" stroke="#0ea5e9" strokeWidth="1" opacity="0.25"/>
+            <polygon points="105,20 173,58 173,134 105,172 37,134 37,58"
+              fill="none" stroke="#0ea5e9" strokeWidth="0.5" opacity="0.15"/>
+
+            {/* ── Central shield ── */}
+            <path d="M105 42 L148 60 L148 105 C148 128,128 145,105 155 C82 145,62 128,62 105 L62 60 Z"
+              fill="rgba(14,165,233,0.06)" stroke="#0ea5e9" strokeWidth="1.4"/>
+            {/* Padlock body */}
+            <rect x="90" y="102" width="30" height="24" rx="2"
+              fill="none" stroke="#0ea5e9" strokeWidth="1.4"/>
+            {/* Padlock shackle */}
+            <path d="M93 102 V95 A12 12 0 0 1 117 95 V102"
+              fill="none" stroke="#0ea5e9" strokeWidth="1.4"/>
+            {/* Keyhole */}
+            <circle cx="105" cy="113" r="4" fill="none" stroke="#c9a84c" strokeWidth="1.2"/>
+            <line x1="105" y1="117" x2="105" y2="122" stroke="#c9a84c" strokeWidth="1.4"/>
+
+            {/* ── Circuit lines radiating outward ── */}
+            {/* Left branch */}
+            <path d="M62 95 H44 V75 H28" stroke="#0ea5e9" strokeWidth="0.7" opacity="0.5"/>
+            <circle cx="44" cy="95" r="2.5" fill="#0ea5e9" opacity="0.4"/>
+            <circle cx="28" cy="75" r="2" fill="#0ea5e9" opacity="0.35"/>
+            <rect x="20" y="68" width="8" height="14" rx="1"
+              fill="none" stroke="#0ea5e9" strokeWidth="0.7" opacity="0.35"/>
+
+            {/* Right branch */}
+            <path d="M148 95 H166 V75 H182" stroke="#0ea5e9" strokeWidth="0.7" opacity="0.5"/>
+            <circle cx="166" cy="95" r="2.5" fill="#0ea5e9" opacity="0.4"/>
+            <circle cx="182" cy="75" r="2" fill="#0ea5e9" opacity="0.35"/>
+            <rect x="182" y="68" width="8" height="14" rx="1"
+              fill="none" stroke="#0ea5e9" strokeWidth="0.7" opacity="0.35"/>
+
+            {/* Bottom branch left */}
+            <path d="M80 148 V168 H55 V185" stroke="#0ea5e9" strokeWidth="0.7" opacity="0.4"/>
+            <circle cx="55" cy="168" r="2.5" fill="#0ea5e9" opacity="0.35"/>
+            <circle cx="55" cy="185" r="2" fill="#c9a84c" opacity="0.5"/>
+
+            {/* Bottom branch right */}
+            <path d="M130 148 V168 H155 V185" stroke="#0ea5e9" strokeWidth="0.7" opacity="0.4"/>
+            <circle cx="155" cy="168" r="2.5" fill="#0ea5e9" opacity="0.35"/>
+            <circle cx="155" cy="185" r="2" fill="#c9a84c" opacity="0.5"/>
+
+            {/* Top branch */}
+            <path d="M105 42 V22 M88 30 L105 22 L122 30"
+              stroke="#0ea5e9" strokeWidth="0.7" opacity="0.4"/>
+            <circle cx="105" cy="22" r="2.5" fill="#0ea5e9" opacity="0.4"/>
+
+            {/* ── Binary text nodes ── */}
+            <text x="16" y="62" fontFamily="monospace" fontSize="7" fill="#0ea5e9" opacity="0.3">0x2F</text>
+            <text x="176" y="62" fontFamily="monospace" fontSize="7" fill="#0ea5e9" opacity="0.3">0xA3</text>
+            <text x="44" y="194" fontFamily="monospace" fontSize="7" fill="#0ea5e9" opacity="0.25">01</text>
+            <text x="148" y="194" fontFamily="monospace" fontSize="7" fill="#0ea5e9" opacity="0.25">10</text>
+
+            {/* ── Gold accent dots on shield corners ── */}
+            <circle cx="62" cy="60" r="3" fill="#c9a84c" opacity="0.5"/>
+            <circle cx="148" cy="60" r="3" fill="#c9a84c" opacity="0.5"/>
+            <circle cx="148" cy="105" r="2" fill="#c9a84c" opacity="0.4"/>
+            <circle cx="62" cy="105" r="2" fill="#c9a84c" opacity="0.4"/>
+
+            {/* ── Scan line animation across shield (CSS class) ── */}
+            <line x1="62" y1="98" x2="148" y2="98"
+              stroke="#0ea5e9" strokeWidth="0.5" opacity="0.3"
+              strokeDasharray="4 3">
+              <animate attributeName="y1" values="60;155;60" dur="4s" repeatCount="indefinite"/>
+              <animate attributeName="y2" values="60;155;60" dur="4s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values="0;0.3;0" dur="4s" repeatCount="indefinite"/>
+            </line>
           </svg>
         </div>
 
@@ -376,20 +432,9 @@ export default function AboutPage() {
           {/* Scrolling track — duplicated for seamless loop */}
           <div className="team-orbit-track" style={{ display:"flex", gap:20, width:"max-content" }}>
             {[
-              { name:"Rudra Pratap Singh Choudhary", role:"Club President" },
-              { name:"Antik Mondal",                 role:"Vice President" },
-              { name:"Mohammad Affan Anas",          role:"Technical Lead" },
-              { name:"Prabhas",                      role:"Events Director" },
-              { name:"Utkarsh Singh",                role:"CTF Lead" },
-              { name:"Abhishek Panigrahi",           role:"Design Head" },
-              /* duplicate set for seamless loop */
-              { name:"Rudra Pratap Singh Choudhary", role:"Club President" },
-              { name:"Antik Mondal",                 role:"Vice President" },
-              { name:"Mohammad Affan Anas",          role:"Technical Lead" },
-              { name:"Prabhas",                      role:"Events Director" },
-              { name:"Utkarsh Singh",                role:"CTF Lead" },
-              { name:"Abhishek Panigrahi",           role:"Design Head" },
-            ].map((m, i) => <TeamCard key={`${m.name}-${i}`} {...m} index={i % 6} />)}
+              ...teamData.members.map(m => ({ name: m.name, role: m.role, socials: m.socials })),
+              ...teamData.members.map(m => ({ name: m.name, role: m.role, socials: m.socials })),
+            ].map((m, i) => <TeamCard key={`${m.name}-${i}`} {...m} index={i % teamData.members.length} />)}
           </div>
         </div>
       </section>

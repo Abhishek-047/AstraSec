@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import { C, LEATHER_TEX, SectionHeading, HighlightCard, GoldBtn } from "@/lib/design";
 import CountdownTimer from "@/components/CountdownTimer";
@@ -13,24 +14,49 @@ function Icon({ d, size = 46 }: { d: string; size?: number }) {
 }
 
 /* ── Timeline node ─────────────────────────────────────────── */
-function TNode({ day, date, desc, iconD }: { day: string; date: string; desc: string; iconD: string }) {
+function TNode({ time, title, speaker, highlight=false }: { time:string; title:string; speaker?:string; highlight?:boolean }) {
+  const color = highlight ? "#0ea5e9" : "#c9a84c";
+  const bg = highlight ? "rgba(14,165,233,0.06)" : "rgba(201,168,76,0.04)";
+  
   return (
-    <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", position: "relative", zIndex: 1 }}>
-      <div style={{ fontFamily: "'Cinzel',serif", fontSize: 11, fontWeight: 700, letterSpacing: "2px", color: "#0ea5e9" }}>{day}</div>
-      {date && <div style={{ fontFamily: "'Cinzel',serif", fontSize: 10, color: "#94a3b8", marginBottom: 10 }}>{date}</div>}
-      {!date && <div style={{ marginBottom: 10 }} />}
-      <div className="pulse-node" style={{
-        width: 44, height: 44, borderRadius: "50%",
-        backgroundColor: "#0f172a",
-        border: "2px solid #0ea5e9",
-        boxShadow: "0 0 0 5px #060b14, 0 0 0 6px #0ea5e9",
-        display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 12, position: "relative", zIndex: 2,
-      }}>
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" strokeWidth="1.5" strokeLinecap="round">
-          <path d={iconD} />
-        </svg>
+    <div style={{
+      display: "flex", gap: 16, marginBottom: 24, position: "relative",
+      padding: "16px 20px", backgroundColor: bg, border: `1px solid ${color}30`,
+      transition: "all 0.3s ease",
+    }}
+    onMouseEnter={e => {
+      e.currentTarget.style.backgroundColor = highlight ? "rgba(14,165,233,0.12)" : "rgba(201,168,76,0.08)";
+      e.currentTarget.style.borderColor = `${color}80`;
+      e.currentTarget.style.transform = "translateX(4px)";
+    }}
+    onMouseLeave={e => {
+      e.currentTarget.style.backgroundColor = bg;
+      e.currentTarget.style.borderColor = `${color}30`;
+      e.currentTarget.style.transform = "translateX(0)";
+    }}
+    >
+      {/* Corner bracket tl */}
+      <div style={{ position:"absolute", top:0, left:0, width:6, height:6, borderTop:`1px solid ${color}`, borderLeft:`1px solid ${color}` }} />
+      {/* Corner bracket br */}
+      <div style={{ position:"absolute", bottom:0, right:0, width:6, height:6, borderBottom:`1px solid ${color}`, borderRight:`1px solid ${color}` }} />
+      
+      {/* Time column */}
+      <div style={{ minWidth: 80, flexShrink: 0, borderRight: `1px dashed ${color}40`, paddingRight: 16 }}>
+        <div style={{ fontFamily: "monospace", fontSize: 13, color: color, fontWeight: 700 }}>{time}</div>
       </div>
-      <p style={{ fontFamily: "'EB Garamond',serif", fontSize: 13, color: "#94a3b8", lineHeight: 1.5, maxWidth: 120 }}>{desc}</p>
+      
+      {/* Content column */}
+      <div>
+        <div style={{ fontFamily: "'Cinzel',serif", fontSize: 15, fontWeight: 700, color: "#f0f6ff", letterSpacing: "1px", marginBottom: 4 }}>
+          {title}
+        </div>
+        {speaker && (
+          <div style={{ fontFamily: "'EB Garamond',serif", fontSize: 14, color: "#94a3b8", fontStyle: "italic" }}>
+            <span style={{ color, opacity: 0.7, marginRight: 6 }}>&gt;</span>
+            {speaker}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
@@ -223,7 +249,7 @@ export default function Home() {
       ══════════════════════════════════ */}
       <section id="schedule" style={{ width: "100%", padding: "48px 24px", backgroundColor: "#0d1424", borderTop: `1px solid rgba(14,165,233,0.15)` }}>
         <SectionHeading text="Event Schedule" variant="cyber" />
-        <div style={{ border: `1px solid rgba(14,165,233,0.3)`, padding: "40px 24px", position: "relative", backgroundColor: "#060b14", maxWidth: 1080, margin: "0 auto" }}>
+        <div style={{ border: `1px solid rgba(14,165,233,0.3)`, padding: "40px 24px", position: "relative", backgroundColor: "#060b14", maxWidth: 800, margin: "0 auto" }}>
           {/* Corner brackets */}
           {["tl", "tr", "bl", "br"].map(c => (
             <div key={c} style={{
@@ -240,15 +266,14 @@ export default function Home() {
             }} />
           ))}
           <div style={{ position: "relative" }}>
-            {/* Connecting line */}
-            <div className="hidden md:block" style={{ position: "absolute", top: 52, left: "12.5%", right: "12.5%", height: 2, backgroundColor: "#0ea5e9", opacity: 0.3, zIndex: 0 }} />
-            <div className="flex flex-col md:flex-row gap-8">
+            <div className="flex flex-col gap-2">
               {[
-                { day: "DAY 1", date: "25 October", desc: "Inauguration & Keynote Session", iconD: "M12 2L20 5.5V12C20 17,16 20,12 22C8 20,4 17,4 12V5.5Z" },
-                { day: "DAY 2", date: "26 October", desc: "Workshops & CTF Qualifiers", iconD: "M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3" },
-                { day: "DAY 3", date: "27 October", desc: "Finals, Talks & Closing Ceremony", iconD: "M12 2L15 9L22 9L16.5 14L18.5 21L12 17L5.5 21L7.5 14L2 9L9 9Z" },
-                { day: "ALL DAYS", date: "", desc: "Exhibitions & Cyber Arena", iconD: "M17 20C17 17,14.5 15,12 15C9.5 15,7 17,7 20 M4 20C4 18,6 16,7 15.5 M12 12A4 4 0 1 1 12 4" },
-              ].map(n => <TNode key={n.day} {...n} />)}
+                { time: "09:00 AM", title: "INAUGURATION & KEYNOTE", speaker: "Dr. A. Sharma, Chief Guest" },
+                { time: "11:00 AM", title: "WORKSHOPS & CTF QUALIFIERS", highlight: true },
+                { time: "02:00 PM", title: "TECH TALKS", speaker: "Industry Experts Panel" },
+                { time: "04:30 PM", title: "CYBER ARENA & NETWORKING" },
+                { time: "06:00 PM", title: "CLOSING CEREMONY & PRIZE DISTRIBUTION", highlight: true },
+              ].map((n, i) => <TNode key={i} {...n} />)}
             </div>
           </div>
         </div>

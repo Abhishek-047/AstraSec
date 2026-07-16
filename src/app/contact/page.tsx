@@ -84,54 +84,263 @@ export default function ContactPage() {
           </form>
         </div>
 
-        {/* Right - Contact Info */}
-        <div style={{ flex:4, minWidth:260 }}>
-          <h2 style={{ fontFamily:"'Cinzel',serif", fontSize:18, color:"#f0f6ff", letterSpacing:"2px", marginBottom:12 }}>REACH US</h2>
-          <div style={{ height:1, background:`linear-gradient(to right, #8b6914, transparent)`, marginBottom:24 }}/>
-          
-          <div style={{ display:"flex", gap:12, alignItems:"flex-start", marginBottom:20, borderBottom:`1px solid #8b6914`, paddingBottom:20 }}>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" strokeWidth="1.5" style={{ flexShrink:0, marginTop:2 }}><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            <div style={{ fontFamily:"'EB Garamond',serif", fontSize:15, color:"#94a3b8" }}>socs.club@rishihood.edu.in</div>
+        {/* ── Right — Cyber Contact Info Panel ── */}
+        <div style={{ flex: 4, minWidth: 260, display: "flex", flexDirection: "column", gap: 0 }}>
+
+          {/* Panel header */}
+          <div style={{ marginBottom: 28 }}>
+            <div style={{
+              fontFamily: "monospace", fontSize: 11, color: "rgba(14,165,233,0.45)",
+              letterSpacing: "1px", marginBottom: 8,
+            }}>
+              <span style={{ color: "#c9a84c" }}>&gt;</span> sys.contact.load() — establishing secure channel...
+            </div>
+            <h2 style={{
+              fontFamily: "'Cinzel',serif", fontSize: 18, color: "#f0f6ff",
+              letterSpacing: "2px", marginBottom: 10,
+            }}>REACH US</h2>
+            <div style={{ height: 1, background: "linear-gradient(to right, #0ea5e9, rgba(14,165,233,0.1), transparent)" }} />
           </div>
-          
-          <div style={{ display:"flex", gap:12, alignItems:"flex-start", marginBottom:20, borderBottom:`1px solid #8b6914`, paddingBottom:20 }}>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" strokeWidth="1.5" style={{ flexShrink:0, marginTop:2 }}><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <div style={{ fontFamily:"'EB Garamond',serif", fontSize:15, color:"#94a3b8" }}>B Block Main Auditorium,<br/>Sonipat, Haryana, Delhi NCR, India</div>
-          </div>
-          
-          <div style={{ display:"flex", gap:12, alignItems:"flex-start", marginBottom:32, borderBottom:`1px solid #8b6914`, paddingBottom:20 }}>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" strokeWidth="1.5" style={{ flexShrink:0, marginTop:2 }}><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            <div style={{ fontFamily:"'EB Garamond',serif", fontSize:15, color:"#94a3b8" }}>+91 88152 88895<br/>+91 8999099822<br/>+91 7319956809</div>
-          </div>
-          
-          <h2 style={{ fontFamily:"'Cinzel',serif", fontSize:14, color:"#c9a84c", letterSpacing:"2px", marginBottom:16 }}>FOLLOW THE LEGACY</h2>
-          <div style={{ display:"flex", gap:10, flexWrap:"wrap" }}>
-            {[
-              { label: "GITHUB", href: "https://github.com/Society-of-Cyber-Security" },
-              { label: "LINKEDIN", href: "https://www.linkedin.com/company/society-of-cyber-security/" },
-              { label: "INSTAGRAM", href: "https://www.instagram.com/socs_ru/" }
-            ].map(s=>(
-              <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" style={{
-                flex:1, minWidth:80, padding:"10px 0", backgroundColor:"rgba(139,105,20,0.06)", border:`1px solid #8b6914`,
-                fontFamily:"'Cinzel',serif", fontSize:10, color:"#c9a84c", cursor:"pointer",
-                transition:"all 0.2s ease", textDecoration:"none", textAlign:"center", display:"block", letterSpacing:"1px"
-              }}
-              onMouseEnter={e => {
-                e.currentTarget.style.backgroundColor = "rgba(14,165,233,0.1)";
-                e.currentTarget.style.boxShadow = "0 0 12px rgba(14,165,233,0.25)";
-                e.currentTarget.style.borderColor = "#0ea5e9";
-                e.currentTarget.style.color = "#0ea5e9";
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.backgroundColor = "rgba(139,105,20,0.06)";
-                e.currentTarget.style.boxShadow = "none";
-                e.currentTarget.style.borderColor = "#8b6914";
-                e.currentTarget.style.color = "#c9a84c";
-              }}
-              >
-                {s.label}
-              </a>
+
+          {/* ── Contact info cards ── */}
+          {[
+            {
+              id: "EMAIL",
+              protocol: "SMTP",
+              status: "SECURE",
+              statusColor: "#22c55e",
+              icon: "M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z M22 6l-10 7L2 6",
+              value: "socs.club@rishihood.edu.in",
+              href: "mailto:socs.club@rishihood.edu.in",
+              mono: true,
+            },
+            {
+              id: "LOCATION",
+              protocol: "GEO",
+              status: "VERIFIED",
+              statusColor: "#0ea5e9",
+              icon: "M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z M12 10m-3 0a3 3 0 1 0 6 0a3 3 0 1 0-6 0",
+              value: "B Block Main Auditorium\nSonipat, Haryana, Delhi NCR",
+              href: null,
+              mono: false,
+            },
+          ].map(item => (
+            <div key={item.id} style={{
+              backgroundColor: "#0f172a",
+              border: "1px solid rgba(14,165,233,0.18)",
+              padding: "16px 18px",
+              marginBottom: 12,
+              position: "relative",
+              transition: "border-color 0.2s ease, box-shadow 0.2s ease",
+            }}
+            onMouseEnter={e => {
+              (e.currentTarget as HTMLElement).style.borderColor = "rgba(14,165,233,0.45)";
+              (e.currentTarget as HTMLElement).style.boxShadow = "0 0 16px rgba(14,165,233,0.08)";
+            }}
+            onMouseLeave={e => {
+              (e.currentTarget as HTMLElement).style.borderColor = "rgba(14,165,233,0.18)";
+              (e.currentTarget as HTMLElement).style.boxShadow = "none";
+            }}
+            >
+              {/* Corner micro-brackets */}
+              {(["tl","tr","bl","br"] as const).map(c => (
+                <div key={c} style={{
+                  position: "absolute",
+                  top: c.startsWith("t") ? 3 : "auto", bottom: c.startsWith("b") ? 3 : "auto",
+                  left: c.endsWith("l") ? 3 : "auto", right: c.endsWith("r") ? 3 : "auto",
+                  width: 7, height: 7,
+                  borderTop:    c.startsWith("t") ? "1px solid rgba(14,165,233,0.35)" : "none",
+                  borderBottom: c.startsWith("b") ? "1px solid rgba(14,165,233,0.35)" : "none",
+                  borderLeft:   c.endsWith("l")   ? "1px solid rgba(14,165,233,0.35)" : "none",
+                  borderRight:  c.endsWith("r")   ? "1px solid rgba(14,165,233,0.35)" : "none",
+                }} />
+              ))}
+
+              {/* Top bar: ID + protocol + status */}
+              <div style={{
+                display: "flex", justifyContent: "space-between", alignItems: "center",
+                marginBottom: 10,
+              }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                  <span style={{
+                    fontFamily: "monospace", fontSize: 9, color: "rgba(14,165,233,0.5)",
+                    letterSpacing: "1px",
+                  }}>[{item.protocol}]</span>
+                  <span style={{
+                    fontFamily: "'Cinzel',serif", fontSize: 9, color: "#c9a84c",
+                    letterSpacing: "2px",
+                  }}>{item.id}</span>
+                </div>
+                <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
+                  <span style={{
+                    width: 5, height: 5, borderRadius: "50%",
+                    backgroundColor: item.statusColor,
+                    boxShadow: `0 0 6px ${item.statusColor}`,
+                    display: "inline-block",
+                  }} />
+                  <span style={{
+                    fontFamily: "monospace", fontSize: 8, color: item.statusColor,
+                    letterSpacing: "1px",
+                  }}>{item.status}</span>
+                </div>
+              </div>
+
+              {/* Divider */}
+              <div style={{ height: 1, background: "rgba(14,165,233,0.1)", marginBottom: 10 }} />
+
+              {/* Icon + value */}
+              <div style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="#0ea5e9" strokeWidth="1.5" strokeLinecap="round"
+                  style={{ flexShrink: 0, marginTop: 2, opacity: 0.7 }}>
+                  <path d={item.icon} />
+                </svg>
+                {item.href ? (
+                  <a href={item.href} style={{
+                    fontFamily: item.mono ? "monospace" : "'EB Garamond',serif",
+                    fontSize: item.mono ? 12 : 14,
+                    color: "#94a3b8", textDecoration: "none", lineHeight: 1.6,
+                    letterSpacing: item.mono ? "0.5px" : "normal",
+                    wordBreak: "break-all",
+                  }}
+                  onMouseEnter={e => { e.currentTarget.style.color = "#0ea5e9"; }}
+                  onMouseLeave={e => { e.currentTarget.style.color = "#94a3b8"; }}
+                  >{item.value}</a>
+                ) : (
+                  <span style={{
+                    fontFamily: "'EB Garamond',serif", fontSize: 14,
+                    color: "#94a3b8", lineHeight: 1.7, whiteSpace: "pre-line",
+                  }}>{item.value}</span>
+                )}
+              </div>
+            </div>
+          ))}
+
+          {/* ── Phone numbers — terminal-style block ── */}
+          <div style={{
+            backgroundColor: "#060b14",
+            border: "1px solid rgba(14,165,233,0.2)",
+            padding: "16px 18px",
+            marginBottom: 20,
+            position: "relative",
+            fontFamily: "monospace",
+          }}>
+            {/* Corner brackets */}
+            {(["tl","tr","bl","br"] as const).map(c => (
+              <div key={c} style={{
+                position: "absolute",
+                top: c.startsWith("t") ? 3 : "auto", bottom: c.startsWith("b") ? 3 : "auto",
+                left: c.endsWith("l") ? 3 : "auto", right: c.endsWith("r") ? 3 : "auto",
+                width: 7, height: 7,
+                borderTop:    c.startsWith("t") ? "1px solid rgba(201,168,76,0.35)" : "none",
+                borderBottom: c.startsWith("b") ? "1px solid rgba(201,168,76,0.35)" : "none",
+                borderLeft:   c.endsWith("l")   ? "1px solid rgba(201,168,76,0.35)" : "none",
+                borderRight:  c.endsWith("r")   ? "1px solid rgba(201,168,76,0.35)" : "none",
+              }} />
             ))}
+
+            {/* Terminal header */}
+            <div style={{
+              display: "flex", justifyContent: "space-between", marginBottom: 10,
+            }}>
+              <span style={{ fontSize: 9, color: "rgba(14,165,233,0.5)", letterSpacing: "1px" }}>
+                [TEL] VOICE_CHANNELS
+              </span>
+              <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
+                <span style={{
+                  width: 5, height: 5, borderRadius: "50%",
+                  backgroundColor: "#22c55e", boxShadow: "0 0 6px #22c55e",
+                  display: "inline-block",
+                  animation: "blinkCursor 2s step-end infinite",
+                }} />
+                <span style={{ fontSize: 8, color: "#22c55e", letterSpacing: "1px" }}>ACTIVE</span>
+              </div>
+            </div>
+
+            <div style={{ height: 1, background: "rgba(14,165,233,0.1)", marginBottom: 12 }} />
+
+            {/* Phone entries */}
+            {[
+              { label: "primary", num: "+91 88152 88895" },
+              { label: "secondary", num: "+91 89990 99822" },
+              { label: "tertiary",  num: "+91 73199 56809" },
+            ].map((p, i) => (
+              <div key={i} style={{
+                display: "flex", alignItems: "center", gap: 10,
+                marginBottom: i < 2 ? 8 : 0,
+                paddingBottom: i < 2 ? 8 : 0,
+                borderBottom: i < 2 ? "1px solid rgba(14,165,233,0.06)" : "none",
+              }}>
+                <span style={{ fontSize: 9, color: "rgba(14,165,233,0.35)", minWidth: 64 }}>
+                  {`ch_${String(i+1).padStart(2,"0")}:`}
+                </span>
+                <span style={{ color: "#8b6914", opacity: 0.6, fontSize: 9 }}>
+                  [{p.label}]
+                </span>
+                <a href={`tel:${p.num.replace(/\s/g, "")}`} style={{
+                  fontSize: 13, color: "#94a3b8", textDecoration: "none",
+                  letterSpacing: "1px", transition: "color 0.15s ease",
+                }}
+                onMouseEnter={e => { e.currentTarget.style.color = "#0ea5e9"; }}
+                onMouseLeave={e => { e.currentTarget.style.color = "#94a3b8"; }}
+                >{p.num}</a>
+              </div>
+            ))}
+
+            {/* Bottom terminal output */}
+            <div style={{
+              marginTop: 12, paddingTop: 8,
+              borderTop: "1px solid rgba(14,165,233,0.08)",
+              fontSize: 9, color: "rgba(14,165,233,0.25)", letterSpacing: "1px",
+            }}>
+              <span style={{ color: "#c9a84c", opacity: 0.4 }}>&gt;</span> conn.encrypt(TLS_1.3) — all channels secured
+            </div>
+          </div>
+
+          {/* ── Follow The Legacy — social buttons ── */}
+          <div>
+            <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 14 }}>
+              <span style={{ fontFamily: "'Cinzel',serif", fontSize: 11, color: "#c9a84c", letterSpacing: "2px" }}>
+                FOLLOW THE LEGACY
+              </span>
+              <div style={{ flex: 1, height: 1, background: "linear-gradient(to right, rgba(139,105,20,0.4), transparent)" }} />
+            </div>
+            <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+              {[
+                { label: "GITHUB",    href: "https://github.com/Society-of-Cyber-Security",              icon: "M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" },
+                { label: "LINKEDIN",  href: "https://www.linkedin.com/company/society-of-cyber-security/", icon: "M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z M2 9h4v12H2z M4 6a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" },
+                { label: "INSTAGRAM", href: "https://www.instagram.com/socs_ru/",                          icon: "M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z M17.5 6.5h.01 M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2z" },
+              ].map(s => (
+                <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
+                  style={{
+                    flex: 1, minWidth: 80, padding: "10px 4px",
+                    backgroundColor: "rgba(14,165,233,0.04)",
+                    border: "1px solid rgba(14,165,233,0.2)",
+                    fontFamily: "'Cinzel',serif", fontSize: 9, color: "#0ea5e9",
+                    cursor: "pointer", transition: "all 0.2s ease",
+                    textDecoration: "none", textAlign: "center" as const,
+                    display: "flex", alignItems: "center", justifyContent: "center", gap: 6,
+                    letterSpacing: "1px",
+                  }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.backgroundColor = "rgba(14,165,233,0.12)";
+                    e.currentTarget.style.boxShadow = "0 0 12px rgba(14,165,233,0.2)";
+                    e.currentTarget.style.borderColor = "#0ea5e9";
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.backgroundColor = "rgba(14,165,233,0.04)";
+                    e.currentTarget.style.boxShadow = "none";
+                    e.currentTarget.style.borderColor = "rgba(14,165,233,0.2)";
+                  }}
+                >
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
+                    <path d={s.icon} />
+                  </svg>
+                  {s.label}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </section>

@@ -2,48 +2,7 @@
 import { useState } from "react";
 import { PageHero, SectionHeading } from "@/lib/design";
 
-const faqs = [
-  {
-    q: "Who can participate in Legacy Secured?",
-    a: "Legacy Secured is open to all students — undergraduate and postgraduate — from any college or university. Individual participants and teams of up to 4 members are welcome.",
-  },
-  {
-    q: "Is there a registration fee?",
-    a: "Basic event access is free. Some specialized workshops and competitions may have a nominal entry fee, which will be announced at the time of registration.",
-  },
-  {
-    q: "Do I need to have prior cybersecurity experience?",
-    a: "No prior experience is required for most events. We have beginner-friendly workshops and talks. The CTF and advanced competitions are suited for experienced participants.",
-  },
-  {
-    q: "What should I bring to the event?",
-    a: "Bring your laptop with your preferred security tools pre-installed, a valid student ID, and your curiosity. Specific tool requirements will be shared in event-wise briefings.",
-  },
-  {
-    q: "How do I register for specific events or workshops?",
-    a: "After completing general registration, you can sign up for individual events, workshops, and competitions through the event portal. Slots are limited and filled on a first-come basis.",
-  },
-  {
-    q: "Will certificates be provided?",
-    a: "Yes. All participants will receive digital certificates of participation. Competition winners will additionally receive merit certificates and prizes.",
-  },
-  {
-    q: "Is accommodation available for outstation participants?",
-    a: "Limited on-campus accommodation may be available. Please contact us at contact@astrasec.in well in advance to check availability and make arrangements.",
-  },
-  {
-    q: "Can I participate in the CTF remotely?",
-    a: "The CTF qualifiers may be held online, but the finals will be conducted on-site only. More details will be shared closer to the event date.",
-  },
-  {
-    q: "How will winners be determined?",
-    a: "Each event has its own scoring rubric. For CTF — points per flag. Workshops — participation-based. Tech Talks — judged by expert panel. Details are published per event.",
-  },
-  {
-    q: "How can I contact the organizing team?",
-    a: "Reach us at contact@astrasec.in or through our social media channels on GitHub, LinkedIn, and Instagram. We aim to respond within 24–48 hours.",
-  },
-];
+import faqData from "../../../data/faq.json";
 
 function FAQItem({ q, a, index }: { q: string; a: string; index: number }) {
   const [open, setOpen] = useState(false);
@@ -95,8 +54,8 @@ export default function FAQPage() {
       <section className="px-6 py-10 md:px-8 md:py-12" style={{ width:"100%", backgroundColor:"#0d1424", borderTop:`1px solid rgba(14,165,233,0.15)` }}>
         <SectionHeading text="Frequently Asked Questions" variant="gold" />
         <div style={{ maxWidth:780, margin:"0 auto" }}>
-          {faqs.map((f, i) => (
-            <FAQItem key={i} q={f.q} a={f.a} index={i} />
+          {faqData.faqs.map((f, i) => (
+            <FAQItem key={i} q={f.question} a={f.answer} index={i} />
           ))}
         </div>
       </section>
