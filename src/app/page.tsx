@@ -167,30 +167,108 @@ export default function Home() {
       <section id="about" className="px-6 py-10 md:px-8 md:py-12" style={{ width: "100%", backgroundColor: "#0d1424", marginBottom: 0, borderTop: `1px solid rgba(14,165,233,0.15)` }}>
         <SectionHeading text="About The Event" variant="gold" />
         <div style={{ display: "flex", gap: 36, alignItems: "flex-start", flexWrap: "wrap" }}>
-          {/* Sketch illustration */}
-          <div style={{ flex: "0 0 200px", display: "flex", justifyContent: "center" }}>
-            <svg width="190" height="210" viewBox="0 0 190 210" fill="none">
-              {/* Book stack — 5 books with varying widths/colors */}
-              <rect x="15" y="152" width="155" height="18" rx="2" fill="#8b6914" opacity="0.6" stroke="#c9a84c" strokeWidth="0.8" />
-              <rect x="25" y="136" width="140" height="18" rx="2" fill="#6b4c18" opacity="0.7" stroke="#c9a84c" strokeWidth="0.8" />
-              <rect x="10" y="120" width="160" height="18" rx="2" fill="#5c3d10" opacity="0.7" stroke="#c9a84c" strokeWidth="0.8" />
-              <rect x="30" y="104" width="130" height="18" rx="2" fill="#c9a84c" opacity="0.45" stroke="#c9a84c" strokeWidth="0.8" />
-              <rect x="20" y="88" width="145" height="18" rx="2" fill="#8b6914" opacity="0.5" stroke="#c9a84c" strokeWidth="0.8" />
-              {/* Book spines — vertical lines */}
-              <line x1="15" y1="152" x2="15" y2="170" stroke="#c9a84c" strokeWidth="0.5" opacity="0.5" />
-              <line x1="25" y1="136" x2="25" y2="154" stroke="#c9a84c" strokeWidth="0.5" opacity="0.5" />
-              {/* Quill pen */}
-              <path d="M130 30 C160 10,175 30,160 70 C148 95,134 110,122 122 L116 104 C130 90,145 68,136 50 Z" fill="#8b6914" opacity="0.4" stroke="#c9a84c" strokeWidth="0.7" />
-              <line x1="122" y1="122" x2="108" y2="155" stroke="#8b6914" strokeWidth="1.2" opacity="0.5" />
-              {/* Ink bottle */}
-              <rect x="42" y="158" width="24" height="34" rx="2" fill="#3d2b0e" opacity="0.65" stroke="#c9a84c" strokeWidth="0.8" />
-              <rect x="47" y="152" x2="14" height="10" rx="1" fill="#c9a84c" opacity="0.4" />
-              <ellipse cx="54" cy="158" rx="8" ry="4" fill="#c9a84c" opacity="0.3" />
-              {/* Padlock */}
-              <rect x="128" y="148" width="22" height="17" rx="1.5" fill="none" stroke="#c9a84c" strokeWidth="1.2" />
-              <path d="M131 148V144A6 6 0 0 1 147 144V148" fill="none" stroke="#c9a84c" strokeWidth="1.2" />
-              <circle cx="139" cy="157" r="3" fill="none" stroke="#c9a84c" strokeWidth="1.2" />
-              <line x1="139" y1="157" x2="139" y2="161" stroke="#c9a84c" strokeWidth="1.2" />
+          {/* Cyber illustration */}
+          <div style={{ flex: "0 0 200px", display: "flex", justifyContent: "center", position: "relative" }}>
+            <svg width="200" height="230" viewBox="0 0 200 230" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+              {/* ── Outer corner brackets ── */}
+              <line x1="10" y1="10" x2="36" y2="10" stroke="#c9a84c" strokeWidth="1.2" opacity="0.5"/>
+              <line x1="10" y1="10" x2="10" y2="36" stroke="#c9a84c" strokeWidth="1.2" opacity="0.5"/>
+              <line x1="190" y1="10" x2="164" y2="10" stroke="#c9a84c" strokeWidth="1.2" opacity="0.5"/>
+              <line x1="190" y1="10" x2="190" y2="36" stroke="#c9a84c" strokeWidth="1.2" opacity="0.5"/>
+              <line x1="10" y1="220" x2="36" y2="220" stroke="#c9a84c" strokeWidth="1.2" opacity="0.5"/>
+              <line x1="10" y1="220" x2="10" y2="194" stroke="#c9a84c" strokeWidth="1.2" opacity="0.5"/>
+              <line x1="190" y1="220" x2="164" y2="220" stroke="#c9a84c" strokeWidth="1.2" opacity="0.5"/>
+              <line x1="190" y1="220" x2="190" y2="194" stroke="#c9a84c" strokeWidth="1.2" opacity="0.5"/>
+
+              {/* ── Circuit traces — horizontal ── */}
+              <line x1="10" y1="55" x2="50" y2="55" stroke="#0ea5e9" strokeWidth="0.5" opacity="0.25"/>
+              <line x1="50" y1="55" x2="50" y2="80" stroke="#0ea5e9" strokeWidth="0.5" opacity="0.25"/>
+              <line x1="190" y1="70" x2="150" y2="70" stroke="#0ea5e9" strokeWidth="0.5" opacity="0.25"/>
+              <line x1="150" y1="70" x2="150" y2="95" stroke="#0ea5e9" strokeWidth="0.5" opacity="0.25"/>
+              <line x1="10" y1="165" x2="45" y2="165" stroke="#0ea5e9" strokeWidth="0.5" opacity="0.25"/>
+              <line x1="190" y1="150" x2="155" y2="150" stroke="#0ea5e9" strokeWidth="0.5" opacity="0.25"/>
+              <line x1="155" y1="150" x2="155" y2="130" stroke="#0ea5e9" strokeWidth="0.5" opacity="0.25"/>
+
+              {/* ── Circuit nodes ── */}
+              <circle cx="50" cy="80" r="2.5" fill="none" stroke="#0ea5e9" strokeWidth="0.7" opacity="0.4"/>
+              <circle cx="50" cy="80" r="1" fill="#0ea5e9" opacity="0.5"/>
+              <circle cx="150" cy="95" r="2.5" fill="none" stroke="#0ea5e9" strokeWidth="0.7" opacity="0.4"/>
+              <circle cx="150" cy="95" r="1" fill="#0ea5e9" opacity="0.5"/>
+              <circle cx="45" cy="165" r="2.5" fill="none" stroke="#0ea5e9" strokeWidth="0.7" opacity="0.4"/>
+              <circle cx="45" cy="165" r="1" fill="#0ea5e9" opacity="0.5"/>
+              <circle cx="155" cy="130" r="2.5" fill="none" stroke="#0ea5e9" strokeWidth="0.7" opacity="0.4"/>
+              <circle cx="155" cy="130" r="1" fill="#0ea5e9" opacity="0.5"/>
+
+              {/* ── Binary data streams — left ── */}
+              <text x="14" y="90" fontFamily="monospace" fontSize="7" fill="#0ea5e9" opacity="0.18">01</text>
+              <text x="14" y="102" fontFamily="monospace" fontSize="7" fill="#0ea5e9" opacity="0.12">10</text>
+              <text x="14" y="114" fontFamily="monospace" fontSize="7" fill="#0ea5e9" opacity="0.18">01</text>
+              <text x="14" y="126" fontFamily="monospace" fontSize="7" fill="#0ea5e9" opacity="0.10">11</text>
+              <text x="14" y="138" fontFamily="monospace" fontSize="7" fill="#0ea5e9" opacity="0.15">00</text>
+
+              {/* ── Binary data streams — right ── */}
+              <text x="172" y="90" fontFamily="monospace" fontSize="7" fill="#c9a84c" opacity="0.15">10</text>
+              <text x="172" y="102" fontFamily="monospace" fontSize="7" fill="#c9a84c" opacity="0.20">01</text>
+              <text x="172" y="114" fontFamily="monospace" fontSize="7" fill="#c9a84c" opacity="0.12">11</text>
+              <text x="172" y="126" fontFamily="monospace" fontSize="7" fill="#c9a84c" opacity="0.18">00</text>
+              <text x="172" y="138" fontFamily="monospace" fontSize="7" fill="#c9a84c" opacity="0.14">10</text>
+
+              {/* ── Main shield body ── */}
+              <path d="M100 28 L148 48 L148 95 C148 128,126 148,100 162 C74 148,52 128,52 95 L52 48 Z"
+                fill="#060b14" stroke="#0ea5e9" strokeWidth="1.4" opacity="0.9"/>
+              {/* Shield inner glow */}
+              <path d="M100 38 L140 55 L140 95 C140 122,121 140,100 152 C79 140,60 122,60 95 L60 55 Z"
+                fill="none" stroke="#0ea5e9" strokeWidth="0.5" opacity="0.3"/>
+              {/* Shield gold accent */}
+              <path d="M100 28 L148 48 L148 95 C148 128,126 148,100 162 C74 148,52 128,52 95 L52 48 Z"
+                fill="none" stroke="#c9a84c" strokeWidth="0.5" opacity="0.35" strokeDasharray="4 8"/>
+
+              {/* ── Lock body ── */}
+              <rect x="86" y="98" width="28" height="22" rx="2" fill="none" stroke="#0ea5e9" strokeWidth="1.5"/>
+              <rect x="86" y="98" width="28" height="22" rx="2" fill="#0ea5e9" opacity="0.06"/>
+              {/* Lock shackle */}
+              <path d="M91 98V92A9 9 0 0 1 109 92V98" fill="none" stroke="#0ea5e9" strokeWidth="1.5"/>
+              {/* Lock keyhole */}
+              <circle cx="100" cy="107" r="4" fill="none" stroke="#c9a84c" strokeWidth="1.2"/>
+              <circle cx="100" cy="107" r="1.5" fill="#c9a84c" opacity="0.6"/>
+              <line x1="100" y1="111" x2="100" y2="116" stroke="#c9a84c" strokeWidth="1.2"/>
+
+              {/* ── Shield top chip detail ── */}
+              <rect x="88" y="56" width="24" height="16" rx="1" fill="none" stroke="#c9a84c" strokeWidth="0.8" opacity="0.5"/>
+              <line x1="91" y1="56" x2="91" y2="53" stroke="#c9a84c" strokeWidth="0.6" opacity="0.4"/>
+              <line x1="95" y1="56" x2="95" y2="53" stroke="#c9a84c" strokeWidth="0.6" opacity="0.4"/>
+              <line x1="99" y1="56" x2="99" y2="53" stroke="#c9a84c" strokeWidth="0.6" opacity="0.4"/>
+              <line x1="103" y1="56" x2="103" y2="53" stroke="#c9a84c" strokeWidth="0.6" opacity="0.4"/>
+              <line x1="107" y1="56" x2="107" y2="53" stroke="#c9a84c" strokeWidth="0.6" opacity="0.4"/>
+              <line x1="91" y1="72" x2="91" y2="75" stroke="#c9a84c" strokeWidth="0.6" opacity="0.4"/>
+              <line x1="95" y1="72" x2="95" y2="75" stroke="#c9a84c" strokeWidth="0.6" opacity="0.4"/>
+              <line x1="99" y1="72" x2="99" y2="75" stroke="#c9a84c" strokeWidth="0.6" opacity="0.4"/>
+              <line x1="103" y1="72" x2="103" y2="75" stroke="#c9a84c" strokeWidth="0.6" opacity="0.4"/>
+              <line x1="107" y1="72" x2="107" y2="75" stroke="#c9a84c" strokeWidth="0.6" opacity="0.4"/>
+              <text x="93" y="67" fontFamily="monospace" fontSize="6" fill="#c9a84c" opacity="0.6">CPU</text>
+
+              {/* ── Terminal block at bottom ── */}
+              <rect x="30" y="178" width="140" height="42" rx="2" fill="#060b14" stroke="#0ea5e9" strokeWidth="0.8" opacity="0.7"/>
+              {/* Terminal header bar */}
+              <rect x="30" y="178" width="140" height="10" rx="2" fill="#0ea5e9" opacity="0.08"/>
+              <circle cx="40" cy="183" r="2" fill="#ef4444" opacity="0.5"/>
+              <circle cx="48" cy="183" r="2" fill="#f59e0b" opacity="0.5"/>
+              <circle cx="56" cy="183" r="2" fill="#22c55e" opacity="0.5"/>
+              {/* Terminal text lines */}
+              <text x="37" y="198" fontFamily="monospace" fontSize="6.5" fill="#0ea5e9" opacity="0.5">
+                &gt; auth.verify() ✓
+              </text>
+              <text x="37" y="208" fontFamily="monospace" fontSize="6.5" fill="#c9a84c" opacity="0.4">
+                &gt; shield.active
+              </text>
+              <text x="37" y="218" fontFamily="monospace" fontSize="6.5" fill="#0ea5e9" opacity="0.35">
+                &gt; _<tspan opacity="0.8">█</tspan>
+              </text>
+
+              {/* ── Orbit ring around shield ── */}
+              <ellipse cx="100" cy="95" rx="62" ry="18" stroke="#0ea5e9" strokeWidth="0.5" opacity="0.12" strokeDasharray="3 5" transform="rotate(-15 100 95)"/>
+              <ellipse cx="100" cy="95" rx="70" ry="22" stroke="#c9a84c" strokeWidth="0.4" opacity="0.10" strokeDasharray="2 8" transform="rotate(20 100 95)"/>
             </svg>
           </div>
 
