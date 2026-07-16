@@ -297,48 +297,109 @@ export default function ContactPage() {
             </div>
           </div>
 
-          {/* ── Follow The Legacy — social buttons ── */}
+          {/* ── Follow The Legacy — cyber social panel ── */}
           <div>
-            <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 14 }}>
-              <span style={{ fontFamily: "'Cinzel',serif", fontSize: 11, color: "#c9a84c", letterSpacing: "2px" }}>
-                FOLLOW THE LEGACY
-              </span>
-              <div style={{ flex: 1, height: 1, background: "linear-gradient(to right, rgba(139,105,20,0.4), transparent)" }} />
+            {/* Section header */}
+            <div style={{ marginBottom: 16 }}>
+              <div style={{ fontFamily: "monospace", fontSize: 9, color: "rgba(14,165,233,0.35)", letterSpacing: "1px", marginBottom: 6 }}>
+                <span style={{ color: "#c9a84c", opacity: 0.5 }}>&gt;</span> socs.network.connect()
+              </div>
+              <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                <span style={{ fontFamily: "'Cinzel',serif", fontSize: 11, color: "#c9a84c", letterSpacing: "2px" }}>
+                  FOLLOW THE LEGACY
+                </span>
+                <div style={{ flex: 1, height: 1, background: "linear-gradient(to right, rgba(201,168,76,0.4), transparent)" }} />
+              </div>
             </div>
-            <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+
+            {/* Social cards grid — 2×2 */}
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
               {[
-                { label: "GITHUB",    href: "https://github.com/Society-of-Cyber-Security",              icon: "M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" },
-                { label: "LINKEDIN",  href: "https://www.linkedin.com/company/society-of-cyber-security/", icon: "M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z M2 9h4v12H2z M4 6a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" },
-                { label: "INSTAGRAM", href: "https://www.instagram.com/socs_ru/",                          icon: "M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z M17.5 6.5h.01 M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2z" },
-                { label: "DISCORD",   href: "https://discord.gg/astrasec",                                icon: "M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.001.022.015.04.036.052a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z" },
+                {
+                  label: "GITHUB",
+                  handle: "@socs-ru",
+                  tag: "[ CODE ]",
+                  href: "https://github.com/Society-of-Cyber-Security",
+                  accent: "#94a3b8",
+                  icon: "M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22",
+                },
+                {
+                  label: "LINKEDIN",
+                  handle: "@socs",
+                  tag: "[ NETWORK ]",
+                  href: "https://www.linkedin.com/company/society-of-cyber-security/",
+                  accent: "#0ea5e9",
+                  icon: "M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z M2 9h4v12H2z M4 6a2 2 0 1 0 0-4 2 2 0 0 0 0 4z",
+                },
+                {
+                  label: "INSTAGRAM",
+                  handle: "@socs_ru",
+                  tag: "[ INTEL ]",
+                  href: "https://www.instagram.com/socs_ru/",
+                  accent: "#a78bfa",
+                  icon: "M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z M17.5 6.5h.01 M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2z",
+                },
+                {
+                  label: "DISCORD",
+                  handle: "join server",
+                  tag: "[ COMMS ]",
+                  href: "https://discord.gg/r8AwjTkaW6",
+                  accent: "#c9a84c",
+                  icon: "M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.001.022.015.04.036.052a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z",
+                },
               ].map(s => (
-                <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   style={{
-                    flex: 1, minWidth: 80, padding: "10px 4px",
-                    backgroundColor: "rgba(14,165,233,0.04)",
-                    border: "1px solid rgba(14,165,233,0.2)",
-                    fontFamily: "'Cinzel',serif", fontSize: 9, color: "#0ea5e9",
-                    cursor: "pointer", transition: "all 0.2s ease",
-                    textDecoration: "none", textAlign: "center" as const,
-                    display: "flex", alignItems: "center", justifyContent: "center", gap: 6,
-                    letterSpacing: "1px",
+                    backgroundColor: "#060b14",
+                    border: `1px solid ${s.accent}25`,
+                    padding: "12px 10px",
+                    textDecoration: "none",
+                    display: "flex", flexDirection: "column", gap: 6,
+                    position: "relative", overflow: "hidden",
+                    transition: "all 0.2s ease",
                   }}
                   onMouseEnter={e => {
-                    e.currentTarget.style.backgroundColor = "rgba(14,165,233,0.12)";
-                    e.currentTarget.style.boxShadow = "0 0 12px rgba(14,165,233,0.2)";
-                    e.currentTarget.style.borderColor = "#0ea5e9";
+                    const el = e.currentTarget as HTMLElement;
+                    el.style.backgroundColor = `${s.accent}10`;
+                    el.style.borderColor = `${s.accent}60`;
+                    el.style.boxShadow = `0 0 16px ${s.accent}18, inset 0 0 20px ${s.accent}06`;
+                    el.style.transform = "translateY(-2px)";
                   }}
                   onMouseLeave={e => {
-                    e.currentTarget.style.backgroundColor = "rgba(14,165,233,0.04)";
-                    e.currentTarget.style.boxShadow = "none";
-                    e.currentTarget.style.borderColor = "rgba(14,165,233,0.2)";
+                    const el = e.currentTarget as HTMLElement;
+                    el.style.backgroundColor = "#060b14";
+                    el.style.borderColor = `${s.accent}25`;
+                    el.style.boxShadow = "none";
+                    el.style.transform = "translateY(0)";
                   }}
                 >
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
-                    <path d={s.icon} />
-                  </svg>
-                  {s.label}
+                  {/* Corner L-brackets */}
+                  <div style={{ position:"absolute", top:4, left:4, width:6, height:6, borderTop:`1px solid ${s.accent}50`, borderLeft:`1px solid ${s.accent}50` }} />
+                  <div style={{ position:"absolute", bottom:4, right:4, width:6, height:6, borderBottom:`1px solid ${s.accent}50`, borderRight:`1px solid ${s.accent}50` }} />
+
+                  {/* Top row: icon + tag */}
+                  <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between" }}>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                      stroke={s.accent} strokeWidth="1.6" strokeLinecap="round">
+                      <path d={s.icon} />
+                    </svg>
+                    <span style={{ fontFamily:"monospace", fontSize:7, color:`${s.accent}60`, letterSpacing:"0.5px" }}>{s.tag}</span>
+                  </div>
+
+                  {/* Platform name */}
+                  <div style={{ fontFamily:"'Cinzel',serif", fontSize:10, fontWeight:700, color:s.accent, letterSpacing:"1.5px" }}>
+                    {s.label}
+                  </div>
+
+                  {/* Handle + live dot */}
+                  <div style={{ display:"flex", alignItems:"center", gap:5 }}>
+                    <div style={{ width:5, height:5, borderRadius:"50%", backgroundColor:s.accent, opacity:0.6, boxShadow:`0 0 5px ${s.accent}` }} />
+                    <span style={{ fontFamily:"monospace", fontSize:8, color:`${s.accent}70`, letterSpacing:"0.5px" }}>{s.handle}</span>
+                  </div>
                 </a>
               ))}
             </div>
