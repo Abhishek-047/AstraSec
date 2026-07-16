@@ -78,6 +78,19 @@
         "github": "https://github.com/Society-of-Cyber-Security",
         "instagram": "https://www.instagram.com/socs_ru/"
       }
+    },
+        {
+      "id": "Moksh",
+      "name": "Moksh",
+      "role": "CTF Lead",
+      "specialtyTag": "RED TEAM LEAD",
+      "specialtyColor": "#ef4444",
+      "bio": "Leading AstraSec with a vision to make cybersecurity accessible to all.",
+      "socials": {
+        "linkedin": "https://www.linkedin.com/company/society-of-cyber-security/",
+        "github": "https://github.com/Society-of-Cyber-Security",
+        "instagram": "https://www.instagram.com/socs_ru/"
+      }
     }
   ]
 }

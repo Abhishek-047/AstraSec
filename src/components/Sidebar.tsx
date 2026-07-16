@@ -69,6 +69,12 @@ const socialLinks = [
     label: "Instagram",
     path: "M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z M17.5 6.5 A.5.5 0 1 1 17 6 A.5.5 0 0 1 17.5 6.5z M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2z",
   },
+  {
+    href: "https://discord.gg/astrasec",
+    label: "Discord",
+    // Discord icon — headset/controller style
+    path: "M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.001.022.015.04.036.052a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z",
+  },
 ];
 export default function Sidebar() {
   return (
@@ -192,40 +198,52 @@ export default function Sidebar() {
           </div>
         </div>
 
-        {/* Quote Scroll */}
+        {/* Cyber Terminal Quote */}
         <div style={{ width:"100%", position:"relative", marginBottom:6 }}>
-          {/* Scroll rod top */}
-          <div style={{ height:10, background:"linear-gradient(to bottom, #d5bc94, #a88a5d)", borderRadius:6, border:"1.5px solid #a88a5d", marginBottom:-2, boxShadow:"0 3px 5px rgba(0,0,0,0.6)", position:"relative", zIndex:2 }}/>
-          {/* Parchment */}
+          {/* Top accent line */}
           <div style={{
-            backgroundColor:"#ede2bc",
-            padding:"12px 18px 18px",
-            borderLeft:"2px solid #a88a5d", borderRight:"2px solid #a88a5d",
-            boxShadow:"inset 0 0 14px rgba(139,101,51,0.35)",
-            position:"relative", zIndex: 1
+            height: 2,
+            background: "linear-gradient(to right, transparent, #0ea5e9 40%, #c9a84c 60%, transparent)",
+            opacity: 0.6, marginBottom: 0,
+          }} />
+          {/* Terminal body */}
+          <div style={{
+            backgroundColor: "#060b14",
+            border: "1px solid rgba(14,165,233,0.2)",
+            borderTop: "none", borderBottom: "none",
+            padding: "10px 14px 12px",
+            position: "relative",
           }}>
-            {/* Decorative curly quotes */}
-            <div style={{ fontFamily:"'EB Garamond',serif", fontSize:28, color:"#8b6914", opacity:0.35, lineHeight:0.6, marginBottom:4, textAlign:"left" }}>❝</div>
-            <p style={{ fontFamily:"'EB Garamond',serif", fontStyle:"italic", fontSize:12, lineHeight:1.55, textAlign:"center", color:"#3d2b0e", opacity:0.9, margin:0 }}>
-              The greatest security lies in knowledge, vigilance, and innovation.
-            </p>
-            <div style={{ fontFamily:"'EB Garamond',serif", fontSize:28, color:"#8b6914", opacity:0.35, lineHeight:0.6, marginTop:4, textAlign:"right" }}>❞</div>
-            {/* Wax seal */}
-            <div style={{
-              position:"absolute", bottom:-14, right:-6,
-              width:34, height:34, borderRadius:"50%",
-              background:"radial-gradient(circle at 35% 35%, #c83030, #5a1010)",
-              border:"1.5px solid #3a0a0a",
-              boxShadow:"2px 4px 8px rgba(0,0,0,0.8)",
-              display:"flex", alignItems:"center", justifyContent:"center", zIndex:10,
+            {/* Corner brackets */}
+            <div style={{ position:"absolute", top:5, left:5, width:7, height:7, borderTop:"1px solid #c9a84c", borderLeft:"1px solid #c9a84c" }} />
+            <div style={{ position:"absolute", top:5, right:5, width:7, height:7, borderTop:"1px solid #c9a84c", borderRight:"1px solid #c9a84c" }} />
+            <div style={{ position:"absolute", bottom:5, left:5, width:7, height:7, borderBottom:"1px solid #c9a84c", borderLeft:"1px solid #c9a84c" }} />
+            <div style={{ position:"absolute", bottom:5, right:5, width:7, height:7, borderBottom:"1px solid #c9a84c", borderRight:"1px solid #c9a84c" }} />
+            {/* Terminal header */}
+            <div style={{ fontFamily:"monospace", fontSize:8, color:"rgba(14,165,233,0.35)", letterSpacing:"1px", marginBottom:8 }}>
+              <span style={{ color:"#c9a84c", opacity:0.5 }}>&gt;</span> sys.quote.load()
+            </div>
+            {/* Divider */}
+            <div style={{ height:1, background:"linear-gradient(to right, rgba(14,165,233,0.15), transparent)", marginBottom:8 }} />
+            {/* Quote text */}
+            <p style={{
+              fontFamily:"'EB Garamond',serif", fontStyle:"italic",
+              fontSize:12, lineHeight:1.6, textAlign:"center",
+              color:"#94a3b8", margin:"0 0 6px",
             }}>
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="rgba(255,220,180,0.6)" strokeWidth="1.8">
-                <path d="M12 2L20 5.5V12C20 17,16 20,12 22C8 20,4 17,4 12V5.5Z"/>
-              </svg>
+              &ldquo;The greatest security lies in knowledge, vigilance, and innovation.&rdquo;
+            </p>
+            {/* Attribution */}
+            <div style={{ fontFamily:"monospace", fontSize:8, color:"rgba(201,168,76,0.35)", textAlign:"right", letterSpacing:"1px" }}>
+              — AstraSec
             </div>
           </div>
-          {/* Scroll rod bottom */}
-          <div style={{ height:10, background:"linear-gradient(to bottom, #a88a5d, #d5bc94)", borderRadius:6, border:"1.5px solid #a88a5d", marginTop:-2, boxShadow:"0 -2px 5px rgba(0,0,0,0.5)", position:"relative", zIndex:2 }}/>
+          {/* Bottom accent line */}
+          <div style={{
+            height: 2,
+            background: "linear-gradient(to right, transparent, #c9a84c 40%, #0ea5e9 60%, transparent)",
+            opacity: 0.6,
+          }} />
         </div>
 
         {/* Decorative corner pieces */}
